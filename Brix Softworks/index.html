@@ -1,0 +1,2200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brix Softworks | Engineering the Future of Intelligence</title>
+    <meta
+      name="description"
+      content="Brix Softworks is an elite AI and software innovation company crafting cinematic, high-performance digital solutions for the future of intelligence."
+    />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta
+      property="og:title"
+      content="Brix Softworks | Engineering the Future of Intelligence"
+    />
+    <meta
+      property="og:description"
+      content="Elite AI and software innovation company crafting cinematic, high-performance digital solutions for the future of intelligence."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://brix-softworks.web.app" />
+    <meta property="og:image" content="./assets/images/screenshot-dkgackltin.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Brix Softworks | Engineering the Future of Intelligence"
+    />
+    <meta
+      name="twitter:description"
+      content="Elite AI and software innovation company crafting cinematic, high-performance digital solutions."
+    />
+    <link rel="icon" type="image/png" href="./assets/icons/Icon_.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css?v=3" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Brix Softworks",
+      "url": "https://brix-softworks.web.app",
+      "logo": "./assets/icons/Icon_.png",
+      "description": "Elite AI and software innovation company crafting cinematic, high-performance digital solutions for the future of intelligence."
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- NOISE OVERLAY -->
+    <div class="noise-overlay"></div>
+
+    <!-- LOADING SCREEN -->
+    <div
+      id="loadingScreen"
+      class="loading-screen"
+      role="status"
+      aria-label="Loading"
+    >
+      <div class="loading-content">
+        <div class="loading-logo">
+          <div class="loading-logo-ring"></div>
+          <div class="loading-logo-ring"></div>
+          <img src="./assets/icons/Icon_.png" alt="Brix Softworks" width="48" height="48" class="loading-logo-icon" />
+        </div>
+        <div class="loading-bar-track">
+          <div class="loading-bar-fill"></div>
+          <span class="loading-percent" id="loadingPercent">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="gridCanvas" class="grid-background"></canvas>
+    <canvas id="codeRainCanvas" class="code-rain-canvas"></canvas>
+    <canvas id="orbitalRingCanvas" class="orbital-rings-canvas"></canvas>
+    <canvas id="dataFlowCanvas" class="data-flow-canvas"></canvas>
+    <canvas id="neuralCanvas" class="neural-canvas"></canvas>
+    <div class="tech-scanlines"></div>
+    <div id="cursorGlow" class="cursor-glow-outer"></div>
+    <div id="cursorTrail" class="cursor-glow-inner"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div
+      id="scrollProgress"
+      role="progressbar"
+      aria-label="Page scroll progress"
+    ></div>
+
+    <!-- NAVIGATION -->
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="nav-active-indicator" id="navIndicator"></div>
+      <div class="nav-container">
+        <div class="nav-left">
+          <a href="#" class="nav-logo" aria-label="Brix Softworks Home">
+            <img
+              src="./assets/icons/Icon_.png"
+              alt="Brix Softworks"
+              class="nav-logo-icon"
+              width="46"
+              height="46"
+              fetchpriority="high"
+            />
+            <span class="nav-logo-text"
+              ><span class="text-gradient">Brix</span>
+              <span class="text-gradient">Softworks</span></span
+            >
+          </a>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#services" class="nav-link" data-nav>Services</a>
+          <a href="#projects" class="nav-link" data-nav>Projects</a>
+          <a href="#process" class="nav-link" data-nav>Process</a>
+          <a href="#tech-stack" class="nav-link" data-nav>Tech Stack</a>
+          <a href="#team" class="nav-link" data-nav>Team</a>
+          <div class="nav-divider"></div>
+          <a href="#contact" class="nav-link nav-link-cta" data-nav>
+            <span class="nav-cta-dot"></span>
+            Contact
+            <span class="nav-cta-arrow">→</span>
+          </a>
+        </div>
+        <div class="nav-right">
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav-overlay" id="mobileOverlay" inert></div>
+    <nav
+      class="mobile-nav-panel"
+      id="mobilePanel"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <a href="#services" class="mobile-nav-link" data-mobile-nav>Services</a>
+      <a href="#projects" class="mobile-nav-link" data-mobile-nav>Projects</a>
+      <a href="#process" class="mobile-nav-link" data-mobile-nav>Process</a>
+      <a href="#tech-stack" class="mobile-nav-link" data-mobile-nav>Tech Stack</a>
+      <a href="#team" class="mobile-nav-link" data-mobile-nav>Team</a>
+      <a href="#contact" class="mobile-nav-link" data-mobile-nav>Contact</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" data-scroll-container>
+      <!-- ============================================================ -->
+      <!-- 1. HERO SECTION -->
+      <!-- ============================================================ -->
+      <section id="hero" class="hero-section section-fullscreen" data-animate>
+        <div class="hero-grid-bg"></div>
+
+        <!-- SPOTLIGHT -->
+        <div class="hero-spotlight" id="heroSpotlight"></div>
+
+        <!-- GRADIENT MESH -->
+        <canvas id="heroMesh" class="hero-mesh-canvas"></canvas>
+
+        <div class="hero-orbs">
+          <div class="hero-orb orb-1" data-hero-orb></div>
+          <div class="hero-orb orb-2" data-hero-orb></div>
+          <div class="hero-orb orb-3" data-hero-orb></div>
+          <div class="hero-orb orb-4" data-hero-orb></div>
+          <div class="hero-orb orb-5" data-hero-orb></div>
+          <div class="hero-orb orb-6" data-hero-orb></div>
+        </div>
+
+        <!-- SCANNING RADAR -->
+        <div class="hero-radar" aria-hidden="true">
+          <div class="radar-circle radar-circle-1"></div>
+          <div class="radar-circle radar-circle-2"></div>
+          <div class="radar-circle radar-circle-3"></div>
+          <div class="radar-sweep"></div>
+          <div class="radar-dot radar-dot-1"></div>
+          <div class="radar-dot radar-dot-2"></div>
+          <div class="radar-dot radar-dot-3"></div>
+          <div class="radar-label">SCAN</div>
+        </div>
+
+        <!-- HEX CLOCK -->
+        <div class="hero-hex-clock" aria-hidden="true" data-parallax="0.08">
+          <div class="hex-clock-label">SYSTIME</div>
+          <div class="hex-clock-time" id="hexClock">0x00000000</div>
+        </div>
+
+        <!-- MONITORING DASHBOARD -->
+        <div class="hero-monitor" aria-hidden="true" data-parallax="0.04">
+          <div class="monitor-header">
+            <span class="monitor-title">sys@brix:~/monitor</span>
+          </div>
+          <div class="monitor-body">
+            <div class="metric">
+              <span class="metric-label">CPU</span>
+              <div class="metric-bar"><div class="metric-fill cpu-fill"></div></div>
+              <span class="metric-value">47%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">GPU</span>
+              <div class="metric-bar"><div class="metric-fill gpu-fill"></div></div>
+              <span class="metric-value">92%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">MEM</span>
+              <div class="metric-bar"><div class="metric-fill mem-fill"></div></div>
+              <span class="metric-value">6.8G</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">NET</span>
+              <div class="metric-bar"><div class="metric-fill net-fill"></div></div>
+              <span class="metric-value">2.4Gbps</span>
+            </div>
+            <div class="metric metric-latency">
+              <span class="metric-label">LAT</span>
+              <div class="metric-bar"><div class="metric-fill lat-fill"></div></div>
+              <span class="metric-value">14ms</span>
+            </div>
+          </div>
+          <div class="monitor-footer">
+            <span class="monitor-status">● online</span>
+            <span class="monitor-uptime">up 14d 6h</span>
+          </div>
+        </div>
+
+        <!-- SECURITY BADGE -->
+        <div class="hero-security" aria-hidden="true" data-parallax="0.06">
+          <svg class="security-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span class="security-text">AES-256 Encrypted</span>
+        </div>
+
+        <!-- NETWORK ACTIVITY -->
+        <div class="hero-net-activity" aria-hidden="true" data-parallax="0.03">
+          <div class="net-bar net-bar-1"></div>
+          <div class="net-bar net-bar-2"></div>
+          <div class="net-bar net-bar-3"></div>
+          <div class="net-bar net-bar-4"></div>
+          <div class="net-bar net-bar-5"></div>
+          <div class="net-bar net-bar-6"></div>
+          <div class="net-bar net-bar-7"></div>
+          <div class="net-bar net-bar-8"></div>
+        </div>
+
+        <!-- API TRAFFIC -->
+        <div class="hero-api" aria-hidden="true" data-parallax="0.05">
+          <div class="api-header"><span class="api-title">API Gateway</span></div>
+          <div class="api-body">
+            <div class="api-row"><span class="api-method get">GET</span><span class="api-path">/v1/models</span><span class="api-status">200</span></div>
+            <div class="api-row"><span class="api-method post">POST</span><span class="api-path">/v1/inference</span><span class="api-status">201</span></div>
+            <div class="api-row"><span class="api-method get">GET</span><span class="api-path">/v1/metrics</span><span class="api-status">200</span></div>
+            <div class="api-row api-row-anim"><span class="api-method post">POST</span><span class="api-path">/v1/train</span><span class="api-status pending">...</span></div>
+          </div>
+        </div>
+
+        <!-- DATABASE ACTIVITY -->
+        <div class="hero-database" aria-hidden="true" data-parallax="0.03">
+          <div class="db-header"><span class="db-title">DB Cluster</span></div>
+          <div class="db-body">
+            <svg class="db-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(56,189,248,0.4)" stroke-width="1.5">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+            <div class="db-stats">
+              <div class="db-stat"><span class="db-stat-label">QPS</span><span class="db-stat-value">1,247</span></div>
+              <div class="db-stat"><span class="db-stat-label">ACT</span><span class="db-stat-value">42</span></div>
+              <div class="db-stat"><span class="db-stat-label">LAT</span><span class="db-stat-value">3ms</span></div>
+            </div>
+            <div class="db-dots">
+              <span class="db-dot"></span><span class="db-dot"></span><span class="db-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLOATING CODE SNIPPET -->
+        <div class="hero-code-snippet" aria-hidden="true" data-parallax="0.07">
+          <div class="snippet-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">inference.py</span>
+          </div>
+          <div class="snippet-body">
+            <div class="snippet-line"><span class="keyword">import</span> <span class="mod">torch</span></div>
+            <div class="snippet-line"><span class="keyword">import</span> <span class="mod">neural</span></div>
+            <div class="snippet-line">&nbsp;</div>
+            <div class="snippet-line"><span class="keyword">class</span> <span class="func">NeuralEngine</span>:</div>
+            <div class="snippet-line">    <span class="keyword">def</span> <span class="func">forward</span>(<span class="self">self</span>, x):</div>
+            <div class="snippet-line">        x = <span class="self">self</span>.layer(x)</div>
+            <div class="snippet-line">        x = <span class="mod">F</span>.gelu(x)</div>
+            <div class="snippet-line">        <span class="keyword">return</span> x<span class="snippet-cursor"></span></div>
+          </div>
+        </div>
+
+        <!-- TECH TERMINAL (animated) -->
+        <div class="hero-terminal" aria-hidden="true" id="heroTerminal" data-parallax="0.09">
+          <div class="terminal-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">brix@engine:~/dev</span>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="terminal-line"><span class="prompt">$</span> <span>deploy --model=neural-v2</span></div>
+            <div class="terminal-line line-output"><span class="output">▸ Initializing neural engine...</span></div>
+            <div class="terminal-line line-output"><span class="output">▸ Loading weights</span></div>
+          </div>
+        </div>
+
+        <div class="hero-content" data-hero-tilt data-stagger data-parallax="0.02">
+          <div class="hero-title-wrapper">
+            <h1 class="hero-title" id="heroTitle" data-animate>
+              <span class="text-gradient"
+                >Engineering the <br />Future of Intelligence</span
+              >
+            </h1>
+          </div>
+          <p class="hero-subtitle" id="heroSubtitle" data-animate>
+            We craft cinematic AI-powered software solutions that transform
+            ambitious visions into market-defining products. From neural
+            architectures to pixel-perfect interfaces — Brix Softworks builds
+            what others only imagine.
+          </p>
+          <div class="hero-cta" data-animate>
+            <a
+              href="#contact"
+              class="btn-primary btn-lg hero-cta-primary btn-glow"
+            >
+              <span class="btn-text">Get in Touch</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="#services"
+              class="btn-secondary btn-lg hero-cta-secondary btn-glow"
+            >
+              <span class="btn-text">Explore Technologies</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M9 3.75V14.25M9 14.25L13.5 9.75M9 14.25L4.5 9.75"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-indicator" data-animate data-animate-type="fade-up">
+          <span class="scroll-text">Scroll to explore</span>
+          <div class="scroll-mouse">
+            <div class="scroll-mouse-wheel"></div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 3. SERVICES SECTION -->
+      <!-- ============================================================ -->
+      <section id="services" class="services-section" data-animate>
+        <div class="section-container">
+          <div class="section-header" data-animate data-animate-type="fade-up">
+            <span class="section-badge">What We Do</span>
+            <h2 class="section-title">
+              <span class="text-gradient"
+                >Elite Engineering. <br />Infinite Possibilities.</span
+              >
+            </h2>
+            <p class="section-desc">
+              From neural networks to intuitive interfaces, we deliver
+              end-to-end solutions that redefine what software can achieve.
+            </p>
+          </div>
+
+          <div class="services-grid" data-stagger>
+            <!-- Service 1: AI Chatbots -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">01</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect
+                    x="5"
+                    y="6"
+                    width="18"
+                    height="14"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <circle
+                    cx="11"
+                    cy="13"
+                    r="1.5"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <circle
+                    cx="17"
+                    cy="13"
+                    r="1.5"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <path
+                    d="M14 17C15.1046 17 16 16.1046 16 15H12C12 16.1046 12.8954 17 14 17Z"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M10 20L12 17H16L18 20"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="22"
+                    cy="8"
+                    r="4"
+                    fill="currentColor"
+                    opacity="0.15"
+                  />
+                  <circle cx="22" cy="8" r="1.5" fill="currentColor" />
+                  <path
+                    d="M23.5 6.5L25 5"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M25 8.5L26 9"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">AI Chatbots &amp; Assistants</h3>
+              <p class="service-card-desc">
+                Custom AI chatbots and virtual assistants powered by LLMs —
+                integrated into your website for 24/7 customer support, lead
+                generation, and automated conversations.
+              </p>
+            </div>
+
+            <!-- Service 2: Web Applications -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">02</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect
+                    x="2"
+                    y="4"
+                    width="24"
+                    height="18"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <rect
+                    x="5"
+                    y="8"
+                    width="18"
+                    height="10"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.06"
+                  />
+                  <line
+                    x1="5"
+                    y1="7"
+                    x2="5"
+                    y2="9"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="0.8"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <circle
+                    cx="10"
+                    cy="8"
+                    r="0.8"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M5 20H23"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                  <rect
+                    x="9"
+                    y="21"
+                    width="10"
+                    height="2"
+                    rx="0.5"
+                    fill="currentColor"
+                    opacity="0.4"
+                  />
+                  <path
+                    d="M12 13L14 15L16.5 11.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    opacity="0.8"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Web Application Development</h3>
+              <p class="service-card-desc">
+                Full-stack web apps built with Next.js, React, and TypeScript —
+                from SaaS platforms to dashboards, with real-time features and
+                seamless user experiences.
+              </p>
+            </div>
+
+            <!-- Service 3: AI Automation -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">03</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-dasharray="4 3"
+                  />
+                  <path
+                    d="M14 8L14 14L18 17"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="10"
+                    y="5"
+                    width="8"
+                    height="3"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <rect
+                    x="20"
+                    y="10"
+                    width="3"
+                    height="8"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <rect
+                    x="5"
+                    y="10"
+                    width="3"
+                    height="8"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <circle cx="14" cy="14" r="2" fill="currentColor" />
+                  <path
+                    d="M7 21L10 18M21 7L18 10"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">AI Workflow Automation</h3>
+              <p class="service-card-desc">
+                AI agents and automation pipelines that handle repetitive tasks,
+                process data, generate reports, and integrate with your existing
+                tools to save hours every day.
+              </p>
+            </div>
+
+            <!-- Service 4: API Integration -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">04</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path
+                    d="M6 14L2 10V6H8L12 10L16 6H22V10L18 14L22 18V22H16L12 18L8 22H2V18L6 14Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linejoin="round"
+                  />
+                  <line
+                    x1="14"
+                    y1="10"
+                    x2="14"
+                    y2="18"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-dasharray="2 2"
+                  />
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="2"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="5"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    fill="none"
+                    opacity="0.3"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">API &amp; Backend Integration</h3>
+              <p class="service-card-desc">
+                Connect your web apps with third-party services, payment
+                gateways, CRM platforms, and AI APIs — building scalable
+                serverless backends with Firebase and Supabase.
+              </p>
+            </div>
+
+            <!-- Service 5: E-Commerce -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">05</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect
+                    x="2"
+                    y="8"
+                    width="24"
+                    height="16"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <path
+                    d="M6 8L9 2H19L22 8"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                  <circle
+                    cx="10"
+                    cy="18"
+                    r="2"
+                    fill="currentColor"
+                    opacity="0.3"
+                  />
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="2"
+                    fill="currentColor"
+                    opacity="0.3"
+                  />
+                  <circle
+                    cx="10"
+                    cy="18"
+                    r="1.2"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="1.2"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <path
+                    d="M11 20H17"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                  <path
+                    d="M7 11L9 11"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">E-Commerce Solutions</h3>
+              <p class="service-card-desc">
+                Custom online stores and marketplaces with AI-powered product
+                recommendations, smart search, automated inventory management,
+                and seamless checkout experiences.
+              </p>
+            </div>
+
+            <!-- Service 6: AI Content Generation -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">06</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle
+                    cx="11"
+                    cy="12"
+                    r="7"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <circle
+                    cx="11"
+                    cy="12"
+                    r="3"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <circle
+                    cx="11"
+                    cy="12"
+                    r="1.5"
+                    fill="currentColor"
+                    opacity="0.7"
+                  />
+                  <path
+                    d="M16 17L22 23"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M6 20L7.5 18.5"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                  <path
+                    d="M21 8L22 7"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                  <circle
+                    cx="23"
+                    cy="6"
+                    r="1.5"
+                    fill="currentColor"
+                    opacity="0.15"
+                  />
+                  <circle
+                    cx="23"
+                    cy="6"
+                    r="0.6"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <path
+                    d="M24 4L25 3"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    opacity="0.3"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">AI Content &amp; SEO</h3>
+              <p class="service-card-desc">
+                Automated content creation, AI-driven blog writing, smart meta
+                tag generation, and SEO optimization that keeps your site
+                ranking high with fresh, relevant content.
+              </p>
+            </div>
+
+            <!-- Service 7: Landing Pages -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">07</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect
+                    x="3"
+                    y="4"
+                    width="22"
+                    height="16"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <rect
+                    x="5"
+                    y="7"
+                    width="10"
+                    height="8"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.08"
+                  />
+                  <rect
+                    x="17"
+                    y="7"
+                    width="6"
+                    height="4"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <rect
+                    x="17"
+                    y="13"
+                    width="6"
+                    height="2"
+                    rx="1"
+                    fill="currentColor"
+                    opacity="0.2"
+                  />
+                  <line
+                    x1="3"
+                    y1="20"
+                    x2="25"
+                    y2="20"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                  <rect
+                    x="11"
+                    y="20"
+                    width="6"
+                    height="3"
+                    rx="0.5"
+                    fill="currentColor"
+                    opacity="0.3"
+                  />
+                  <line
+                    x1="14"
+                    y1="23"
+                    x2="14"
+                    y2="25"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="9"
+                    y1="25"
+                    x2="19"
+                    y2="25"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M8 7L6 9M10 7L8 9"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    opacity="0.4"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Landing Pages &amp; Portfolios</h3>
+              <p class="service-card-desc">
+                High-converting landing pages, portfolio sites, and marketing
+                websites with cinematic animations, responsive design, and
+                optimized conversion funnels.
+              </p>
+            </div>
+
+            <!-- Service 8: SaaS Development -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">08</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path
+                    d="M2 18H26V22C26 23.1046 25.1046 24 24 24H4C2.89543 24 2 23.1046 2 22V18Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <rect
+                    x="5"
+                    y="10"
+                    width="18"
+                    height="8"
+                    rx="2"
+                    fill="currentColor"
+                    opacity="0.08"
+                  />
+                  <rect
+                    x="5"
+                    y="10"
+                    width="18"
+                    height="8"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <line
+                    x1="5"
+                    y1="14"
+                    x2="23"
+                    y2="14"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    opacity="0.4"
+                  />
+                  <circle
+                    cx="10"
+                    cy="18"
+                    r="1"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="1"
+                    fill="currentColor"
+                    opacity="0.6"
+                  />
+                  <path
+                    d="M10 4H18L20 10H8L10 4Z"
+                    fill="currentColor"
+                    opacity="0.15"
+                  />
+                  <path
+                    d="M10 4H18L20 10H8L10 4Z"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-linejoin="round"
+                    fill="none"
+                  />
+                  <line
+                    x1="14"
+                    y1="10"
+                    x2="14"
+                    y2="4"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                    stroke-dasharray="1.5 1.5"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">SaaS Platform Development</h3>
+              <p class="service-card-desc">
+                Multi-tenant SaaS platforms with subscription billing, user
+                management, analytics dashboards, and scalable cloud
+                infrastructure deployed on Vercel and Firebase.
+              </p>
+            </div>
+
+            <!-- Service 9: Maintenance & Support -->
+            <div
+              class="service-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="4"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <span class="service-card-number" aria-hidden="true">09</span>
+              <div class="service-icon-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-dasharray="3 2"
+                  />
+                  <path
+                    d="M14 4V7M14 21V24M4 14H7M21 14H24"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    opacity="0.4"
+                  />
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <path
+                    d="M10.5 14L13 16.5L17.5 11.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M19 7L21 5"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                  <path
+                    d="M7 19L9 17"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <h3 class="service-card-title">Web Maintenance &amp; Support</h3>
+              <p class="service-card-desc">
+                Ongoing maintenance, performance monitoring, security updates,
+                and feature enhancements to keep your web applications running
+                smoothly and securely.
+              </p>
+            </div>
+
+            <!-- Service 10: Custom Build Anything -->
+            <div
+              class="service-card service-card-custom"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="custom-card-glow"></div>
+              <div class="custom-card-bg"></div>
+              <div class="custom-card-shine"></div>
+              <div class="custom-card-content">
+                <div class="custom-card-badge">Custom Project</div>
+                <h3 class="custom-card-title">
+                  <span class="text-gradient"
+                    >Have Something Different in Mind?</span
+                  >
+                </h3>
+                <div class="custom-card-input-wrap">
+                  <a href="#contact" class="custom-card-btn">
+                    <span class="btn-text">Contact Us</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path
+                        d="M3 9H15M15 9L10 4M15 9L10 14"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 5. PROJECTS SECTION -->
+      <!-- ============================================================ -->
+      <section id="projects" class="projects-section section-dark" data-animate>
+        <div class="section-container">
+          <div class="section-header" data-animate data-animate-type="fade-up">
+            <span class="section-badge">Portfolio</span>
+            <h2 class="section-title">
+              <span class="text-gradient">Built for the Future</span>
+            </h2>
+            <p class="section-desc">
+              Each project is a testament to our commitment to excellence —
+              pushing boundaries at the intersection of AI, design, and
+              engineering.
+            </p>
+          </div>
+
+          <div class="projects-grid" data-stagger>
+            <!-- Project: dkgacklt.in -->
+            <div
+              class="project-card glass-strong"
+              data-tilt
+              data-glow
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="project-card-mockup">
+                <div class="mockup-window">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                    <span class="mockup-title">dkgacklt.in</span>
+                  </div>
+                  <div class="mockup-content">
+                    <img
+                      src="./assets/images/screenshot-dkgackltin.png"
+                      alt="dkgacklt.in preview"
+                      class="mockup-screenshot"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="project-card-body">
+                <h3 class="project-card-title">dkgacklt.in</h3>
+                <p class="project-card-desc">
+                  A next-generation government landing page built for
+                  dkgacklt.in — featuring a cinematic hero video background, AI
+                  service showcases with pill-shaped UI, interactive tech stack,
+                  smooth scroll animations, and a custom project inquiry module.
+                  Engineered with vanilla HTML, CSS, and JavaScript for a
+                  secure, lightweight, and high-performance public-facing
+                  portal.
+                </p>
+                <div class="project-card-tags">
+                  <span class="project-tag">HTML/CSS/JS</span>
+                  <span class="project-tag">Cinematic UI</span>
+                  <span class="project-tag">AI Branding</span>
+                  <span class="project-tag">Responsive</span>
+                </div>
+                <div class="project-details">
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Stack</span>
+                    <span class="project-detail-value"
+                      >Vanilla JS, CSS3, HTML5</span
+                    >
+                  </div>
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Features</span>
+                    <span class="project-detail-value"
+                      >Video bg, particle canvas, glow cursor, 19 tech
+                      icons</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="https://dkgacklt.in"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-card-link"
+                >
+                  Visit Live Site
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project: samskriti-audio.web.app -->
+            <div
+              class="project-card glass-strong"
+              data-tilt
+              data-glow
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="project-card-mockup">
+                <div class="mockup-window">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                    <span class="mockup-title">samskriti-audio.web.app</span>
+                  </div>
+                  <div class="mockup-content">
+                    <img
+                      src="./assets/images/screenshot-samskriti-audio.png"
+                      alt="samskriti-audio.web.app preview"
+                      class="mockup-screenshot"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="project-card-body">
+                <h3 class="project-card-title">samskriti-audio.web.app</h3>
+                <p class="project-card-desc">
+                  An audio request bridge built for Sadhguru Gurukulam Samskriti
+                  — streamlining event audio coordination with a seamless
+                  request platform. Features event type selection (AV, Dwani,
+                  Small, Large), real-time setup time estimates, advance booking
+                  requirements, and direct team coordination. Designed with
+                  Firebase Firestore for reliable data persistence and a clean,
+                  accessible interface.
+                </p>
+                <div class="project-card-tags">
+                  <span class="project-tag">Firebase</span>
+                  <span class="project-tag">Event Mgmt</span>
+                  <span class="project-tag">Audio</span>
+                  <span class="project-tag">Responsive</span>
+                </div>
+                <div class="project-details">
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Stack</span>
+                    <span class="project-detail-value"
+                      >Firebase, HTML/CSS, JS</span
+                    >
+                  </div>
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Features</span>
+                    <span class="project-detail-value"
+                      >Audio request portal, team dashboard, Firebase
+                      backend</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="https://samskriti-audio.web.app"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-card-link"
+                >
+                  Visit Live Site
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project: the-dark-web-app.web.app -->
+            <div
+              class="project-card glass-strong"
+              data-tilt
+              data-glow
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="project-card-mockup">
+                <div class="mockup-window">
+                  <div class="mockup-controls">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                    <span class="mockup-title">the-dark-web-app.web.app</span>
+                  </div>
+                  <div class="mockup-content">
+                    <img
+                      src="./assets/images/screenshot-dark-web.png"
+                      alt="the-dark-web-app.web.app preview"
+                      class="mockup-screenshot"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="project-card-body">
+                <h3 class="project-card-title">the-dark-web-app.web.app</h3>
+                <p class="project-card-desc">
+                  An exclusive private sanctuary — a dark, intimate social
+                  platform where shadows find their voice. Built with Next.js
+                  and Firebase, featuring a sleek dark UI, anonymous
+                  connectivity, PWA support for native app-like experience, and
+                  real-time interactions. Designed for deeply connected,
+                  private conversations in a secure digital space.
+                </p>
+                <div class="project-card-tags">
+                  <span class="project-tag">Next.js</span>
+                  <span class="project-tag">PWA</span>
+                  <span class="project-tag">Social</span>
+                  <span class="project-tag">Firebase</span>
+                </div>
+                <div class="project-details">
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Stack</span>
+                    <span class="project-detail-value"
+                      >Next.js, Firebase, Tailwind</span
+                    >
+                  </div>
+                  <div class="project-detail-item">
+                    <span class="project-detail-label">Features</span>
+                    <span class="project-detail-value"
+                      >PWA, dark UI, private community, real-time</span
+                    >
+                  </div>
+                </div>
+                <a
+                  href="https://the-dark-web-app.web.app"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-card-link"
+                >
+                  Visit Live Site
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 6. PROCESS SECTION -->
+      <!-- ============================================================ -->
+      <section id="process" class="process-section section-dark" data-animate>
+        <div class="section-container">
+          <div class="section-header" data-animate data-animate-type="fade-up">
+            <span class="section-badge">Our Process</span>
+            <h2 class="section-title">
+              <span class="text-gradient">From Vision to Reality</span>
+            </h2>
+            <p class="section-desc">
+              A battle-tested 7-step methodology that transforms ambitious ideas
+              into production-ready software systems.
+            </p>
+          </div>
+
+          <div class="process-timeline" data-stagger>
+            <div class="process-timeline-fill" id="timelineFill"></div>
+            <!-- Step 1: Discovery -->
+            <div
+              class="process-step step-left"
+              data-animate
+              data-animate-type="fade-left"
+            >
+              <div class="step-number glass-strong">01</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">🔍</div>
+                <h3 class="step-title">Discovery</h3>
+                <p class="step-desc">
+                  We dive deep into your vision, market landscape, user needs,
+                  and technical constraints. Through stakeholder interviews,
+                  competitive analysis, and feasibility studies, we map the full
+                  opportunity space before writing a single line of code.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2: Strategy -->
+            <div
+              class="process-step step-right"
+              data-animate
+              data-animate-type="fade-right"
+            >
+              <div class="step-number glass-strong">02</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">🎯</div>
+                <h3 class="step-title">Strategy</h3>
+                <p class="step-desc">
+                  We architect the product roadmap, define technical
+                  specifications, select the optimal tech stack, and create
+                  comprehensive project plans. Every decision is measured
+                  against business goals, timeline, and budget constraints.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: Design -->
+            <div
+              class="process-step step-left"
+              data-animate
+              data-animate-type="fade-left"
+            >
+              <div class="step-number glass-strong">03</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">✨</div>
+                <h3 class="step-title">Design</h3>
+                <p class="step-desc">
+                  Our designers craft pixel-perfect wireframes, high-fidelity
+                  mockups, and interactive prototypes. Every interface is built
+                  around user psychology, accessibility standards, and cinematic
+                  visual language that captivates and converts.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4: Development -->
+            <div
+              class="process-step step-right"
+              data-animate
+              data-animate-type="fade-right"
+            >
+              <div class="step-number glass-strong">04</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">⚡</div>
+                <h3 class="step-title">Development</h3>
+                <p class="step-desc">
+                  Agile sprints, daily stand-ups, and continuous integration.
+                  Our engineers write clean, tested, and documented code using
+                  modern frameworks and best practices. Features ship
+                  incrementally with zero-downtime deployments.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 5: AI Integration -->
+            <div
+              class="process-step step-left"
+              data-animate
+              data-animate-type="fade-left"
+            >
+              <div class="step-number glass-strong">05</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">🤖</div>
+                <h3 class="step-title">AI Integration</h3>
+                <p class="step-desc">
+                  We infuse intelligence into your product with custom ML
+                  models, NLP pipelines, recommendation engines, and predictive
+                  analytics. Our AI systems are trained on your data and
+                  optimized for real-world performance.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 6: Launch -->
+            <div
+              class="process-step step-right"
+              data-animate
+              data-animate-type="fade-right"
+            >
+              <div class="step-number glass-strong">06</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">🚀</div>
+                <h3 class="step-title">Launch</h3>
+                <p class="step-desc">
+                  Production deployment with automated rollbacks, blue-green
+                  releases, and real-time monitoring. We execute comprehensive
+                  QA, load testing, and security audits to ensure a flawless
+                  launch at any scale.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 7: Optimization -->
+            <div
+              class="process-step step-left"
+              data-animate
+              data-animate-type="fade-left"
+            >
+              <div class="step-number glass-strong">07</div>
+              <div class="step-line"></div>
+              <div class="step-card glass-strong" data-glow>
+                <div class="step-icon">📈</div>
+                <h3 class="step-title">Optimization</h3>
+                <p class="step-desc">
+                  Post-launch, we continuously monitor, analyze, and optimize.
+                  A/B testing, performance tuning, feature iteration, and
+                  infrastructure scaling ensure your product keeps getting
+                  faster, smarter, and more valuable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 8. TECH STACK SECTION -->
+      <!-- ============================================================ -->
+      <section id="tech-stack" class="tech-section section-dark" data-animate>
+        <div class="section-container">
+          <div class="section-header" data-animate data-animate-type="fade-up">
+            <span class="section-badge">Technology</span>
+            <h2 class="section-title">
+              <span class="text-gradient"
+                >Powered by Cutting-Edge Technology</span
+              >
+            </h2>
+            <p class="section-desc">
+              We leverage the most advanced tools and frameworks in the industry
+              to deliver performant, scalable, and future-proof solutions.
+            </p>
+          </div>
+
+          <div class="tech-grid" data-stagger>
+            <!-- Column 1: AI & API -->
+            <div
+              class="tech-column glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="3"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="tech-column-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-column-title">AI &amp; API</h3>
+              <ul class="tech-list">
+                <li class="tech-item">
+                  <a
+                    href="https://openai.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/openai.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />OpenAI</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://anthropic.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/anthropic.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Anthropic</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://ai.google/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/googlegemini.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Google Gemini</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://www.perplexity.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/perplexity.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Perplexity</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://ai.meta.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/meta.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Meta AI</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Frontend -->
+            <div
+              class="tech-column glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="3"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="tech-column-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="8"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <path
+                    d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-column-title">Frontend</h3>
+              <ul class="tech-list">
+                <li class="tech-item">
+                  <a
+                    href="https://nextjs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/nextjs.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Next.js</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://react.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/react.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />React</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://www.typescriptlang.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/typescript.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />TypeScript</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://tailwindcss.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/tailwindcss.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Tailwind CSS</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://www.framer.com/motion/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/framer.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Framer Motion</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Backend & Serverless -->
+            <div
+              class="tech-column glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="3"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="tech-column-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M8 18C5.79086 18 4 16.2091 4 14C4 11.7909 5.79086 10 8 10C8 6.68629 10.6863 4 14 4C17.3137 4 20 6.68629 20 10C22.2091 10 24 11.7909 24 14C24 16.2091 22.2091 18 20 18H8Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+              <h3 class="tech-column-title">Backend &amp; Serverless</h3>
+              <ul class="tech-list">
+                <li class="tech-item">
+                  <a
+                    href="https://nodejs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/nodejs.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Node.js</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://www.python.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/python.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Python</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://firebase.google.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/firebase.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Firebase</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://vercel.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/vercel.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Vercel</a
+                  >
+                </li>
+                <li class="tech-item">
+                  <a
+                    href="https://supabase.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><img
+                      src="./assets/icons/tech/supabase.svg"
+                      alt=""
+                      class="tech-item-icon"
+                      width="18"
+                      height="18"
+                      loading="lazy"
+                    />Supabase</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 9. TEAM SECTION -->
+      <!-- ============================================================ -->
+      <section id="team" class="team-section section-dark" data-animate>
+        <div class="section-container">
+          <div class="section-header" data-animate data-animate-type="fade-up">
+            <span class="section-badge">Team</span>
+            <h2 class="section-title">
+              <span class="text-gradient">Meet the Minds Behind Brix</span>
+            </h2>
+            <p class="section-desc">
+              Two developers, one vision — building the future of intelligent software.
+            </p>
+          </div>
+
+          <div class="team-grid" data-stagger>
+            <!-- Mullainathan -->
+            <div
+              class="team-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="3"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="team-avatar team-avatar-m">
+                <span class="team-avatar-initials">M</span>
+              </div>
+              <h3 class="team-name text-gradient">Mullainathan</h3>
+              <span class="team-role team-role-ai">AI-Powered Developer</span>
+              <p class="team-bio">
+                A young and passionate AI-powered developer who lives at the intersection of
+                intelligence and automation. Mullainathan architects autonomous systems that
+                think, learn, and execute — turning complex workflows into seamless,
+                self-driving pipelines.
+              </p>
+            </div>
+
+            <!-- Surya -->
+            <div
+              class="team-card glass-strong"
+              data-glow
+              data-tilt
+              data-tilt-max="3"
+              data-animate
+              data-animate-type="fade-up"
+            >
+              <div class="team-avatar team-avatar-s">
+                <span class="team-avatar-initials">S</span>
+              </div>
+              <h3 class="team-name text-gradient">Surya</h3>
+              <span class="team-role team-role-web">Web &amp; UX/UI Developer</span>
+              <p class="team-bio">
+                A professional web developer with a sharp eye for UX and UI design.
+                Surya crafts pixel-perfect interfaces that feel intuitive, look stunning,
+                and deliver seamless experiences — bridging the gap between aesthetics
+                and functionality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!-- ============================================================ -->
+      <!-- 10. CTA SECTION -->
+      <!-- ============================================================ -->
+      <section id="contact" class="cta-section section-fullscreen" data-animate>
+        <div class="cta-bg">
+          <div class="cta-gradient-overlay"></div>
+          <div class="cta-particle-overlay" id="ctaParticles"></div>
+        </div>
+
+        <div class="cta-content" data-stagger>
+          <div class="cta-badge glass" data-animate data-animate-type="fade-up">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle
+                cx="7"
+                cy="7"
+                r="6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+              <circle cx="7" cy="7" r="2" fill="#10b981" />
+            </svg>
+            <span>Get in Touch</span>
+          </div>
+
+          <h2 class="cta-title" data-animate data-animate-type="fade-up">
+            <span class="text-gradient">We'll Call You Back</span>
+          </h2>
+
+          <p class="cta-subtitle" data-animate data-animate-type="fade-up">
+            Drop your details below and our team will reach out within 24 hours.
+          </p>
+
+          <form id="contactForm" class="contact-form" data-animate data-animate-type="fade-up">
+            <div class="form-group">
+              <label for="formName">Your Name</label>
+              <input
+                type="text"
+                id="formName"
+                class="form-input"
+                placeholder="Enter your name"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input
+                type="tel"
+                id="formPhone"
+                class="form-input"
+                placeholder="Enter your phone number"
+                required
+                autocomplete="tel"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input
+                type="email"
+                id="formEmail"
+                class="form-input"
+                placeholder="Enter your email address"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <button type="submit" class="btn-primary" id="formSubmit">
+              <span class="btn-text">Submit</span>
+            </button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- 11. FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer" data-animate>
+      <div class="section-container">
+        <div class="footer-grid" data-stagger>
+          <!-- Column 1: Company Info -->
+          <div
+            class="footer-col footer-brand"
+            data-animate
+            data-animate-type="fade-up"
+          >
+            <a href="#" class="footer-logo" aria-label="Brix Softworks Home">
+              <img src="./assets/icons/Icon_.png" alt="Brix Softworks" class="footer-logo-icon" width="28" height="28" />
+              <span class="footer-logo-text"
+                ><span class="text-gradient">Brix</span>
+                <span class="text-gradient">Softworks</span></span
+              >
+            </a>
+            <p class="footer-desc">
+              Brix Softworks is an elite AI and software innovation company
+              crafting cinematic, high-performance digital solutions for the
+              future of intelligence. We partner with visionary founders and
+              enterprises to build software that defines markets.
+            </p>
+            <div class="footer-social">
+              <a href="https://github.com/Brix-Softworks" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M10 0.833344C4.9375 0.833344 0.833344 4.9375 0.833344 10C0.833344 14.0833 3.44775 17.6141 7.01945 18.8305C7.5207 18.9312 7.70894 18.6383 7.70894 18.3891C7.70894 18.1693 7.69817 17.5285 7.69817 16.856C5 17.3309 4.35272 15.9098 4.13808 15.1676C4.01113 14.7828 3.52066 13.6199 3.0918 13.307C2.73555 13.0549 2.22318 12.4467 3.07109 12.4258C3.87695 12.405 4.43906 13.1598 4.63652 13.5555C5.51465 15.1068 6.93867 14.6867 7.75078 14.4375C7.85156 13.7904 8.13594 13.3523 8.45117 13.1031C6.375 12.875 4.20703 12.1432 4.20703 8.88868C4.20703 7.96642 4.53145 7.22227 5.04375 6.64532C4.93213 6.40645 4.63867 5.54844 5.08594 4.39805C5.08594 4.39805 5.77539 4.14844 7.67773 5.21719C8.33633 5.00938 9.02266 4.9043 9.70938 4.90078C10.3961 4.9043 11.0824 5.00938 11.741 5.21719C13.6434 4.1582 14.3328 4.39805 14.3328 4.39805C14.7801 5.54844 14.4867 6.40645 14.375 6.64532C14.8873 7.22227 15.2117 7.97618 15.2117 8.88868C15.2117 12.1539 13.043 12.875 10.967 13.1031C11.3539 13.4043 11.6992 14.0109 11.6992 14.9316C11.6992 16.2465 11.6885 17.3113 11.6885 18.3891C11.6885 18.6383 11.8768 18.9418 12.378 18.8305C14.1664 18.1611 15.7003 16.9707 16.7931 15.4065C17.8859 13.8423 18.4899 11.9766 18.5277 10.0625C18.5277 7.07893 16.5902 4.42813 14.0723 3.13965C12.1643 2.09844 10 0.833344 10 0.833344Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/mullai-nathan-31b119404" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4.58333 2.5C4.08196 2.5 3.60134 2.6991 3.24796 3.05248C2.89459 3.40586 2.69548 3.88648 2.69548 4.38785C2.69548 4.88922 2.89459 5.36984 3.24796 5.72322C3.60134 6.07659 4.08196 6.2757 4.58333 6.2757C5.0847 6.2757 5.56532 6.07659 5.91869 5.72322C6.27207 5.36984 6.47117 4.88922 6.47117 4.38785C6.47117 3.88648 6.27207 3.40586 5.91869 3.05248C5.56532 2.6991 5.0847 2.5 4.58333 2.5Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M2.91667 7.5C2.75454 7.5 2.59905 7.56494 2.48207 7.68192C2.36509 7.7989 2.30015 7.95439 2.30015 8.11652V17.5002C2.30015 17.6623 2.36509 17.8178 2.48207 17.9348C2.59905 18.0518 2.75454 18.1167 2.91667 18.1167H6.25C6.41213 18.1167 6.56762 18.0518 6.6846 17.9348C6.80158 17.8178 6.86652 17.6623 6.86652 17.5002V8.11652C6.86652 7.95439 6.80158 7.7989 6.6846 7.68192C6.56762 7.56494 6.41213 7.5 6.25 7.5H2.91667Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M8.33333 7.5C8.1712 7.5 8.01571 7.56494 7.89873 7.68192C7.78175 7.7989 7.71681 7.95439 7.71681 8.11652V17.5002C7.71681 17.6623 7.78175 17.8178 7.89873 17.9348C8.01571 18.0518 8.1712 18.1167 8.33333 18.1167H11.6667C11.8288 18.1167 11.9843 18.0518 12.1013 17.9348C12.2182 17.8178 12.2832 17.6623 12.2832 17.5002V12.0839C12.2832 11.6909 12.4215 11.3109 12.6729 11.0117C12.9243 10.7124 13.2738 10.5128 13.6591 10.4475C14.0444 10.3822 14.4391 10.4551 14.776 10.6537C15.1129 10.8524 15.3709 11.1633 15.5043 11.5339C15.5937 11.7628 15.6411 12.0068 15.6443 12.2535V17.5002C15.6443 17.6623 15.7092 17.8178 15.8262 17.9348C15.9432 18.0518 16.0987 18.1167 16.2608 18.1167H17.5C17.6621 18.1167 17.8176 18.0518 17.9346 17.9348C18.0516 17.8178 18.1165 17.6623 18.1165 17.5002V11.6669C18.1165 10.0514 17.5092 8.49822 16.4215 7.34344C15.3339 6.18867 12.1 5.94484 10.7662 6.14552C9.85 6.27861 8.33333 7.5 8.33333 7.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Contact -->
+          <div class="footer-col" data-animate data-animate-type="fade-up">
+            <h4 class="footer-col-title">Contact</h4>
+            <ul class="footer-contact">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M14 11V13C14 13.5523 13.5523 14 13 14H3C2.44772 14 2 13.5523 2 13V11M8 10V2M8 2L5 5M8 2L11 5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <a href="mailto:technologies.brix@gmail.com"
+                  >technologies.brix@gmail.com</a
+                >
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M2 4C2 2.89543 2.89543 2 4 2H5.5C6.05228 2 6.5 2.44772 6.5 3V5C6.5 5.55228 6.05228 6 5.5 6H4C4 12 8 16 14 16V14.5C14 13.9477 14.4477 13.5 15 13.5H16C17.1046 13.5 18 13.9477 18 14.5V16C18 17.1046 17.1046 18 16 18H14C7.37258 18 2 12.6274 2 6V4Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <a href="tel:+919363936767">9363936767</a>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M2 4C2 2.89543 2.89543 2 4 2H5.5C6.05228 2 6.5 2.44772 6.5 3V5C6.5 5.55228 6.05228 6 5.5 6H4C4 12 8 16 14 16V14.5C14 13.9477 14.4477 13.5 15 13.5H16C17.1046 13.5 18 13.9477 18 14.5V16C18 17.1046 17.1046 18 16 18H14C7.37258 18 2 12.6274 2 6V4Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <a href="tel:+918110098099">8110098099</a>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1C5.2 1 3 3.2 3 6c0 3.5 5 9 5 9s5-5.5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <circle cx="8" cy="6" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  <path d="M8 15v-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                <span>India</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="section-container">
+          <div class="footer-bottom-inner">
+            <span class="footer-copyright"
+              >&copy; 2026 Brix Softworks. All rights reserved.</span
+            >
+            <div class="footer-bottom-links">
+              <a href="javascript:void(0)" class="footer-bottom-link" aria-disabled="true" tabindex="0">Privacy Policy</a>
+              <a href="javascript:void(0)" class="footer-bottom-link" aria-disabled="true" tabindex="0">Terms of Service</a>
+              <a href="javascript:void(0)" class="footer-bottom-link" aria-disabled="true" tabindex="0">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" aria-label="Back to top" type="button">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path
+          d="M9 15V3M9 3L4.5 7.5M9 3L13.5 7.5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script>
+      firebase.initializeApp({
+        apiKey: "AIzaSyBkJZ879sjQQWgRXyavy7Np-81Z2y3bDpM",
+        authDomain: "brix-softworks.firebaseapp.com",
+        projectId: "brix-softworks",
+        storageBucket: "brix-softworks.firebasestorage.app",
+        messagingSenderId: "666168484698",
+        appId: "1:666168484698:web:c288d22830b49ecd298963",
+        measurementId: "G-YBF1PBFLC9",
+      });
+    </script>
+    <script src="./js/bundle.js?v=1"></script>
+  </body>
+</html>

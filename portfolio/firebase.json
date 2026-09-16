@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "site": "director-shang",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "serviceAccountKey.json",
+      "serve.py",
+      "firebase-debug.log",
+      "temp_images/**",
+      "**/*.zip"
+    ]
+  }
+}

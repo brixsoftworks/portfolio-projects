@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Everything is written through Cloud Functions callables (admin SDK),
+    // which bypass these rules. Direct client access stays locked down;
+    // relax per-collection when/if a direct read path is introduced.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User-owned media metadata is read by the app for its own docs.
+    match /proofs/{proofId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+
+    match /userProfiles/{userId} {
+      allow read: if request.auth != null && resource.data.authUid == request.auth.uid;
+    }
+  }
+}

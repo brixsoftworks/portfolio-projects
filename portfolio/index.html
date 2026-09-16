@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Director Shang — Film Director • Novelist • Western Pop Artist</title>
+<meta name="description" content="Director Shang — A passionate film director, novelist, and Western Pop artist bringing together cinema, literature, and music.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{width:100%;overflow-x:hidden;background:#080808;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+body{height:30000px}
+:root{
+  --accent:#e8530e;
+  --accent-h:#ff6b24;
+  --accent-glow:rgba(232,83,14,.4);
+  --gold:#c8a45a;
+  --gold-soft:rgba(200,164,90,.15);
+  --glass:rgba(10,10,12,.74);
+  --glass-s:rgba(10,10,12,.85);
+  --gb:rgba(255,255,255,.06);
+  --gbh:rgba(255,255,255,.14);
+  --w:#fff;--w95:rgba(255,255,255,.95);--w80:rgba(255,255,255,.8);--w60:rgba(255,255,255,.6);
+  --w40:rgba(255,255,255,.4);--w20:rgba(255,255,255,.2);--w10:rgba(255,255,255,.1);--w05:rgba(255,255,255,.05);
+  --shadow:0 2px 32px rgba(0,0,0,.6),0 0 80px rgba(0,0,0,.2);
+  --e:cubic-bezier(.23,1,.32,1);
+  --eio:cubic-bezier(.77,0,.175,1);
+  --r:18px;--rs:12px;
+}
+canvas#c{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:9999;background:#080808;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .9s var(--e),visibility .9s var(--e)}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.ld-brand{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--w);letter-spacing:-1px}
+.ld-brand i{font-style:normal;color:var(--accent)}
+.ld-sub{font-size:10px;color:var(--w40);letter-spacing:4px;text-transform:uppercase;font-weight:500;margin-top:-12px}
+.ld-track{width:180px;height:1.5px;background:var(--w10);border-radius:2px;overflow:hidden}
+.ld-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:2px;transition:width .25s ease}
+.ld-pct{font-size:11px;color:var(--w40);font-variant-numeric:tabular-nums;letter-spacing:3px}
+
+/* OVERLAY */
+#ov{position:fixed;inset:0;z-index:10;pointer-events:none;overflow:hidden}
+.S{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;will-change:opacity}
+
+/* PROGRESS */
+.prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:100}
+.prog-f{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width .08s linear}
+
+/* SCROLL HINT */
+.sh{position:fixed;bottom:32px;left:50%;transform:translateX(-50%);z-index:50;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:1;transition:opacity .5s var(--e)}
+.sh.hide{opacity:0;pointer-events:none}
+.sh span{font-size:9px;color:var(--w40);text-transform:uppercase;letter-spacing:4px;font-weight:600}
+.sh-m{width:18px;height:30px;border:1.5px solid var(--w40);border-radius:10px;position:relative}
+.sh-m::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:2px;height:5px;background:var(--gold);border-radius:2px;animation:mS 1.6s var(--eio) infinite}
+@keyframes mS{0%,100%{opacity:1;top:6px}50%{opacity:.3;top:14px}}
+
+/* DOTS */
+.dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:10px}
+.dt{width:6px;height:6px;border-radius:50%;background:var(--w20);border:none;cursor:pointer;padding:0;transition:background .3s,height .35s var(--e),border-radius .35s var(--e),width .35s var(--e)}
+.dt.on{background:var(--gold);height:26px;border-radius:3px;width:6px}
+
+/* ═══════════════════════════════════
+   HERO
+   White text + deep text-shadow
+   for warm bright mall background
+   ═══════════════════════════════════ */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 48px;width:100%}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--w);text-shadow:var(--shadow);letter-spacing:-.5px}
+.nav-logo i{font-style:normal;color:var(--accent)}
+.nav-menu{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-menu a{color:var(--w80);text-decoration:none;font-size:13px;font-weight:500;text-shadow:0 1px 12px rgba(0,0,0,.5);transition:color .25s;position:relative}
+.nav-menu a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--gold);border-radius:2px;transition:width .3s var(--e)}
+.nav-menu a:hover{color:var(--w)}
+.nav-menu a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--gb);border-radius:40px;padding:9px 14px 9px 22px;color:var(--w);font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:transform 160ms var(--e),background .3s,border-color .3s;letter-spacing:.3px}
+.nav-cta:active{transform:scale(.97)}
+.nav-cta:hover{background:var(--glass-s);border-color:var(--gbh)}
+.nav-cta .ic{width:26px;height:26px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--e)}
+.nav-cta:hover .ic{transform:rotate(45deg)}
+.nav-cta .ic svg{width:11px;height:11px;fill:none;stroke:var(--w);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+.hero-bd{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 48px}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;text-shadow:0 1px 16px rgba(0,0,0,.5)}
+.hero-tag .line{width:28px;height:1.5px;background:var(--gold);border-radius:2px}
+.hero-title{font-family:'Outfit',sans-serif;font-size:clamp(48px,8vw,100px);font-weight:900;line-height:.88;letter-spacing:-4px;color:var(--w);text-shadow:var(--shadow);text-transform:uppercase}
+.hero-title em{font-style:normal;display:block;font-family:'Playfair Display',serif;font-size:.56em;font-weight:400;letter-spacing:2px;text-transform:none;color:var(--w80);line-height:2;font-style:italic}
+.hero-r{max-width:320px;text-align:right;padding-bottom:6px}
+.hero-r h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;font-style:italic;line-height:1.5;color:var(--w);margin-bottom:10px;text-shadow:0 1px 20px rgba(0,0,0,.5)}
+.hero-r p{font-size:13px;color:var(--w60);line-height:1.7;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+
+/* Disciplines */
+.disc-row{display:flex;border-top:1px solid var(--w20);padding-top:18px;gap:0}
+.disc{flex:1;opacity:0;transform:translateY(10px);animation:fU .5s var(--e) forwards}
+.disc:nth-child(1){animation-delay:.1s}.disc:nth-child(2){animation-delay:.2s}.disc:nth-child(3){animation-delay:.3s}
+@keyframes fU{to{opacity:1;transform:translateY(0)}}
+.disc .d-num{font-size:12px;color:var(--gold);margin-bottom:4px;font-weight:700;letter-spacing:1px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.disc .d-lbl{font-size:16px;font-weight:600;color:var(--w80);text-shadow:0 1px 12px rgba(0,0,0,.5);letter-spacing:-.2px}
+.disc .d-sub{font-size:12px;color:var(--w40);margin-top:2px;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+
+/* GLASS CARD */
+.gc{background:var(--glass);backdrop-filter:blur(44px) saturate(1.6);-webkit-backdrop-filter:blur(44px) saturate(1.6);border:1px solid var(--gb);border-radius:var(--r);box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.03)}
+
+/* ═══ DISCIPLINES MARQUEE ═══ */
+#s-disc{justify-content:flex-end;align-items:center;padding-bottom:48px}
+.marquee-wrap{width:90%;max-width:1060px;padding:0}
+.marquee-wrap .gc{padding:22px 0;overflow:hidden}
+.marquee{display:flex;animation:scroll 18s linear infinite;width:max-content}
+.marquee-inner{display:flex;align-items:center;gap:48px;padding:0 24px}
+.m-item{display:flex;align-items:center;gap:10px;color:var(--w60);font-size:14px;font-weight:600;white-space:nowrap;font-family:'Outfit',sans-serif;letter-spacing:-.3px}
+.m-sep{color:var(--gold);font-size:8px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ ABOUT ═══ */
+#s-about{justify-content:flex-end;align-items:center;padding-bottom:48px}
+.about{width:90%;max-width:1060px;padding:36px 44px;display:flex;gap:36px;align-items:center}
+.about-l{flex:1;max-width:320px}
+.about-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--rs);
+  overflow: hidden;
+  border: 1.5px solid var(--gb);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+}
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s var(--e);
+}
+.about-img-wrap:hover img {
+  transform: scale(1.04);
+}
+.about-tag{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:12px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.about-tag .tl{width:20px;height:1.5px;background:var(--gold);border-radius:2px}
+.about-h{font-family:'Outfit',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:800;line-height:1.15;letter-spacing:-1px;color:var(--w)}
+.about-h span{color:var(--gold)}
+.about-r{flex:1.4;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.about-p{font-size:13px;line-height:1.75;color:var(--w60)}
+.about-p strong{color:var(--w80);font-weight:600}
+.about-detail{font-size:12px;color:var(--w40);line-height:1.6;padding-left:14px;border-left:2px solid var(--gold)}
+
+/* ═══ GALLERY ═══ */
+#s-gallery{justify-content:flex-end;align-items:center;padding-bottom:48px}
+.gal-w{width:90%;max-width:1060px;display:flex;flex-direction:column;gap:14px}
+.gal-hd{display:flex;justify-content:space-between;align-items:flex-end}
+.gal-t{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--w);text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.gal-t small{display:block;font-size:10px;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;font-family:'Inter',sans-serif}
+.gal-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gi{aspect-ratio:3/4;border-radius:var(--rs);overflow:hidden;position:relative;cursor:pointer;transition:transform .4s var(--e),border-color .3s,box-shadow .3s}
+.gi:hover{transform:translateY(-5px) scale(1.01);border-color:var(--gbh);box-shadow:0 20px 56px rgba(0,0,0,.4)}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--e)}
+.gi:hover img{transform:scale(1.05)}
+
+/* CTA Button */
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--w);border:none;border-radius:40px;padding:11px 16px 11px 22px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;font-family:'Inter',sans-serif;transition:transform 160ms var(--e),box-shadow .3s,background .25s;letter-spacing:.3px;text-transform:uppercase}
+.cta:active{transform:scale(.97)}
+.cta:hover{background:var(--accent-h);box-shadow:0 8px 28px var(--accent-glow)}
+.cta .ci{width:24px;height:24px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--e)}
+.cta:hover .ci{transform:rotate(45deg)}
+.cta .ci svg{width:10px;height:10px;fill:none;stroke:var(--w);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+/* Ghost CTA */
+.cta-ghost{background:transparent;border:1px solid var(--w20);color:var(--w80)}
+.cta-ghost:hover{background:var(--w10);border-color:var(--w40);box-shadow:none}
+
+
+
+/* ═══ JOURNEY ═══ */
+#s-journey{justify-content:flex-end;align-items:center;padding-bottom:48px}
+.journey{width:90%;max-width:1060px;padding:48px 56px}
+.j-head{margin-bottom:32px}
+.j-tag{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.j-tag .tl{width:20px;height:1.5px;background:var(--gold);border-radius:2px}
+.j-title{font-family:'Outfit',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--w)}
+.j-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.j-card{padding:28px 24px;border-radius:var(--rs);background:var(--w05);border:1px solid var(--gb);transition:border-color .3s,transform .35s var(--e)}
+.j-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.j-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px}
+.j-label{font-size:14px;font-weight:700;color:var(--w);margin-bottom:6px;letter-spacing:-.2px}
+.j-desc{font-size:12px;color:var(--w40);line-height:1.6}
+
+/* ═══ CONTACT ═══ */
+#s-cta{justify-content:flex-end;align-items:center;padding-bottom:48px}
+.ct-card{width:90%;max-width:640px;text-align:center;padding:56px 44px;border-radius:22px}
+.ct-tag{font-size:10px;color:var(--gold);font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:3px}
+.ct-h{font-family:'Outfit',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:800;line-height:1.15;letter-spacing:-1.5px;margin-bottom:12px;color:var(--w)}
+.ct-h span{color:var(--gold)}
+.ct-p{font-size:13px;color:var(--w40);line-height:1.8;max-width:400px;margin:0 auto 28px}
+.ct-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.socs{display:flex;justify-content:center;gap:10px;margin-top:24px}
+.soc{width:38px;height:38px;border-radius:50%;background:var(--w05);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;color:var(--w40);text-decoration:none;transition:background .25s,border-color .25s,color .25s,transform 160ms var(--e)}
+.soc:active{transform:scale(.93)}
+.soc:hover{background:var(--accent);border-color:var(--accent);color:var(--w)}
+.soc svg{width:16px;height:16px;fill:currentColor}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .nav{padding:20px 32px}
+  .hero-bd{padding:0 32px 32px}
+  .hero-r{max-width:260px}
+  .marquee-wrap{width:94%}
+  .about{width:94%;padding:32px;gap:24px}
+  .gal-g{grid-template-columns:repeat(2,1fr)}
+  .j-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav{padding:14px 18px}.nav-menu{display:none}
+  .hero-bd{padding:0 18px 24px}.hero-row{flex-direction:column;align-items:flex-start;gap:16px}
+  .hero-r{text-align:left;max-width:100%}
+  .disc-row{flex-wrap:wrap;gap:10px}.disc{flex:0 0 100%}
+  .about{flex-direction:column;padding:26px 20px;gap:20px}
+  .about-l{max-width:none}.about-img-wrap{max-width:240px;margin:0 auto}
+  .gal-g{grid-template-columns:1fr;gap:10px}.gi{aspect-ratio:4/5}
+  .j-grid{grid-template-columns:1fr}.j-card{padding:22px 18px}
+  .ct-card{padding:30px 18px}.ct-btns{flex-direction:column;width:100%}.ct-btns .cta{width:100%;justify-content:center}
+  .dots{display:none}
+  .marquee-wrap{width:100%}.marquee-wrap .gc{padding:14px 0}
+  .nav-cta{font-size:11px;padding:8px 12px 8px 18px}
+  .nav-cta .ic{width:24px;height:24px}
+}
+@media(max-width:480px){
+  .hero-title{font-size:clamp(40px,17vw,56px);letter-spacing:-2px}
+  .hero-tag{font-size:11px}.hero-r h3{font-size:16px}
+  .about-h{font-size:22px}.gal-t{font-size:19px}.j-title{font-size:24px}
+  .ct-h{font-size:26px}.ct-p{font-size:12px}
+  .soc{width:42px;height:42px}
+}
+@media(max-height:620px){.hero-bd{padding:0 48px 24px}.sh{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="ld-brand">Director Shang<i>.</i></div>
+  <div class="ld-sub">Film • Literature • Music</div>
+  <div class="ld-track"><div class="ld-fill" id="lb"></div></div>
+  <div class="ld-pct" id="lp">0%</div>
+</div>
+
+<div class="prog"><div class="prog-f" id="pf"></div></div>
+
+<div class="sh" id="sh">
+  <div class="sh-m"></div>
+  <span>Scroll</span>
+</div>
+
+<div class="dots" id="dots">
+  <button class="dt on" data-i="0" aria-label="Hero"></button>
+  <button class="dt" data-i="1" aria-label="Disciplines"></button>
+  <button class="dt" data-i="2" aria-label="About"></button>
+  <button class="dt" data-i="3" aria-label="Gallery"></button>
+  <button class="dt" data-i="4" aria-label="Journey"></button>
+  <button class="dt" data-i="5" aria-label="Contact"></button>
+</div>
+
+<canvas id="c"></canvas>
+
+<div id="ov">
+
+  <!-- ═══ HERO ═══ -->
+  <div class="S" id="s-hero" style="opacity:1;pointer-events:auto">
+    <nav class="nav">
+      <div class="nav-logo">Director Shang<i>.</i></div>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Journey</a></li>
+      </ul>
+      <a href="https://wa.me/916381805203" target="_blank" class="nav-cta" id="nav-btn">
+        Connect
+        <span class="ic"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+      </a>
+    </nav>
+    <div class="hero-bd">
+      <div class="hero-row">
+        <div>
+          <div class="hero-tag"><span class="line"></span>Film Director • Novelist • Artist</div>
+          <h1 class="hero-title" id="hero-h">Director<br>Shang<em>Stories that leave a mark</em></h1>
+        </div>
+        <div class="hero-r">
+          <h3>"Cinema, literature & music — three languages, one vision."</h3>
+          <p>A passionate filmmaker, novelist, and Western Pop artist creating stories and experiences that last.</p>
+        </div>
+      </div>
+      <div class="disc-row">
+        <div class="disc"><div class="d-num">01</div><div class="d-lbl">Filmmaking</div><div class="d-sub">Direction & Cinematography</div></div>
+        <div class="disc"><div class="d-num">02</div><div class="d-lbl">Novels</div><div class="d-sub">3 Published Works</div></div>
+        <div class="disc"><div class="d-num">03</div><div class="d-lbl">Western Pop</div><div class="d-sub">Music & Performance</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DISCIPLINES MARQUEE ═══ -->
+  <div class="S" id="s-disc">
+    <div class="marquee-wrap">
+      <div class="gc">
+        <div class="marquee">
+          <div class="marquee-inner">
+            <span class="m-item">🎬 Film Direction</span><span class="m-sep">◆</span>
+            <span class="m-item">📖 Novel Writing</span><span class="m-sep">◆</span>
+            <span class="m-item">🎵 Western Pop Music</span><span class="m-sep">◆</span>
+            <span class="m-item">🎥 Cinematography</span><span class="m-sep">◆</span>
+            <span class="m-item">✍️ Storytelling</span><span class="m-sep">◆</span>
+            <span class="m-item">🇦🇺 Cinema Studies — Australia</span><span class="m-sep">◆</span>
+            <span class="m-item">🎭 Creative Direction</span><span class="m-sep">◆</span>
+            <span class="m-item">🎬 Film Direction</span><span class="m-sep">◆</span>
+            <span class="m-item">📖 Novel Writing</span><span class="m-sep">◆</span>
+            <span class="m-item">🎵 Western Pop Music</span><span class="m-sep">◆</span>
+            <span class="m-item">🎥 Cinematography</span><span class="m-sep">◆</span>
+            <span class="m-item">✍️ Storytelling</span><span class="m-sep">◆</span>
+            <span class="m-item">🇦🇺 Cinema Studies — Australia</span><span class="m-sep">◆</span>
+            <span class="m-item">🎭 Creative Direction</span><span class="m-sep">◆</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <div class="S" id="s-about">
+    <div class="about gc">
+      <div class="about-l">
+        <div class="about-img-wrap">
+          <img src="images/shang_cinema.png" alt="Director Shang inside Cinema">
+        </div>
+      </div>
+      <div class="about-r">
+        <p class="about-tag"><span class="tl"></span>About Me</p>
+        <h2 class="about-h">Where Cinema,<br>Literature & <span>Music</span><br>Converge</h2>
+        <p class="about-p" style="margin-top:14px">I'm a passionate <strong>film director</strong>, writer, and creative artist with a deep love for cinema, storytelling, and music. I've successfully written <strong>three novels</strong> and am currently pursuing my journey in filmmaking.</p>
+        <p class="about-detail">Currently preparing to study <strong style="color:var(--gold)">Cinema in Australia</strong> next year — taking my craft to the global stage. Alongside filmmaking and writing, I explore <strong style="color:var(--gold)">Western Pop</strong> as another form of storytelling and creative expression.</p>
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <a href="https://www.instagram.com/director_shang/" target="_blank" class="cta" id="about-btn">
+            Let's Connect
+            <span class="ci"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ GALLERY ═══ -->
+  <div class="S" id="s-gallery">
+    <div class="gal-w">
+      <div class="gal-hd">
+        <h2 class="gal-t"><small>Portraits & Visuals</small>Showcase</h2>
+      </div>
+      <div class="gal-g">
+        <div class="gi gc">
+          <img src="images/shang_portrait.png" alt="Director Shang Close-up Portrait">
+        </div>
+        <div class="gi gc">
+          <img src="images/shang_maroon.png" alt="Director Shang in Maroon Suit">
+        </div>
+        <div class="gi gc">
+          <img src="images/shang_grey.png" alt="Director Shang in Grey Suit">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ═══ JOURNEY / STATS ═══ -->
+  <div class="S" id="s-journey">
+    <div class="journey gc">
+      <div class="j-head">
+        <p class="j-tag"><span class="tl"></span>The Journey</p>
+        <h2 class="j-title">Milestones So Far</h2>
+      </div>
+      <div class="j-grid">
+        <div class="j-card">
+          <div class="j-num">3</div>
+          <div class="j-label">Novels Written</div>
+          <div class="j-desc">Successfully authored three complete novels, exploring narrative craft and storytelling depth.</div>
+        </div>
+        <div class="j-card">
+          <div class="j-num">∞</div>
+          <div class="j-label">Stories to Tell</div>
+          <div class="j-desc">An endless well of stories spanning cinema, literature, and music — each one waiting to leave its mark.</div>
+        </div>
+        <div class="j-card">
+          <div class="j-num">AU</div>
+          <div class="j-label">Next Chapter</div>
+          <div class="j-desc">Heading to Australia to study Cinema — taking filmmaking to a global platform and new creative heights.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CONTACT ═══ -->
+  <div class="S" id="s-cta">
+    <div class="ct-card gc">
+      <p class="ct-tag">Let's Work Together</p>
+      <h2 class="ct-h">Got a Story<br>Worth <span>Telling</span>?</h2>
+      <p class="ct-p">Whether it's a film, a novel, or a song — I'm always looking for the next story that deserves to be heard.</p>
+      <div class="ct-btns">
+        <a href="https://www.instagram.com/director_shang/" target="_blank" class="cta">
+          Instagram
+          <span class="ci"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+        <a href="mailto:Director.shang26@gmail.com" class="cta cta-ghost">
+          Email Me
+          <span class="ci"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </a>
+      </div>
+      <div class="socs">
+        <a href="https://www.instagram.com/director_shang/" target="_blank" class="soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const T=300,imgs=[],cv=document.getElementById('c'),cx=cv.getContext('2d');
+let ld=0,ci=0,ti=0,li=0;
+for(let i=1;i<=T;i++){const m=new Image;m.src=`images/ezgif-frame-${String(i).padStart(3,'0')}.png`;m.onload=()=>{ld++;const p=Math.round(ld/T*100),b=document.getElementById('lb'),t=document.getElementById('lp');if(b)b.style.width=p+'%';if(t)t.textContent=p+'%'};imgs.push(m)}
+function sz(){cv.width=innerWidth;cv.height=innerHeight}sz();addEventListener('resize',sz);
+function gfi(){const h=document.documentElement.scrollHeight-innerHeight,y=scrollY||pageYOffset;return Math.min(T-1,Math.floor((h>0?y/h:0)*T))}
+function draw(){ti=gfi();li+=(ti-li)*.25;ci=Math.max(0,Math.min(T-1,Math.round(li)));const m=imgs[ci];if(m&&m.complete&&m.naturalWidth){cx.clearRect(0,0,cv.width,cv.height);const cw=cv.width,ch=cv.height,iw=m.naturalWidth,ih=m.naturalHeight,s=Math.max(cw/iw,ch/ih),dw=iw*s,dh=ih*s;cx.drawImage(m,(cw-dw)/2,(ch-dh)/2,dw,dh)}requestAnimationFrame(draw)}
+
+const secs=[
+  {el:document.getElementById('s-hero'),   s:0,  e:.14},
+  {el:document.getElementById('s-disc'),   s:.14,e:.28},
+  {el:document.getElementById('s-about'),  s:.28,e:.46},
+  {el:document.getElementById('s-gallery'),s:.46,e:.62},
+  {el:document.getElementById('s-journey'),s:.62,e:.80},
+  {el:document.getElementById('s-cta'),    s:.80,e:1.0},
+];
+const F=.025;
+function upd(){
+  const h=document.documentElement.scrollHeight-innerHeight,y=scrollY||pageYOffset,p=h>0?y/h:0;
+  const pf=document.getElementById('pf');if(pf)pf.style.width=(p*100)+'%';
+  const sh=document.getElementById('sh');if(sh)sh.classList.toggle('hide',p>.012);
+  let ai=0;
+  secs.forEach((s,i)=>{let o=0;if(p>=s.s&&p<=s.e){ai=i;const d=s.e-s.s,l=(p-s.s)/d,fi=F/d,fo=1-F/d;o=l<fi?l/fi:l>fo?1-(l-fo)/(1-fo):1};s.el.style.opacity=Math.max(0,Math.min(1,o));s.el.style.pointerEvents=o>.01?'auto':'none'});
+  document.querySelectorAll('.dt').forEach((d,i)=>d.classList.toggle('on',i===ai));
+}
+addEventListener('scroll',upd,{passive:true});
+document.querySelectorAll('.dt').forEach(d=>{d.addEventListener('click',()=>{const i=+d.dataset.i,s=secs[i],h=document.documentElement.scrollHeight-innerHeight;scrollTo({top:((s.s+s.e)/2)*h,behavior:'smooth'})})});
+(function boot(){if(ld>=60){document.getElementById('loader').classList.add('hidden');draw();upd()}else requestAnimationFrame(boot)})();
+</script>
+</body>
+</html>
