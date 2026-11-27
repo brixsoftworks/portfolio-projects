@@ -1,0 +1,16 @@
+# Core LangChain
+langchain
+langchain-core
+langchain-community
+
+# DuckDuckGo web search (free, no API key)
+duckduckgo-search
+
+# Gemini LLM (next step)
+langchain-google-genai
+google-generativeai
+langchain-openai
+keyring
+
+# Utilities
+python-dotenv

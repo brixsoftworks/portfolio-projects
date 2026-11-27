@@ -1,0 +1,8 @@
+{
+  "camera_url": "http://192.168.31.16:81/stream",
+  "fallback_url": "http://192.168.31.16/capture",
+  "webcam_index": 0,
+  "last_known_ip": "192.168.31.16",
+  "auto_scan_subnet": true,
+  "preferred_source": "auto"
+}

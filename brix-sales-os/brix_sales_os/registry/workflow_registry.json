@@ -1,0 +1,4145 @@
+[
+  {
+    "id": "WF-01",
+    "number": 1,
+    "name": "Agent 01 - Cold Outreach & Outbound Prospector",
+    "filename": "01_cold_outreach__outbound_prospector.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 01: COLD OUTREACH & OUTBOUND PROSPECTOR\n**Department:** 1. Sales & Growth\n**Architecture:** n8n Form Trigger \u2794 Code \u2794 AI Agent \u2794 Email Sequencer\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAnalyze prospect website and craft 3 hyper-personalized cold outreach angles with punchy subject lines.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-cold_outreach__outbound_prospector",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "outreach",
+      "sales & growth"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-02",
+    "number": 2,
+    "name": "Agent 02 - Inbound Lead Qualification & Scoring Agent",
+    "filename": "02_inbound_lead_qualification__scoring_agent.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 02: INBOUND LEAD QUALIFICATION & SCORING AGENT\n**Department:** 1. Sales & Growth\n**Architecture:** Webhook (Typeform) \u2794 Firmographic Enrichment \u2794 AI Agent \u2794 Slack VIP Alert\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nIngest inbound lead form, score lead against ICP rubric (1-100), and determine priority routing.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-inbound_lead_qualification__scoring_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "slack",
+      "sales & growth"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-03",
+    "number": 3,
+    "name": "Agent 03 - CRM Synchronization Specialist",
+    "filename": "03_crm_synchronization_specialist.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 03: CRM SYNCHRONIZATION SPECIALIST\n**Department:** 1. Sales & Growth\n**Architecture:** Schedule Trigger \u2794 Call Transcript Parser \u2794 De-duplication \u2794 HubSpot/Salesforce Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nParse raw sales call transcript, extract next steps, deal value, stage change, and format CRM note.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-crm_synchronization_specialist",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "sales & growth",
+      "crm"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-04",
+    "number": 4,
+    "name": "Agent 04 - Sales Intelligence & Lead Scraper Agent",
+    "filename": "04_sales_intelligence__lead_scraper_agent.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 04: SALES INTELLIGENCE & LEAD SCRAPER AGENT\n**Department:** 1. Sales & Growth\n**Architecture:** n8n Form Trigger \u2794 Scraper \u2794 AI Structuring \u2794 Google Sheets\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScrape and structure executive contact details, company headcount, and tech stack from public bio text.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-sales_intelligence__lead_scraper_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "sales & growth",
+      "scraper"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-05",
+    "number": 5,
+    "name": "Agent 05 - Meeting Scheduler & Pre-Call Briefing Agent",
+    "filename": "05_meeting_scheduler__pre-call_briefing_agent.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 05: MEETING SCHEDULER & PRE-CALL BRIEFING AGENT\n**Department:** 1. Sales & Growth\n**Architecture:** Webhook (Calendly) \u2794 Web Scrape \u2794 AI Agent \u2794 Google Calendar Briefing\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nGenerate a 1-page executive pre-call briefing dossier with background, talking points, and objections.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-meeting_scheduler__pre-call_briefing_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "sales & growth"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-06",
+    "number": 6,
+    "name": "Agent 06 - Client Onboarding & Automated Contract Trigger",
+    "filename": "06_client_onboarding__automated_contract_trigger.json",
+    "department": "Sales & Growth",
+    "description": "## \ud83e\udd16 AGENT 06: CLIENT ONBOARDING & AUTOMATED CONTRACT TRIGGER\n**Department:** 1. Sales & Growth\n**Architecture:** Webhook (Signed Contract) \u2794 DocuSign \u2794 ClickUp / Asana \u2794 Welcome Email\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nGenerate client welcome packet, 14-day implementation roadmap, and technical intake checklist.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-client_onboarding__automated_contract_trigger",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "sales & growth"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-07",
+    "number": 7,
+    "name": "Agent 07 - n8n Agentic Search & Keyword Cluster Optimizer",
+    "filename": "07_n8n_agentic_search__keyword_cluster_optimizer.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 07: N8N AGENTIC SEARCH & KEYWORD CLUSTER OPTIMIZER\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** n8n Form Trigger \u2794 SEO Scraper \u2794 AI Agent \u2794 Google Docs\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAnalyze seed topic, generate semantic keyword clusters with search intent, and design H1-H3 content architecture.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_agentic_search__keyword_cluster_optimizer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "marketing & content",
+      "scraper"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-08",
+    "number": 8,
+    "name": "Agent 08 - n8n Long-Form Technical Blog & Copywriting Agent",
+    "filename": "08_n8n_long-form_technical_blog__copywriting_agent.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 08: N8N LONG-FORM TECHNICAL BLOG & COPYWRITING AGENT\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** n8n Form Trigger \u2794 AI Agent (Gemini/Grok) \u2794 Markdown Formatter \u2794 CMS\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nWrite authoritative, deeply technical long-form article on self-hosted automation vs cloud AI.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_long-form_technical_blog__copywriting_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "marketing & content"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-09",
+    "number": 9,
+    "name": "Agent 09 - n8n Omnichannel Social Media Scheduler & Formatter",
+    "filename": "09_n8n_omnichannel_social_media_scheduler__formatter.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 09: N8N OMNICHANNEL SOCIAL MEDIA SCHEDULER & FORMATTER\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** Webhook (New Post) \u2794 AI Agent \u2794 Buffer / Typefully / LinkedIn Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nRepurpose milestone announcement into a viral LinkedIn thought leadership post and a 4-tweet X thread.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_omnichannel_social_media_scheduler__formatter",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "marketing & content",
+      "hr"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-10",
+    "number": 10,
+    "name": "Agent 10 - n8n Paid Ad ROAS & Multi-Platform Spend Auditor",
+    "filename": "10_n8n_paid_ad_roas__multi-platform_spend_auditor.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 10: N8N PAID AD ROAS & MULTI-PLATFORM SPEND AUDITOR\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** Schedule Trigger \u2794 Google & Meta APIs \u2794 ROAS Compute \u2794 Slack Digest\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAudit cross-platform ad spend, calculate blended CAC/ROAS, flag budget waste, and provide reallocation plan.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_paid_ad_roas__multi-platform_spend_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "marketing & content"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-11",
+    "number": 11,
+    "name": "Agent 11 - n8n Industry RSS Newsletter Curator & Publisher",
+    "filename": "11_n8n_industry_rss_newsletter_curator__publisher.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 11: N8N INDUSTRY RSS NEWSLETTER CURATOR & PUBLISHER\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** Schedule Trigger \u2794 RSS Read Node \u2794 AI Agent \u2794 Beehiiv / Substack Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nFilter 50+ industry news feeds into an executive weekly briefing with summaries and strategic takeaways.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_industry_rss_newsletter_curator__publisher",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "marketing & content"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-12",
+    "number": 12,
+    "name": "Agent 12 - n8n Competitor Price & Feature Change Monitor",
+    "filename": "12_n8n_competitor_price__feature_change_monitor.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 12: N8N COMPETITOR PRICE & FEATURE CHANGE MONITOR\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** Schedule Trigger \u2794 Web Scraper \u2794 DOM Diff \u2794 AI Agent \u2794 Sales Battlecard\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nDetect competitor pricing tier change, analyze strategic vulnerabilities, and draft sales counter-tracks.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_competitor_price__feature_change_monitor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "marketing & content",
+      "scraper"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-13",
+    "number": 13,
+    "name": "Agent 13 - n8n Brand Voice & Style Compliance Checker",
+    "filename": "13_n8n_brand_voice__style_compliance_checker.json",
+    "department": "Marketing & Content",
+    "description": "## \ud83e\udd16 AGENT 13: N8N BRAND VOICE & STYLE COMPLIANCE CHECKER\n**Department:** 2. Marketing, Content & SEO\n**Architecture:** n8n Form Trigger \u2794 AI Agent \u2794 Brand Rulebook Audit \u2794 Drop-in Rewrite\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAudit marketing text for prohibited buzzwords, compute brand score (0-100%), and provide clean rewrite.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_brand_voice__style_compliance_checker",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "marketing & content"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-14",
+    "number": 14,
+    "name": "Agent 14 - n8n 24/7 AI Customer Support & FAQ Responder",
+    "filename": "14_n8n_247_ai_customer_support__faq_responder.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 14: N8N 24/7 AI CUSTOMER SUPPORT & FAQ RESPONDER\n**Department:** 3. Customer Support & Operations\n**Architecture:** Webhook (Live Chat) \u2794 Vector Store RAG \u2794 AI Agent \u2794 Instant Resolution\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTroubleshoot 401 Unauthorized Stripe webhook error with empathetic, verified step-by-step resolution.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_247_ai_customer_support__faq_responder",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-15",
+    "number": 15,
+    "name": "Agent 15 - n8n Support Ticket Triage & Skill-Based Router",
+    "filename": "15_n8n_support_ticket_triage__skill-based_router.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 15: N8N SUPPORT TICKET TRIAGE & SKILL-BASED ROUTER\n**Department:** 3. Customer Support & Operations\n**Architecture:** Webhook (Ticket) \u2794 Sentiment Analysis \u2794 Priority Router \u2794 PagerDuty\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAnalyze critical database sync failure ticket, assign P1 urgency and sentiment, route to DBA, and draft reassurance.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_support_ticket_triage__skill-based_router",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-16",
+    "number": 16,
+    "name": "Agent 16 - n8n E-Commerce Return & Refund Authorization Agent",
+    "filename": "16_n8n_e-commerce_return__refund_authorization_agent.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 16: N8N E-COMMERCE RETURN & REFUND AUTHORIZATION AGENT\n**Department:** 3. Customer Support & Operations\n**Architecture:** Webhook (Return Request) \u2794 Order Lookup \u2794 Policy Check \u2794 Shippo Label\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nValidate headphone defect return, generate RMA code, calculate $0 fee, and output customer shipping instructions.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_e-commerce_return__refund_authorization_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-17",
+    "number": 17,
+    "name": "Agent 17 - n8n Cross-Platform Sprint & Task Status Shepherd",
+    "filename": "17_n8n_cross-platform_sprint__task_status_shepherd.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 17: N8N CROSS-PLATFORM SPRINT & TASK STATUS SHEPHERD\n**Department:** 3. Customer Support & Operations\n**Architecture:** Schedule Trigger \u2794 Linear/Jira Node \u2794 Blocker Check \u2794 Slack Nudge\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScan Sprint 42 for stalled tasks and send friendly, actionable Slack check-in nudges to unblock engineers.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_cross-platform_sprint__task_status_shepherd",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-18",
+    "number": 18,
+    "name": "Agent 18 - n8n Knowledge Base & Vector RAG Document Assistant",
+    "filename": "18_n8n_knowledge_base__vector_rag_document_assistant.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 18: N8N KNOWLEDGE BASE & VECTOR RAG DOCUMENT ASSISTANT\n**Department:** 3. Customer Support & Operations\n**Architecture:** Webhook / Chat \u2794 Embeddings Search \u2794 AI Agent \u2794 Citation Answer\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nQuery company engineering security handbook on Git API key policies and 4-step emergency containment protocol.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_knowledge_base__vector_rag_document_assistant",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-19",
+    "number": 19,
+    "name": "Agent 19 - n8n Post-Sale NPS & Churn Risk Detection Agent",
+    "filename": "19_n8n_post-sale_nps__churn_risk_detection_agent.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 19: N8N POST-SALE NPS & CHURN RISK DETECTION AGENT\n**Department:** 3. Customer Support & Operations\n**Architecture:** Webhook (Survey) \u2794 AI Agent \u2794 Churn Probability \u2794 Executive Playbook\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAnalyze 4/10 NPS survey complaining about Slack delay, compute churn risk (85%), and draft retention plan.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_post-sale_nps__churn_risk_detection_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-20",
+    "number": 20,
+    "name": "Agent 20 - n8n Executive Daily Operations & KPI Briefing Agent",
+    "filename": "20_n8n_executive_daily_operations__kpi_briefing_agent.json",
+    "department": "Customer Support",
+    "description": "## \ud83e\udd16 AGENT 20: N8N EXECUTIVE DAILY OPERATIONS & KPI BRIEFING AGENT\n**Department:** 3. Customer Support & Operations\n**Architecture:** Schedule Trigger \u2794 Stripe, GitHub, Zendesk Nodes \u2794 AI Agent \u2794 Telegram\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nSynthesize yesterday's $18.4k revenue, 14 tickets, 99.98% uptime, and 6 PRs into a 2-min executive briefing.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_executive_daily_operations__kpi_briefing_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "customer support",
+      "support"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-21",
+    "number": 21,
+    "name": "Agent 21 - n8n Accounts Payable & Automated Invoice Parser",
+    "filename": "21_n8n_accounts_payable__automated_invoice_parser.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 21: N8N ACCOUNTS PAYABLE & AUTOMATED INVOICE PARSER\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** Email (PDF Attachment) \u2794 Multimodal Parser \u2794 QuickBooks Node \u2794 Slack Approval\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nExtract vendor details, line items, and totals from PDF invoice, check duplicates, and draft bill in QuickBooks.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_accounts_payable__automated_invoice_parser",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "legal",
+      "slack",
+      "finance & legal",
+      "finance",
+      "invoice"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-22",
+    "number": 22,
+    "name": "Agent 22 - n8n Corporate Expense & Fraud Detection Auditor",
+    "filename": "22_n8n_corporate_expense__fraud_detection_auditor.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 22: N8N CORPORATE EXPENSE & FRAUD DETECTION AUDITOR\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** Schedule Trigger \u2794 Bank CSV Feed \u2794 Policy Auditor \u2794 Slack Anomaly Alert\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScan corporate credit card charges against policy to detect weekend alcohol charges or duplicate subscriptions.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_corporate_expense__fraud_detection_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "slack",
+      "legal",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-23",
+    "number": 23,
+    "name": "Agent 23 - n8n Contract & Mutual NDA Risk Clause Reviewer",
+    "filename": "23_n8n_contract__mutual_nda_risk_clause_reviewer.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 23: N8N CONTRACT & MUTUAL NDA RISK CLAUSE REVIEWER\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** n8n Form Trigger \u2794 AI Agent \u2794 Redline Generator \u2794 Google Docs Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nReview commercial MSA contract, highlight aggressive indemnity/termination clauses, and draft redline suggestions.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_contract__mutual_nda_risk_clause_reviewer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "legal",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-24",
+    "number": 24,
+    "name": "Agent 24 - n8n Legal Intake & Client Conflict Clearance Agent",
+    "filename": "24_n8n_legal_intake__client_conflict_clearance_agent.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 24: N8N LEGAL INTAKE & CLIENT CONFLICT CLEARANCE AGENT\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** Webhook (Intake Form) \u2794 Database Conflict Query \u2794 Clio Node \u2794 Dossier\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nCollect client case facts, check adverse party names against historical database, and clear conflict of interest.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_legal_intake__client_conflict_clearance_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "legal",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-25",
+    "number": 25,
+    "name": "Agent 25 - n8n Billable Hour & Time-Tracking Formatter",
+    "filename": "25_n8n_billable_hour__time-tracking_formatter.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 25: N8N BILLABLE HOUR & TIME-TRACKING FORMATTER\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** Schedule Trigger \u2794 Calendar & Email Logs \u2794 LEDES Formatter \u2794 Practice Management\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nConvert daily attorney appointments and sent emails into standard LEDES billable hour entries with descriptions.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_billable_hour__time-tracking_formatter",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "legal",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-26",
+    "number": 26,
+    "name": "Agent 26 - n8n Medical Billing & ICD-10 Insurance Claim Validator",
+    "filename": "26_n8n_medical_billing__icd-10_insurance_claim_validator.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 26: N8N MEDICAL BILLING & ICD-10 INSURANCE CLAIM VALIDATOR\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** Webhook (Encounter) \u2794 ICD-10 Coding Engine \u2794 EHR Node \u2794 Claim Export\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nValidate clinical diagnosis notes against ICD-10 and CPT coding guidelines for rejection-free claims.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_medical_billing__icd-10_insurance_claim_validator",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "legal",
+      "hr",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-27",
+    "number": 27,
+    "name": "Agent 27 - n8n Mortgage & Loan Underwriting Document Checker",
+    "filename": "27_n8n_mortgage__loan_underwriting_document_checker.json",
+    "department": "Finance & Legal",
+    "description": "## \ud83e\udd16 AGENT 27: N8N MORTGAGE & LOAN UNDERWRITING DOCUMENT CHECKER\n**Department:** 4. Finance, Legal & Compliance\n**Architecture:** n8n Form Trigger (W-2 / Paystubs) \u2794 Multimodal Parser \u2794 DTI Calculator \u2794 Underwriting Card\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nExtract gross income from paystubs, analyze bank statements for debt, and compute front-end and back-end DTI ratios.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_mortgage__loan_underwriting_document_checker",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "finance",
+      "legal",
+      "finance & legal"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-28",
+    "number": 28,
+    "name": "Agent 28 - n8n Candidate Sourcing & Resume Screening Agent",
+    "filename": "28_n8n_candidate_sourcing__resume_screening_agent.json",
+    "department": "HR & Recruiting",
+    "description": "## \ud83e\udd16 AGENT 28: N8N CANDIDATE SOURCING & RESUME SCREENING AGENT\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** Webhook (Application) \u2794 Resume Parser \u2794 Technical Rubric Scoring \u2794 ATS Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScreen candidate PDF resumes against engineering rubric, score fit (1-100), and generate custom interview questions.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_candidate_sourcing__resume_screening_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "hr & recruiting"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-29",
+    "number": 29,
+    "name": "Agent 29 - n8n Skill Gap & Job Requisition Matcher",
+    "filename": "29_n8n_skill_gap__job_requisition_matcher.json",
+    "department": "HR & Recruiting",
+    "description": "## \ud83e\udd16 AGENT 29: N8N SKILL GAP & JOB REQUISITION MATCHER\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** n8n Form Trigger \u2794 Skill Matrix Engine \u2794 Highlight Dossier \u2794 Recruiter CRM\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nMap candidate experience against job requirements, calculate skill match percentage, and highlight key career wins.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_skill_gap__job_requisition_matcher",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "hr & recruiting",
+      "crm"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-30",
+    "number": 30,
+    "name": "Agent 30 - n8n Employee Account Provisioning & Onboarding Agent",
+    "filename": "30_n8n_employee_account_provisioning__onboarding_agent.json",
+    "department": "HR & Recruiting",
+    "description": "## \ud83e\udd16 AGENT 30: N8N EMPLOYEE ACCOUNT PROVISIONING & ONBOARDING AGENT\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** Webhook (New Hire) \u2794 Google Workspace \u2794 Slack \u2794 1Password \u2794 Welcome Guide\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAutomate account creation in Google Workspace and Slack, generate 30-60-90 day checklist, and schedule 1-on-1s.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_employee_account_provisioning__onboarding_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "hr",
+      "hr & recruiting"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-31",
+    "number": 31,
+    "name": "Agent 31 - n8n Meeting-to-SOP Documentation Generator",
+    "filename": "31_n8n_meeting-to-sop_documentation_generator.json",
+    "department": "HR & Recruiting",
+    "description": "## \ud83e\udd16 AGENT 31: N8N MEETING-TO-SOP DOCUMENTATION GENERATOR\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** Webhook (Video Recording) \u2794 Transcription \u2794 AI Agent \u2794 Notion / Confluence Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTransform raw screen recording transcript into a clean, numbered standard operating procedure with troubleshooting steps.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_meeting-to-sop_documentation_generator",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "hr & recruiting"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-32",
+    "number": 32,
+    "name": "Agent 32 - n8n Anonymous Employee Pulse & Morale Auditor",
+    "filename": "32_n8n_anonymous_employee_pulse__morale_auditor.json",
+    "department": "HR & Recruiting",
+    "description": "## \ud83e\udd16 AGENT 32: N8N ANONYMOUS EMPLOYEE PULSE & MORALE AUDITOR\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** Schedule Trigger \u2794 Survey Ingestion \u2794 Sentiment Classifier \u2794 Executive Report\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAggregate anonymous pulse surveys, calculate department morale trends, and flag emerging burnout risks.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_anonymous_employee_pulse__morale_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "hr & recruiting"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-33",
+    "number": 33,
+    "name": "Agent 33 - n8n Grant, Tender & Enterprise RFP Proposal Writer",
+    "filename": "33_n8n_grant_tender__enterprise_rfp_proposal_writer.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 33: N8N GRANT, TENDER & ENTERPRISE RFP PROPOSAL WRITER\n**Department:** 5. HR, Recruitment & People Ops\n**Architecture:** n8n Form Trigger (RFP PDF) \u2794 Compliance Matrix \u2794 AI Drafter \u2794 Word Document\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nIngest 50-page enterprise RFP solicitation, extract compliance requirements, and draft structured technical response sections.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_grant_tender__enterprise_rfp_proposal_writer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "hr",
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-34",
+    "number": 34,
+    "name": "Agent 34 - n8n Product Requirements Document (PRD) Generator",
+    "filename": "34_n8n_product_requirements_document_prd_generator.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 34: N8N PRODUCT REQUIREMENTS DOCUMENT (PRD) GENERATOR\n**Department:** 6. Product & Project Management\n**Architecture:** n8n Form Trigger \u2794 PRD Structurer \u2794 Linear / Jira Node \u2794 Notion Page\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTransform feature brainstorm into a comprehensive PRD with Gherkin user stories, acceptance criteria, and edge cases.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_product_requirements_document_prd_generator",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-35",
+    "number": 35,
+    "name": "Agent 35 - n8n Sprint Burndown & Dependency Tracker",
+    "filename": "35_n8n_sprint_burndown__dependency_tracker.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 35: N8N SPRINT BURNDOWN & DEPENDENCY TRACKER\n**Department:** 6. Product & Project Management\n**Architecture:** Schedule Trigger \u2794 Jira/Linear API \u2794 Velocity Model \u2794 Standup Summary\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTrack sprint story point burndown rate, predict completion date, and flag tasks stalled in code review.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_sprint_burndown__dependency_tracker",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-36",
+    "number": 36,
+    "name": "Agent 36 - n8n Sentry Error Cluster & Bug Triage Agent",
+    "filename": "36_n8n_sentry_error_cluster__bug_triage_agent.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 36: N8N SENTRY ERROR CLUSTER & BUG TRIAGE AGENT\n**Department:** 6. Product & Project Management\n**Architecture:** Webhook (Sentry Alert) \u2794 Stack Trace Analyzer \u2794 GitHub Issue \u2794 Engineering Slack\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nGroup duplicate production crashes, extract stack traces, and create auto-assigned GitHub issue with remediation hints.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_sentry_error_cluster__bug_triage_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-37",
+    "number": 37,
+    "name": "Agent 37 - n8n Customer Feedback & Review Aggregator",
+    "filename": "37_n8n_customer_feedback__review_aggregator.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 37: N8N CUSTOMER FEEDBACK & REVIEW AGGREGATOR\n**Department:** 6. Product & Project Management\n**Architecture:** Schedule Trigger \u2794 App Store / Trustpilot Scraper \u2794 Cluster Engine \u2794 Airtable\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScrape app store reviews, cluster sentiment into feature buckets, and prioritize top user requests.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_customer_feedback__review_aggregator",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "scraper",
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-38",
+    "number": 38,
+    "name": "Agent 38 - n8n Automation Governance & Workflow Health Auditor",
+    "filename": "38_n8n_automation_governance__workflow_health_auditor.json",
+    "department": "Product & Engineering",
+    "description": "## \ud83e\udd16 AGENT 38: N8N AUTOMATION GOVERNANCE & WORKFLOW HEALTH AUDITOR\n**Department:** 6. Product & Project Management\n**Architecture:** Schedule Trigger \u2794 n8n Execution API \u2794 Failure Diagnosis \u2794 Optimization Alert\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAudit n8n execution database, identify failing nodes or rate-limits, and recommend automated retry configurations.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_automation_governance__workflow_health_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "product & engineering"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-39",
+    "number": 39,
+    "name": "Agent 39 - n8n Executive Chief of Staff Daily Prioritizer",
+    "filename": "39_n8n_executive_chief_of_staff_daily_prioritizer.json",
+    "department": "Executive & Operations",
+    "description": "## \ud83e\udd16 AGENT 39: N8N EXECUTIVE CHIEF OF STAFF DAILY PRIORITIZER\n**Department:** 6. Product & Project Management\n**Architecture:** Schedule Trigger \u2794 VIP Emails, Calendar, Slack \u2794 AI Prioritizer \u2794 Action Plan\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nConsolidate executive inboxes, filter low-priority noise, and prepare ranked daily priority plan with draft responses.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_executive_chief_of_staff_daily_prioritizer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "slack",
+      "executive & operations"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-40",
+    "number": 40,
+    "name": "Agent 40 - n8n Multi-Agent Nexus Orchestrator & Task Router",
+    "filename": "40_n8n_multi-agent_nexus_orchestrator__task_router.json",
+    "department": "Multi-Agent Nexus",
+    "description": "## \ud83e\udd16 AGENT 40: N8N MULTI-AGENT NEXUS ORCHESTRATOR & TASK ROUTER\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Webhook \u2794 Master Brain \u2794 Sub-Workflow Invoker \u2794 Validation Gate\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nDecompose complex multi-stage business goal into an execution DAG and coordinate specialized sub-workflows.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_multi-agent_nexus_orchestrator__task_router",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "multi-agent nexus"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-41",
+    "number": 41,
+    "name": "Agent 41 - n8n Universal REST API & Webhook Data Transformer",
+    "filename": "41_n8n_universal_rest_api__webhook_data_transformer.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 41: N8N UNIVERSAL REST API & WEBHOOK DATA TRANSFORMER\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Webhook Trigger \u2794 Schema Normalizer \u2794 Target API Call \u2794 Webhook Response\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nBridge disparate web APIs by dynamically transforming incoming payloads to match target schema with auth handling.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_universal_rest_api__webhook_data_transformer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-42",
+    "number": 42,
+    "name": "Agent 42 - n8n PostgreSQL Database Cleaning & Synchronization Agent",
+    "filename": "42_n8n_postgresql_database_cleaning__synchronization_agent.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 42: N8N POSTGRESQL DATABASE CLEANING & SYNCHRONIZATION AGENT\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Schedule Trigger \u2794 Unprocessed Rows Query \u2794 Normalization \u2794 Clean Table Update\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nQuery unvalidated customer records, sanitize telephone formats, de-duplicate rows, and write clean data.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_postgresql_database_cleaning__synchronization_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure",
+      "hr"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-43",
+    "number": 43,
+    "name": "Agent 43 - n8n Headless Web Scraper & DOM Data Extractor",
+    "filename": "43_n8n_headless_web_scraper__dom_data_extractor.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 43: N8N HEADLESS WEB SCRAPER & DOM DATA EXTRACTOR\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** n8n Form Trigger \u2794 Playwright Chromium \u2794 HTML Extraction \u2794 CSV/Sheets\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nBypass client-side JavaScript rendering and anti-bot obstacles to scrape structured tabular records into CSV.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_headless_web_scraper__dom_data_extractor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure",
+      "hr",
+      "scraper"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-44",
+    "number": 44,
+    "name": "Agent 44 - n8n Microservices Health & Uptime Latency Sentinel",
+    "filename": "44_n8n_microservices_health__uptime_latency_sentinel.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 44: N8N MICROSERVICES HEALTH & UPTIME LATENCY SENTINEL\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Schedule Trigger (60s) \u2794 Ping Microservices \u2794 Latency Check \u2794 Twilio SMS\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nPing critical endpoints every 60 seconds and trigger immediate SMS incident alerts if latency spikes or 500 errors occur.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_microservices_health__uptime_latency_sentinel",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-45",
+    "number": 45,
+    "name": "Agent 45 - n8n GitHub Pull Request Code Review & Security Auditor",
+    "filename": "45_n8n_github_pull_request_code_review__security_auditor.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 45: N8N GITHUB PULL REQUEST CODE REVIEW & SECURITY AUDITOR\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Webhook (GitHub PR) \u2794 PR Diff Fetch \u2794 AI Code Auditor \u2794 Inline Comments\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScan GitHub pull request diffs for SQL injections, unhandled rejections, and memory leaks, posting inline comments.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_github_pull_request_code_review__security_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-46",
+    "number": 46,
+    "name": "Agent 46 - n8n Secrets Vault & API Key Rotation Enforcer",
+    "filename": "46_n8n_secrets_vault__api_key_rotation_enforcer.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 46: N8N SECRETS VAULT & API KEY ROTATION ENFORCER\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Schedule Trigger \u2794 Git Commit Scan \u2794 Secret Regex \u2794 Invalidation & Vault Sync\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nScan repositories for accidentally committed API keys, trigger revocation, and update central secret store.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_secrets_vault__api_key_rotation_enforcer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-47",
+    "number": 47,
+    "name": "Agent 47 - n8n Server Log Intrusion & Automated Defense Agent",
+    "filename": "47_n8n_server_log_intrusion__automated_defense_agent.json",
+    "department": "DevOps & Infrastructure",
+    "description": "## \ud83e\udd16 AGENT 47: N8N SERVER LOG INTRUSION & AUTOMATED DEFENSE AGENT\n**Department:** 7. Software Engineering & Infrastructure\n**Architecture:** Webhook (Syslog) \u2794 IP Frequency Analyzer \u2794 Cloudflare API Block \u2794 Telegram Alert\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nMonitor authentication failure logs for brute-force attacks and deploy automated Cloudflare IP firewall blocks.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_server_log_intrusion__automated_defense_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "devops & infrastructure"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-48",
+    "number": 48,
+    "name": "Agent 48 - n8n Real Estate Lead & Property Intake Agent",
+    "filename": "48_n8n_real_estate_lead__property_intake_agent.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 48: N8N REAL ESTATE LEAD & PROPERTY INTAKE AGENT\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Webhook (Listing Inquiry) \u2794 MLS Database Query \u2794 Recommendation Packet \u2794 SMS\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nPrequalify buyer budget, search MLS database for matching listings, and send personalized SMS with viewing slots.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_real_estate_lead__property_intake_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-49",
+    "number": 49,
+    "name": "Agent 49 - n8n Clinical Consultation Voice-to-SOAP Note Agent",
+    "filename": "49_n8n_clinical_consultation_voice-to-soap_note_agent.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 49: N8N CLINICAL CONSULTATION VOICE-TO-SOAP NOTE AGENT\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** n8n Form Trigger (Audio) \u2794 Multimodal Transcription \u2794 SOAP Structurer \u2794 EHR Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nConvert recorded doctor-patient encounter audio into a structured, HIPAA-compliant clinical SOAP note.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_clinical_consultation_voice-to-soap_note_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals",
+      "hr"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-50",
+    "number": 50,
+    "name": "Agent 50 - n8n Hospitality & Short-Term Rental Concierge",
+    "filename": "50_n8n_hospitality__short-term_rental_concierge.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 50: N8N HOSPITALITY & SHORT-TERM RENTAL CONCIERGE\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Webhook (Reservation) \u2794 Door Code Generator \u2794 Timed Guide Delivery \u2794 WhatsApp\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nGenerate smart-lock door codes, schedule check-in guides, and answer guest amenity queries via WhatsApp.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_hospitality__short-term_rental_concierge",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-51",
+    "number": 51,
+    "name": "Agent 51 - n8n Multi-Channel E-Commerce Inventory Synchronizer",
+    "filename": "51_n8n_multi-channel_e-commerce_inventory_synchronizer.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 51: N8N MULTI-CHANNEL E-COMMERCE INVENTORY SYNCHRONIZER\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Webhook (Shopify Order) \u2794 Inventory Calculation \u2794 Amazon & WooCommerce Node\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nReconcile product inventory across Shopify, Amazon, and warehouse locations within 5 seconds of purchase.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_multi-channel_e-commerce_inventory_synchronizer",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals",
+      "hr"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-52",
+    "number": 52,
+    "name": "Agent 52 - n8n Supply Chain & Freight Logistics Strategist",
+    "filename": "52_n8n_supply_chain__freight_logistics_strategist.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 52: N8N SUPPLY CHAIN & FREIGHT LOGISTICS STRATEGIST\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Schedule Trigger \u2794 Carrier Tracking APIs \u2794 Delay Predictor \u2794 ETA Alert\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTrack shipping container numbers across ocean carriers, detect customs holds, and proactively recalculate ETAs.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_supply_chain__freight_logistics_strategist",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-53",
+    "number": 53,
+    "name": "Agent 53 - n8n Multilingual UI & Documentation Localization Agent",
+    "filename": "53_n8n_multilingual_ui__documentation_localization_agent.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 53: N8N MULTILINGUAL UI & DOCUMENTATION LOCALIZATION AGENT\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Webhook (Source JSON) \u2794 Multilingual Translation Engine \u2794 Repo Commit\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nTranslate documentation and software UI strings into 50+ languages while strictly preserving technical JSON schema keys.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_multilingual_ui__documentation_localization_agent",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-54",
+    "number": 54,
+    "name": "Agent 54 - n8n ESG Carbon Emissions & Utility Data Auditor",
+    "filename": "54_n8n_esg_carbon_emissions__utility_data_auditor.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 54: N8N ESG CARBON EMISSIONS & UTILITY DATA AUDITOR\n**Department:** 8. Specialized Industry Verticals\n**Architecture:** Email (Utility Bill PDF) \u2794 Data Parser \u2794 GHG Protocol Calculator \u2794 ESG Report\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nExtract electricity kWh and heating therms from bills, compute metric tons of CO2e, and compile Scope 1-3 reports.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_esg_carbon_emissions__utility_data_auditor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-55",
+    "number": 55,
+    "name": "Agent 55 - n8n Financial Runway & Unit Economics Modeler",
+    "filename": "55_n8n_financial_runway__unit_economics_modeler.json",
+    "department": "Industry Verticals",
+    "description": "## \ud83e\udd16 AGENT 55: N8N FINANCIAL RUNWAY & UNIT ECONOMICS MODELER\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** Schedule Trigger \u2794 QuickBooks P&L \u2794 Stripe MRR \u2794 Scenario Engine \u2794 Google Sheet\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nIngest monthly P&L and MRR metrics to forecast 12-month runway under Base, Bull, and Bear hiring scenarios.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_financial_runway__unit_economics_modeler",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "industry verticals"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-56",
+    "number": 56,
+    "name": "Agent 56 - n8n Competitor Pricing Strategy & Packaging Analyst",
+    "filename": "56_n8n_competitor_pricing_strategy__packaging_analyst.json",
+    "department": "Strategic Advisory",
+    "description": "## \ud83e\udd16 AGENT 56: N8N COMPETITOR PRICING STRATEGY & PACKAGING ANALYST\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** n8n Form Trigger \u2794 Pricing Scraper \u2794 Monetization Model \u2794 Executive Deck\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nBenchmark competitor pricing tiers, identify monetization gaps, and recommend a revenue-optimized 3-tier structure.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_competitor_pricing_strategy__packaging_analyst",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "strategic advisory",
+      "scraper"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-57",
+    "number": 57,
+    "name": "Agent 57 - n8n Enterprise Change Management Rollout Strategist",
+    "filename": "57_n8n_enterprise_change_management_rollout_strategist.json",
+    "department": "Strategic Advisory",
+    "description": "## \ud83e\udd16 AGENT 57: N8N ENTERPRISE CHANGE MANAGEMENT ROLLOUT STRATEGIST\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** n8n Form Trigger \u2794 Rollout Objectives \u2794 Communication Roadmap \u2794 Confluence\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nDesign internal change management communication templates, manager objection FAQs, and training timelines.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_enterprise_change_management_rollout_strategist",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "strategic advisory"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-58",
+    "number": 58,
+    "name": "Agent 58 - n8n Cross-Border Cultural Intelligence Consultant",
+    "filename": "58_n8n_cross-border_cultural_intelligence_consultant.json",
+    "department": "Strategic Advisory",
+    "description": "## \ud83e\udd16 AGENT 58: N8N CROSS-BORDER CULTURAL INTELLIGENCE CONSULTANT\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** n8n Form Trigger \u2794 Campaign Copy \u2794 Cultural Audit \u2794 Localization Advisory\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nEvaluate marketing campaign messaging for cultural taboos, colloquialisms, and regulatory fit in international markets.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_cross-border_cultural_intelligence_consultant",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "strategic advisory"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-59",
+    "number": 59,
+    "name": "Agent 59 - n8n Executive Decision Retrospective & Leadership Mentor",
+    "filename": "59_n8n_executive_decision_retrospective__leadership_mentor.json",
+    "department": "Strategic Advisory",
+    "description": "## \ud83e\udd16 AGENT 59: N8N EXECUTIVE DECISION RETROSPECTIVE & LEADERSHIP MENTOR\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** n8n Form Trigger / Chat \u2794 Cognitive Bias Audit \u2794 Decision Matrix \u2794 Private Journal\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nAudit executive decision dilemmas for cognitive biases (e.g. Sunk Cost) and steelman counter-arguments in a decision matrix.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_executive_decision_retrospective__leadership_mentor",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "strategic advisory"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  },
+  {
+    "id": "WF-60",
+    "number": 60,
+    "name": "Agent 60 - n8n Autonomous Master Brain (Nexus Supreme Router)",
+    "filename": "60_n8n_autonomous_master_brain_nexus_supreme_router.json",
+    "department": "Master Nexus Brain",
+    "description": "## \ud83e\udd16 AGENT 60: N8N AUTONOMOUS MASTER BRAIN (NEXUS SUPREME ROUTER)\n**Department:** 9. Strategic Leadership & Advisory\n**Architecture:** Webhook / Form Trigger \u2794 Supreme Router \u2794 Dynamic Sub-Agent Orchestration\n**Execution Engine:** 100% Free Local Ollama (RTX 5060 GPU) / Gemini Flash\n\n### Production Task:\nEvaluate open-ended executive business prompts and orchestrate specialized agents across all 9 departments to deliver.",
+    "node_count": 5,
+    "node_types": [
+      "n8n-nodes-base.stickyNote",
+      "n8n-nodes-base.code",
+      "n8n-nodes-base.httpRequest",
+      "n8n-nodes-base.webhook"
+    ],
+    "trigger_type": "Webhook (POST)",
+    "webhook_path": "agent-n8n_autonomous_master_brain_nexus_supreme_router",
+    "endpoints": [
+      "http://172.17.0.1:11434/api/chat"
+    ],
+    "models": [
+      "qwen2.5-coder:7b"
+    ],
+    "complexity": "Medium",
+    "operational_status": "READY_WITH_CONFIG",
+    "issues": [
+      "Uses Docker bridge IP 172.17.0.1: Needs host/env parameterization (OLLAMA_BASE_URL)."
+    ],
+    "security_risks": [
+      "Prompt Injection: External un-sanitized payloads passed into LLM prompt require strict validation.",
+      "Data Privacy: Compliant when routed through local Ollama GPU; if swapped to cloud API, customer PII must be scrubbed."
+    ],
+    "tags": [
+      "lead",
+      "master nexus brain"
+    ],
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "description": "Primary task or raw content to process"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional client/lead metadata"
+        }
+      },
+      "required": [
+        "input"
+      ]
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Structured AI synthesis or processed action"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Audit trace and execution timings"
+        }
+      }
+    },
+    "suggested_price": {
+      "setup_usd": 750,
+      "monthly_retainer_usd": 150
+    }
+  }
+]

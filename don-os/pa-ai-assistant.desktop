@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=DON OS Assistant
+GenericName=Personal AI Assistant
+Comment=Open the DON OS workstation assistant
+Exec="/home/mullainathan/Documents/Coding/Projects/pa ai agent/run_assistant.sh"
+Path=/home/mullainathan/Documents/Coding/Projects/pa ai agent
+Icon=/home/mullainathan/Documents/Coding/Projects/pa ai agent/electron_app/icon.png
+Terminal=false
+StartupNotify=true
+Categories=Utility;
+Keywords=assistant;AI;chat;orb;

@@ -1,0 +1,178 @@
+{
+  "mcpServers": {
+    "blender-mcp": {
+      "command": "/home/mullainathan/.local/bin/uvx",
+      "args": [
+        "blender-mcp"
+      ],
+      "env": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876",
+        "DISABLE_TELEMETRY": "true"
+      }
+    },
+    "craft-photocraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/photocraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-vectorcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/vectorcraft-cli",
+      "args": [
+        "mcp",
+        "--headless",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-filmcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/filmcraft-cli",
+      "args": [
+        "mcp"
+      ]
+    },
+    "craft-lightcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/lightcraft-cli",
+      "args": [
+        "mcp",
+        "--compact"
+      ]
+    },
+    "craft-pdfcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/pdfcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs",
+        "--root",
+        "/home/mullainathan/craft-work-storytold",
+        "--compact"
+      ]
+    },
+    "craft-effectcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/effectcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-designcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/designcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-gridcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/gridcraft-cli",
+      "args": [
+        "mcp"
+      ]
+    },
+    "craft-wordcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/wordcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-deckcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/deckcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-cadcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/cadcraft-cli",
+      "args": [
+        "mcp"
+      ]
+    },
+    "craft-soundcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/soundcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "craft-figcraft": {
+      "command": "/home/mullainathan/.local/opt/craft/bin/figcraft-cli",
+      "args": [
+        "mcp",
+        "--automation-read-root",
+        "/home/mullainathan/craft-work-storytold",
+        "--automation-write-root",
+        "/home/mullainathan/craft-work-storytold/outputs"
+      ]
+    },
+    "system-desktop": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/home/mullainathan/Documents/Coding/Projects/pa ai agent/tools/system_mcp_server.py"
+      ]
+    },
+    "git-vcs": {
+      "command": "/home/mullainathan/.local/bin/uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/home/mullainathan/Documents/Coding/Projects/pa ai agent"
+      ]
+    },
+    "filesystem-workspace": {
+      "command": "/usr/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/mullainathan"
+      ]
+    },
+    "azure-mcp": {
+      "command": "/home/mullainathan/.vscode/extensions/ms-azuretools.vscode-azure-mcp-server-3.0.51-linux-x64/server/azmcp",
+      "args": [
+        "server",
+        "start",
+        "--mode",
+        "namespace"
+      ]
+    },
+    "foundry-mcp": {
+      "type": "http",
+      "transport": "http",
+      "url": "https://mcp.ai.azure.com/"
+    },
+    "github-copilot-mcp": {
+      "type": "http",
+      "transport": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "X-MCP-Toolsets": "default"
+      }
+    }
+  }
+}

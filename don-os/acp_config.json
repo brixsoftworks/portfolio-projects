@@ -1,0 +1,18 @@
+{
+  "acpServers": {
+    "antigravity-pa": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/home/mullainathan/Documents/Coding/Projects/pa ai agent/acp_server.py"
+      ],
+      "description": "Antigravity Personal Assistant ACP Agent with 360+ tools and Gemini brain"
+    },
+    "claude-code": {
+      "command": "/home/mullainathan/.local/bin/claude",
+      "args": [
+        "--print"
+      ],
+      "description": "Anthropic Claude Code CLI agent"
+    }
+  }
+}

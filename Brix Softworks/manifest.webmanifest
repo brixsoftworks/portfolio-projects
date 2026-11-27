@@ -1,0 +1,16 @@
+{
+  "name": "Brix Softworks",
+  "short_name": "Brix",
+  "description": "Elite AI and software innovation company crafting cinematic, high-performance digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "assets/icons/Icon_.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

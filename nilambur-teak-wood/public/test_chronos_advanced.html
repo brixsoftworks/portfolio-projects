@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos Advanced Maturation Engine Prototype</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --content--brand: #fa3600;
+      --content--gold: #d97706;
+      --content--primary: #1c1815;
+      --content--secondary: #483f36;
+      --content--terriary: rgba(28, 24, 21, 0.68);
+      --content--border: #c8bfb2;
+      --content--white: #ebe4db;
+      --bg--sandstone: #efece6;
+      --bg--card: #e5dfd5;
+      --bg--card-light: #f4efe8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg--sandstone);
+      color: var(--content--primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 60px 20px;
+    }
+
+    /* === CHRONOS SECTION WITH SANDSTONE BACKGROUND === */
+    .home-patina-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      background: transparent;
+    }
+    .patina-container {
+      background: var(--content--white);
+      border: 1px solid var(--content--border);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(28, 24, 21, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Architectural grid background lines */
+    .patina-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(200, 191, 178, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(200, 191, 178, 0.25) 1px, transparent 1px);
+      pointer-events: none;
+    }
+
+    .patina-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .patina-tag {
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--content--brand);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .patina-title {
+      font-size: 34px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px 0;
+      color: var(--content--primary);
+    }
+    .patina-subtitle {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--content--secondary);
+      max-width: 680px;
+      margin: 0;
+    }
+
+    /* 3D GI Tag Coin */
+    .gi-seal-wrap {
+      perspective: 800px;
+    }
+    .gi-seal-coin {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #f59e0b, #b45309 60%, #78350f 100%);
+      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.5);
+      border: 2px solid rgba(253, 251, 247, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      font-family: monospace;
+      cursor: pointer;
+      transition: transform 0.15s ease-out;
+    }
+    .gi-seal-coin .small { font-size: 8px; letter-spacing: 0.15em; opacity: 0.9; }
+    .gi-seal-coin .big { font-size: 17px; font-weight: bold; color: #fef08a; margin: 1px 0; }
+
+    /* Main Grid */
+    .patina-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 3D SPECIMEN CARD WITH SCANNER BEAM & CANVAS PARTICLES */
+    .patina-visual-wrap {
+      perspective: 1000px;
+    }
+    .patina-visual {
+      position: relative;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--content--border);
+      background: #1c1815;
+      box-shadow: 0 16px 40px rgba(28, 24, 21, 0.18);
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    .patina-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+    .patina-glare {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      transition: opacity 0.3s ease;
+    }
+    .patina-particles-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .patina-scanline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #fa3600, #f59e0b, transparent);
+      box-shadow: 0 0 15px #fa3600;
+      opacity: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    /* Floating Badges on Visual */
+    .patina-era-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 6;
+      background: rgba(28, 24, 21, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(217, 119, 6, 0.45);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #f59e0b;
+    }
+    .patina-wood-grain-hud {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 6;
+      background: rgba(28, 24, 21, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(200, 191, 178, 0.3);
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-family: monospace;
+      font-size: 10px;
+      color: #efece6;
+      display: flex;
+      justify-content: space-between;
+    }
+    .patina-wood-grain-hud span strong {
+      color: var(--content--brand);
+    }
+
+    /* INTERACTIVE ANATOMY HOTSPOTS */
+    .anatomy-hotspot {
+      position: absolute;
+      z-index: 7;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+    .hotspot-ring {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--content--brand);
+      background: rgba(250, 54, 0, 0.25);
+      box-shadow: 0 0 12px var(--content--brand);
+      animation: pulseHotspot 2s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hotspot-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .hotspot-tooltip {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(28, 24, 21, 0.94);
+      color: #efece6;
+      border: 1px solid var(--content--brand);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-family: monospace;
+      font-size: 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .anatomy-hotspot:hover .hotspot-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    @keyframes pulseHotspot {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    /* CONTROLS (SANDSTONE / ARCHITECTURAL THEME) */
+    .patina-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Timeline Slider Container */
+    .patina-timeline-track {
+      background: var(--bg--card);
+      border: 1px solid var(--content--border);
+      border-radius: 12px;
+      padding: 20px 24px 16px;
+    }
+    .patina-timeline-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .timeline-title {
+      color: var(--content--secondary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .timeline-year-readout {
+      color: var(--content--brand);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* Continuous Slider Bar */
+    .patina-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #cfc7bc;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+    }
+    .patina-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--content--brand);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 10px rgba(250, 54, 0, 0.5);
+      cursor: ew-resize;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .patina-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 16px var(--content--brand);
+    }
+    .patina-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--content--secondary);
+    }
+    .patina-ticks span {
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .patina-ticks span:hover {
+      background: rgba(250, 54, 0, 0.08);
+      color: var(--content--brand);
+    }
+    .patina-ticks span.active {
+      background: var(--content--brand);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Metrics Cards */
+    .patina-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .patina-metric-box {
+      background: var(--bg--card);
+      border: 1px solid var(--content--border);
+      border-radius: 10px;
+      padding: 16px 12px;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .patina-metric-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--content--brand);
+    }
+    .metric-val {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--content--brand);
+      font-family: monospace;
+      margin-bottom: 2px;
+    }
+    .metric-lbl {
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--content--secondary);
+    }
+
+    /* Narrative description */
+    .patina-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--content--primary);
+      padding: 14px 18px;
+      background: var(--bg--card-light);
+      border-left: 3px solid var(--content--brand);
+      border-radius: 0 8px 8px 0;
+      border-top: 1px solid var(--content--border);
+      border-right: 1px solid var(--content--border);
+      border-bottom: 1px solid var(--content--border);
+    }
+    .patina-desc strong {
+      color: var(--content--brand);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="home-patina-wrap">
+    <section class="patina-container">
+      <div class="patina-bg-grid"></div>
+
+      <!-- Section Header -->
+      <div class="patina-head">
+        <div>
+          <div class="patina-tag">CHRONOS • TIMBER MATURATION ENGINE</div>
+          <h2 class="patina-title">The 100-Year Nilambur Teak Patina</h2>
+          <p class="patina-subtitle">
+            Unlike softwoods that rot, authentic Nilambur teak oxidises with air and sunlight, self-lubricating with natural tectoquinone oils to deepen from radiant golden honey to immortal royal bronze.
+          </p>
+        </div>
+        <div class="gi-seal-wrap">
+          <div class="gi-seal-coin" id="giCoin" title="Click to spin official GI coin">
+            <div class="small">KERALA GI</div>
+            <div class="big">581</div>
+            <div class="small">CANOLI 1844</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Grid -->
+      <div class="patina-grid">
+        <!-- 3D Specimen Card -->
+        <div class="patina-visual-wrap" id="visualWrap">
+          <div class="patina-visual" id="patinaVisual">
+            <img class="patina-img" id="patinaImg" src="/images/bed-real.jpg" alt="Nilambur Teak Furniture Specimen">
+            <div class="patina-glare" id="patinaGlare"></div>
+            <canvas class="patina-particles-canvas" id="particlesCanvas"></canvas>
+            <div class="patina-scanline" id="patinaScanline"></div>
+            <div class="patina-era-badge" id="patinaEraBadge">ERA: YEAR 0 (FRESH CANOLI HEARTWOOD)</div>
+            
+            <!-- Hotspots -->
+            <div class="anatomy-hotspot" style="top: 35%; left: 30%;" onclick="showHotspotInfo('heartwood')">
+              <div class="hotspot-ring"><div class="hotspot-dot"></div></div>
+              <div class="hotspot-tooltip">SILICA HEARTWOOD: 0.72% ACOUSTIC PING</div>
+            </div>
+            <div class="anatomy-hotspot" style="top: 55%; left: 72%;" onclick="showHotspotInfo('resin')">
+              <div class="hotspot-ring"><div class="hotspot-dot"></div></div>
+              <div class="hotspot-tooltip">TECTOQUINONE POCKET: ANTI-TERMITE RESIN</div>
+            </div>
+            <div class="anatomy-hotspot" style="top: 75%; left: 45%;" onclick="showHotspotInfo('joint')">
+              <div class="hotspot-ring"><div class="hotspot-dot"></div></div>
+              <div class="hotspot-tooltip">MORTISE & TENON: 14.2 kN TENSILE LOAD</div>
+            </div>
+
+            <div class="patina-wood-grain-hud">
+              <span>ANNUAL RINGS: <strong id="hudRings">3.2mm/yr</strong></span>
+              <span>DENSITY: <strong id="hudDensity">650 kg/m³</strong></span>
+              <span>ACOUSTIC PING: <strong id="hudPing">580 Hz</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="patina-controls">
+          <div class="patina-timeline-track">
+            <div class="patina-timeline-head">
+              <span class="timeline-title">TIMBER AGE &amp; MATURATION SCRUB</span>
+              <span class="timeline-year-readout" id="yearReadout">YEAR 0 (FRESH CUT)</span>
+            </div>
+            <input type="range" class="patina-slider" id="patinaSlider" min="0" max="100" step="1" value="0" oninput="onContinuousScrub(this.value)">
+            <div class="patina-ticks">
+              <span class="active" onclick="snapToYear(0)">YEAR 0<br><small>FRESH</small></span>
+              <span onclick="snapToYear(15)">YEAR 15<br><small>AMBER</small></span>
+              <span onclick="snapToYear(50)">YEAR 50<br><small>BRONZE</small></span>
+              <span onclick="snapToYear(100)">YEAR 100+<br><small>ANTIQUE</small></span>
+            </div>
+          </div>
+
+          <div class="patina-metrics-grid">
+            <div class="patina-metric-box">
+              <div class="metric-val" id="metricHardness">1,000</div>
+              <div class="metric-lbl">Janka Hardness (lbf)</div>
+            </div>
+            <div class="patina-metric-box">
+              <div class="metric-val" id="metricResin">9.8%</div>
+              <div class="metric-lbl">Natural Resin Oil</div>
+            </div>
+            <div class="patina-metric-box">
+              <div class="metric-val" id="metricImmunity">99.2%</div>
+              <div class="metric-lbl">Moisture Barrier</div>
+            </div>
+          </div>
+
+          <div class="patina-desc" id="patinaDesc">
+            <strong>Year 0 (Freshly Harvested Heartwood):</strong> Radiant golden-yellow timber with fragrant natural tectoquinone essential oils. Silky silica crystals give exceptional acoustic damping and natural insect immunity.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // === 1. ACOUSTIC WOOD TAP WITH PITCH MODULATION ===
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playTeakKnock(pitch = 480) {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(pitch, now);
+        osc1.frequency.exponentialRampToValueAtTime(pitch * 0.45, now + 0.05);
+
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(pitch * 2.1, now);
+        osc2.frequency.exponentialRampToValueAtTime(pitch * 0.7, now + 0.04);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1400, now);
+        filter.frequency.exponentialRampToValueAtTime(380, now + 0.05);
+
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+
+        osc1.connect(filter);
+        osc2.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.055);
+        osc2.stop(now + 0.055);
+      } catch(e){}
+    }
+
+    // === 2. PARTICLE RESIN CANVAS ENGINE ===
+    const canvas = document.getElementById('particlesCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let particleIntensity = 0.2;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class ResinParticle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = -Math.random() * 0.6 - 0.2;
+        this.size = Math.random() * 2 + 1;
+        this.alpha = Math.random() * 0.6 + 0.2;
+        this.color = Math.random() > 0.4 ? '#f59e0b' : '#fa3600';
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha * particleIntensity;
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < 40; i++) particles.push(new ResinParticle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // === 3. CONTINUOUS TIMELINE SCRUB LOGIC ===
+    let lastPlayedYear = 0;
+
+    function triggerScanline() {
+      const scan = document.getElementById('patinaScanline');
+      gsap.fromTo(scan, 
+        { top: '0%', opacity: 0.9 }, 
+        { top: '100%', opacity: 0, duration: 0.65, ease: 'power2.out' }
+      );
+    }
+
+    function snapToYear(year) {
+      document.getElementById('patinaSlider').value = year;
+      onContinuousScrub(year, true);
+    }
+
+    function onContinuousScrub(year, isSnap = false) {
+      year = parseFloat(year);
+      const ratio = year / 100; // 0 to 1
+
+      // Modulate audio knock on major milestones
+      if (Math.abs(year - lastPlayedYear) >= 10 || isSnap) {
+        const pitch = 580 - (ratio * 240); // 580Hz down to 340Hz as timber hardens!
+        playTeakKnock(pitch);
+        lastPlayedYear = year;
+        triggerScanline();
+      }
+
+      // Update Year Readout
+      const yrLabel = document.getElementById('yearReadout');
+      if (year === 0) yrLabel.textContent = "YEAR 0 (FRESH CANOLI HEARTWOOD)";
+      else if (year < 25) yrLabel.textContent = `YEAR ${Math.round(year)} (HONEY AMBER)`;
+      else if (year < 60) yrLabel.textContent = `YEAR ${Math.round(year)} (HERITAGE ROYAL BRONZE)`;
+      else yrLabel.textContent = `YEAR ${Math.round(year)}+ (PALATIAL MALABAR ANTIQUE)`;
+
+      // Update Ticks highlight
+      document.querySelectorAll('.patina-ticks span').forEach((span, idx) => {
+        const tickYears = [0, 15, 50, 100];
+        const isActive = Math.abs(year - tickYears[idx]) < 12;
+        span.classList.toggle('active', isActive);
+      });
+
+      // Continuous Color Grading Interpolation:
+      // Sepia: 0 -> 0.6
+      // Saturate: 1.0 -> 1.55
+      // Contrast: 1.0 -> 1.25
+      // Brightness: 1.0 -> 0.84
+      const sepia = (ratio * 0.58).toFixed(2);
+      const saturate = (1.0 + ratio * 0.55).toFixed(2);
+      const contrast = (1.0 + ratio * 0.25).toFixed(2);
+      const brightness = (1.0 - ratio * 0.16).toFixed(2);
+
+      const img = document.getElementById('patinaImg');
+      img.style.filter = `sepia(${sepia}) saturate(${saturate}) contrast(${contrast}) brightness(${brightness})`;
+
+      // Particle intensity increases as resins crystalize
+      particleIntensity = 0.2 + ratio * 0.8;
+
+      // Update Odometer Metrics:
+      // Hardness: 1000 to 1180 lbf
+      // Resin: 9.8% to 16.8%
+      // Immunity: 99.2% to 100%
+      // Density: 650 to 760 kg/m3
+      // Acoustic Ping: 580 to 340 Hz
+      const hardness = Math.round(1000 + ratio * 180);
+      const resin = (9.8 + ratio * 7.0).toFixed(1);
+      const immunity = (99.2 + ratio * 0.8).toFixed(1);
+      const density = Math.round(650 + ratio * 110);
+      const ping = Math.round(580 - ratio * 240);
+
+      document.getElementById('metricHardness').textContent = hardness.toLocaleString();
+      document.getElementById('metricResin').textContent = resin + '%';
+      document.getElementById('metricImmunity').textContent = immunity + '%';
+      document.getElementById('hudDensity').textContent = density + ' kg/m³';
+      document.getElementById('hudPing').textContent = ping + ' Hz';
+
+      // Update Era Badge & Narrative
+      const badge = document.getElementById('patinaEraBadge');
+      const desc = document.getElementById('patinaDesc');
+
+      if (year < 15) {
+        badge.textContent = `ERA: YEAR ${Math.round(year)} (FRESH CANOLI HEARTWOOD)`;
+        desc.innerHTML = "<strong>Freshly Sawn Nilambur Heartwood:</strong> Radiant golden-yellow timber with fragrant natural tectoquinone essential oils. Silky silica crystals give exceptional acoustic damping and natural insect immunity.";
+      } else if (year < 50) {
+        badge.textContent = `ERA: YEAR ${Math.round(year)} (SEASONED ESTATE AMBER)`;
+        desc.innerHTML = "<strong>Seasoned Estate Patina:</strong> Amber warmth deepens through ambient exposure. The wood self-burnishes as microscopic resins seal the grain against seasonal monsoon humidity.";
+      } else if (year < 85) {
+        badge.textContent = `ERA: YEAR ${Math.round(year)} (HERITAGE ROYAL BRONZE)`;
+        desc.innerHTML = "<strong>Generational Heritage Bronze:</strong> Rich lustrous chestnut bronze with dark chocolate growth rings. Impervious to water, weathering, and insect penetration without any chemical polish.";
+      } else {
+        badge.textContent = `ERA: YEAR ${Math.round(year)}+ (PALATIAL MALABAR ANTIQUE)`;
+        desc.innerHTML = "<strong>Immortal Palatial Teak:</strong> Museum-grade antique patina with an iridescent bronze sheen. As seen in 19th-century Travancore and Malabar palaces, structural hardness exceeds steel-reinforced softwood.";
+      }
+    }
+
+    // === 4. 3D GYRO TILT WITH SPECULAR GLARE ===
+    const visualWrap = document.getElementById('visualWrap');
+    const visual = document.getElementById('patinaVisual');
+    const glare = document.getElementById('patinaGlare');
+
+    visualWrap.addEventListener('mousemove', (e) => {
+      const rect = visual.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      const rotX = (-y / (rect.height / 2)) * 8;
+      const rotY = (x / (rect.width / 2)) * 8;
+
+      visual.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+
+      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(circle at ${(x / rect.width + 0.5) * 100}% ${(y / rect.height + 0.5) * 100}%, rgba(255,255,255,0.28), transparent 60%)`;
+    });
+
+    visualWrap.addEventListener('mouseleave', () => {
+      visual.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      glare.style.opacity = '0';
+    });
+
+    // 3D GI Coin click
+    const coin = document.getElementById('giCoin');
+    coin.addEventListener('click', () => {
+      playTeakKnock(720);
+      gsap.to(coin, { rotationY: "+=360", duration: 0.8, ease: "back.out(1.5)" });
+    });
+
+    function showHotspotInfo(type) {
+      playTeakKnock(620);
+      triggerScanline();
+    }
+  </script>
+</body>
+</html>

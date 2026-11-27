@@ -41,3 +41,11 @@ ios/build/
 ios/Pods/
 .turbo/
 .next/
+ezgif-frame-*.png
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+.godot/
+*.translation
+

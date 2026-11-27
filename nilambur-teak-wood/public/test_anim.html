@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  body { margin: 0; background: #efece6; display: flex; gap: 20px; padding: 40px; }
+  .card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+  }
+  .sketch {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .real {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: url('/images/pixel-wipe-down.svg');
+    mask-image: url('/images/pixel-wipe-down.svg');
+    -webkit-mask-size: 100% 3000%;
+    mask-size: 100% 3000%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+    will-change: mask-position, -webkit-mask-position;
+  }
+</style>
+</head>
+<body>
+  <div class="card" id="c0"><img class="sketch" src="/images/living-grand-sketch.webp"><img class="real" src="/images/living-grand-real.jpg"></div>
+  <div class="card" id="c1"><img class="sketch" src="/images/bed-sketch.webp"><img class="real" src="/images/bed-real.jpg"></div>
+  <div class="card" id="c2"><img class="sketch" src="/images/kitchen-sketch.webp"><img class="real" src="/images/kitchen-real.jpg"></div>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.real').forEach((img, idx) => {
+        gsap.to(img, {
+          maskPosition: '0% 100%',
+          webkitMaskPosition: '0% 100%',
+          duration: 1.2,
+          delay: 0.3 + idx * 0.25,
+          ease: 'steps(29)'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

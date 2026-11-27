@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+*.bak
+*.log
+recordings/
+drone_recordings/
+captures/
+test_*.jpg
+test_*.png

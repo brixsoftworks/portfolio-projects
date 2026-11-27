@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; background: #efece6; display: flex; gap: 20px; padding: 40px; }
+  .card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+  }
+  .sketch {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .real {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: url('/images/pixel-wipe-down.svg');
+    mask-image: url('/images/pixel-wipe-down.svg');
+    -webkit-mask-size: 100% 2500%;
+    mask-size: 100% 2500%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .p0 { -webkit-mask-position: 0% 0%; mask-position: 0% 0%; }
+  .p25 { -webkit-mask-position: 0% 25%; mask-position: 0% 25%; }
+  .p50 { -webkit-mask-position: 0% 50%; mask-position: 0% 50%; }
+  .p75 { -webkit-mask-position: 0% 75%; mask-position: 0% 75%; }
+  .p100 { -webkit-mask-position: 0% 100%; mask-position: 0% 100%; }
+</style>
+</head>
+<body>
+  <div class="card"><img class="sketch" src="/images/bed-sketch.webp"><img class="real p0" src="/images/bed-real.jpg"></div>
+  <div class="card"><img class="sketch" src="/images/bed-sketch.webp"><img class="real p25" src="/images/bed-real.jpg"></div>
+  <div class="card"><img class="sketch" src="/images/bed-sketch.webp"><img class="real p50" src="/images/bed-real.jpg"></div>
+  <div class="card"><img class="sketch" src="/images/bed-sketch.webp"><img class="real p75" src="/images/bed-real.jpg"></div>
+  <div class="card"><img class="sketch" src="/images/bed-sketch.webp"><img class="real p100" src="/images/bed-real.jpg"></div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="Control" unique_id=1776664591]
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ahhtf")
+
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=1983615248]
+layout_mode = 0
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 18.0
+offset_right = -30.0
+offset_bottom = 60.0
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="LapLabel" type="Label" parent="TopBar" unique_id=1806289090]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "LAP 1 / 3"
+
+[node name="SectorLabel" type="Label" parent="TopBar" unique_id=1524640289]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "SECTOR 0 / 8"
+
+[node name="TimeLabel" type="Label" parent="TopBar" unique_id=1460324110]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "TIME 00:00.00"
+
+[node name="BestLabel" type="Label" parent="TopBar" unique_id=146916774]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "BEST --:--.--"
+
+[node name="ScoreLabel" type="Label" parent="TopBar" unique_id=1327374869]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SCORE: 0"
+
+[node name="SpeedContainer" type="VBoxContainer" parent="." unique_id=337767456]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -180.0
+offset_right = -25.0
+offset_bottom = -25.0
+alignment = 2
+
+[node name="@HBoxContainer@2" type="HBoxContainer" parent="SpeedContainer" unique_id=1583579037]
+layout_mode = 2
+alignment = 2
+
+[node name="SpeedValue" type="Label" parent="SpeedContainer/@HBoxContainer@2" unique_id=801499209]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "0"
+
+[node name="@Label@3" type="Label" parent="SpeedContainer/@HBoxContainer@2" unique_id=1988130212]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " KM/H"
+vertical_alignment = 2
+
+[node name="SpeedBar" type="ProgressBar" parent="SpeedContainer" unique_id=1518780725]
+custom_minimum_size = Vector2(230, 16)
+layout_mode = 2
+show_percentage = false
+
+[node name="@Label@4" type="Label" parent="SpeedContainer" unique_id=1455558255]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "NITRO (HOLD SHIFT)"
+
+[node name="NitroBar" type="ProgressBar" parent="SpeedContainer" unique_id=2134727264]
+custom_minimum_size = Vector2(230, 12)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="BottomBar" type="VBoxContainer" parent="." unique_id=2101361292]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -110.0
+offset_right = 520.0
+offset_bottom = -20.0
+
+[node name="CarNameLabel" type="Label" parent="BottomBar" unique_id=1864521603]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "CAR: Neon GT Supercar [Press 1-4 to change]"
+
+[node name="@Label@5" type="Label" parent="BottomBar" unique_id=1569370986]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "WASD/↑↓←→ : Drive | SPACE : Drift | SHIFT : Nitro | C : Camera | R : Reset"
+
+[node name="CenterOverlay" type="CenterContainer" parent="." unique_id=284303978]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CountdownLabel" type="Label" parent="CenterOverlay" unique_id=907330962]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "3"
+horizontal_alignment = 1
+
+[node name="DriftContainer" type="PanelContainer" parent="." unique_id=1049029062]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 80.0
+offset_right = 160.0
+offset_bottom = 140.0
+
+[node name="DriftLabel" type="Label" parent="DriftContainer" unique_id=96461815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "DRIFT!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictoryOverlay" type="PanelContainer" parent="." unique_id=281568418]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -180.0
+offset_right = 220.0
+offset_bottom = 180.0
+
+[node name="VBox" type="VBoxContainer" parent="VictoryOverlay" unique_id=194787438]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="@Label@6" type="Label" parent="VictoryOverlay/VBox" unique_id=1559398394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "🏆 RACE FINISHED! 🏆"
+horizontal_alignment = 1
+
+[node name="TimeResult" type="Label" parent="VictoryOverlay/VBox" unique_id=1342703404]
+layout_mode = 2
+text = "Total Time: 00:00"
+horizontal_alignment = 1
+
+[node name="BestResult" type="Label" parent="VictoryOverlay/VBox" unique_id=1511093710]
+layout_mode = 2
+text = "Best Lap: 00:00"
+horizontal_alignment = 1
+
+[node name="ScoreResult" type="Label" parent="VictoryOverlay/VBox" unique_id=2049109783]
+layout_mode = 2
+text = "Final Score: 0"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="VictoryOverlay/VBox" unique_id=1296876748]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+text = "RACE AGAIN"

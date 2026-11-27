@@ -1499,17 +1499,26 @@
 
     splitWords(el, staggerBy) {
       const hasGradient = el.querySelector(":scope > .text-gradient") !== null;
-      const text = el.textContent;
-      const words = text.split(/\s+/);
+      let rawHTML = el.innerHTML;
+      rawHTML = rawHTML.replace(/<br\s*\/?>/gi, ' _BR_ ');
+      const dummy = document.createElement('div');
+      dummy.innerHTML = rawHTML;
+      const text = dummy.textContent || dummy.innerText;
+      const words = text.split(/\s+/).filter(w => w.trim() !== "");
+      
       el.innerHTML = "";
       let delay = 0;
       for (const [i, word] of words.entries()) {
+        if (word === "_BR_") {
+          el.appendChild(document.createElement("br"));
+          continue;
+        }
         const span = document.createElement("span");
         span.className = hasGradient ? "word text-gradient" : "word";
         span.textContent = word;
         span.style.animationDelay = `${delay}s`;
         el.appendChild(span);
-        if (i < words.length - 1) {
+        if (i < words.length - 1 && words[i + 1] !== "_BR_") {
           const space = document.createElement("span");
           space.className = "word-space";
           el.appendChild(space);
@@ -2256,10 +2265,11 @@
   const SUBMIT_BTN = document.getElementById("formSubmit");
   if (!FORM || !STATUS || !SUBMIT_BTN) return;
 
-  const CLOUDFLARE_WORKER =
-    "https://floral-grass-e5d9.technologies-brix.workers.dev";
+  emailjs.init("BlAsb_uUrdfjZ2E62");
 
   const btnText = SUBMIT_BTN.querySelector(".btn-text");
+
+  let lastSubmitAt = 0;
 
   FORM.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -2273,6 +2283,20 @@
     const name = FORM.formName.value.trim();
     const phone = FORM.formPhone.value.trim();
     const email = FORM.formEmail.value.trim();
+
+    // Honeypot: bots fill the hidden "website" field; silently ignore them
+    if (FORM.formWebsite && FORM.formWebsite.value.trim()) {
+      FORM.reset();
+      return;
+    }
+
+    // Rate limit: at least 60s between submissions from this browser
+    const now = Date.now();
+    if (now - lastSubmitAt < 60000) {
+      STATUS.className = "form-status error";
+      STATUS.textContent = "Please wait a moment before submitting again.";
+      return;
+    }
 
     let valid = true;
     for (const el of [FORM.formName, FORM.formPhone, FORM.formEmail]) {
@@ -2308,13 +2332,24 @@
 
       // Write to Firestore via Firebase SDK
       await firebase.firestore().collection("contacts").add(data);
+      lastSubmitAt = Date.now();
 
-      // Send Telegram notification via Cloudflare Worker
-      await fetch(CLOUDFLARE_WORKER, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      // Send email notification via EmailJS (non-blocking: Firestore is the
+      // source of truth, so the submitter still gets confirmation)
+      try {
+        await emailjs.send(
+          "service_ss7duub",
+          "template_3gk88us",
+          {
+            name,
+            phone,
+            email,
+            createdAt: data.createdAt,
+          }
+        );
+      } catch (mailErr) {
+        console.error("Email notification failed:", mailErr);
+      }
 
       STATUS.className = "form-status success";
       STATUS.textContent = "Thank you! We'll contact you within 24 hours.";

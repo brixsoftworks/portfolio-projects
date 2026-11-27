@@ -1,0 +1,284 @@
+{
+  "brix_sales_os/agents/__init__.py": {
+    "mtime": 1793174980.718109,
+    "seen": 1793180125.6556988,
+    "ast_hash": "52b78fbb223c276f74c40dda3c87f71f",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent01_lead_discovery.py": {
+    "mtime": 1793174766.5692153,
+    "seen": 1793180125.6557026,
+    "ast_hash": "4983dce5666ed2ea816980337ba6d33e",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent02_website_intelligence.py": {
+    "mtime": 1793175286.786315,
+    "seen": 1793180125.6557045,
+    "ast_hash": "1684e392b325a2ff88994abc611b01f3",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent03_lead_scoring.py": {
+    "mtime": 1793175575.1454642,
+    "seen": 1793180125.6557057,
+    "ast_hash": "172b318d5863b6f0e4b9ac9d86c1470a",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent04_solution_matching.py": {
+    "mtime": 1793175604.7668905,
+    "seen": 1793180125.6557064,
+    "ast_hash": "087f18be0649b1c387df42c2d61e9ba8",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent05_demo_generator.py": {
+    "mtime": 1793174839.4493248,
+    "seen": 1793180125.6557071,
+    "ast_hash": "4d8ff78823e64e638feef9e46db0d61d",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent06_outreach_copywriter.py": {
+    "mtime": 1793175618.5910892,
+    "seen": 1793180125.6557078,
+    "ast_hash": "3e9e0c9a6b32a512da73be12024a0790",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent07_campaign_manager.py": {
+    "mtime": 1793174871.5526338,
+    "seen": 1793180125.6557083,
+    "ast_hash": "3683ee7fa5237a2b4776313f1642c215",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent08_inbox_manager.py": {
+    "mtime": 1793174888.3718612,
+    "seen": 1793180125.6557093,
+    "ast_hash": "fc664be58f13f4431d83def3ccc77906",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent09_meeting_booking.py": {
+    "mtime": 1793174900.419024,
+    "seen": 1793180125.6557097,
+    "ast_hash": "36c9920d781f196e9d784a64a4a842ec",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent10_proposal_generator.py": {
+    "mtime": 1793174942.895598,
+    "seen": 1793180125.6557105,
+    "ast_hash": "2677e5a9a4d0ef8d645095db187146aa",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent11_closing_assistant.py": {
+    "mtime": 1793175347.4311876,
+    "seen": 1793180125.6557112,
+    "ast_hash": "77cef9f3f0e827da7149f7fe1c385c2a",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/agent12_onboarding.py": {
+    "mtime": 1793174973.4860113,
+    "seen": 1793180125.655712,
+    "ast_hash": "0c295b2215750272c78a23c5af417291",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/agents/base.py": {
+    "mtime": 1793174751.5570126,
+    "seen": 1793180125.6557126,
+    "ast_hash": "f302110cff52b17ac5f8487ca288fcd3",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/api/main.py": {
+    "mtime": 1793177342.1398485,
+    "seen": 1793180125.6557133,
+    "ast_hash": "556930816a5b8bcf312fc006e9fafb05",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/config.py": {
+    "mtime": 1793174594.0679855,
+    "seen": 1793180125.6557138,
+    "ast_hash": "1338c0a4586bb1a10b2e1adecb9f730f",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/core/audit.py": {
+    "mtime": 1793174715.8755302,
+    "seen": 1793180125.6557145,
+    "ast_hash": "64ac0793e13dc240ae25684dc3bb1e4b",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/core/emergency.py": {
+    "mtime": 1793174695.87926,
+    "seen": 1793180125.655715,
+    "ast_hash": "fd11d7ad614a47776162fb65840c6920",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/core/ollama_client.py": {
+    "mtime": 1793174727.101682,
+    "seen": 1793180125.655716,
+    "ast_hash": "f024064ed90a8ebb2a14677fb218936c",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/core/security.py": {
+    "mtime": 1793174709.4524436,
+    "seen": 1793180125.6557164,
+    "ast_hash": "454d6b77fd1288bc22e0b823edf452f2",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/database/models.py": {
+    "mtime": 1793175233.415547,
+    "seen": 1793180125.6557171,
+    "ast_hash": "ef18d98b040b6d6fc2cceaaddc1a11a0",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/database/session.py": {
+    "mtime": 1793174673.5669587,
+    "seen": 1793180125.6557178,
+    "ast_hash": "d2d17ae94f8d3acf28c5c1b849e97f3a",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/frontend/js/app.js": {
+    "mtime": 1793177389.1284869,
+    "seen": 1793180125.6557183,
+    "ast_hash": "cec4bd653bb53631538e45d3c6f3b276",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/registry/workflow_auditor.py": {
+    "mtime": 1793174566.1625073,
+    "seen": 1793180125.6557193,
+    "ast_hash": "04f7a6b49c24be1625681e9c2514434c",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/registry/workflow_registry.json": {
+    "mtime": 1793175630.4572601,
+    "seen": 1793180125.6557198,
+    "ast_hash": "9e6779146a0ea1f514c681718cc233ea",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/services/email_sender.py": {
+    "mtime": 1793177067.616945,
+    "seen": 1793180125.6557202,
+    "ast_hash": "ca5d40b734e78bb0dccfadee05eea8f3",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/services/mail_automator.py": {
+    "mtime": 1793177304.195333,
+    "seen": 1793180125.655721,
+    "ast_hash": "92d56d7928deb240ce6537fbdfd2c1e2",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/services/pdf_service.py": {
+    "mtime": 1793174919.8252861,
+    "seen": 1793180125.6557214,
+    "ast_hash": "9e6c6b3644b61efaaf1cbd5afb030fe1",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1793175430.4603822,
+    "seen": 1793180125.655722,
+    "ast_hash": "3f3f87f50ee45266ac6275676013d282",
+    "semantic_hash": ""
+  },
+  "mail_automator_cli.py": {
+    "mtime": 1793177324.8586137,
+    "seen": 1793180125.6557229,
+    "ast_hash": "cd8de7397aad86e4c845a5ec643a2499",
+    "semantic_hash": ""
+  },
+  "send_campaign.py": {
+    "mtime": 1793177082.2331553,
+    "seen": 1793180125.6557233,
+    "ast_hash": "d045388725c3a98101e3ca1cbf714fde",
+    "semantic_hash": ""
+  },
+  "tests/test_database.py": {
+    "mtime": 1793175151.4414158,
+    "seen": 1793180125.6557238,
+    "ast_hash": "05f2b5e7dff1b2fc374927aaae4805f7",
+    "semantic_hash": ""
+  },
+  "tests/test_proposal_pdf.py": {
+    "mtime": 1793175166.104614,
+    "seen": 1793180125.6557245,
+    "ast_hash": "eadab94f20d35be01645abdbc330667d",
+    "semantic_hash": ""
+  },
+  "tests/test_sales_lifecycle_simulation.py": {
+    "mtime": 1793175381.7416813,
+    "seen": 1793180125.655725,
+    "ast_hash": "750f75872b54d17215efae61c4a1145b",
+    "semantic_hash": ""
+  },
+  "tests/test_workflow_auditor.py": {
+    "mtime": 1793175158.9665174,
+    "seen": 1793180125.6557255,
+    "ast_hash": "76013977776d16861160a239577fda71",
+    "semantic_hash": ""
+  },
+  "ARCHITECTURE.md": {
+    "mtime": 1793175508.546506,
+    "seen": 1793180125.6557264,
+    "ast_hash": "c1f6be9732fd149e38cc6d269fbfee0c",
+    "semantic_hash": ""
+  },
+  "OPERATIONS.md": {
+    "mtime": 1793175524.1727307,
+    "seen": 1793180125.655727,
+    "ast_hash": "b7b1f96c7d271f835e87ea6d9e748d41",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793175489.9732387,
+    "seen": 1793180125.6557274,
+    "ast_hash": "8758fac8fb3a218e3fb41f94d320391b",
+    "semantic_hash": ""
+  },
+  "SECURITY.md": {
+    "mtime": 1793175537.6479247,
+    "seen": 1793180125.6557279,
+    "ast_hash": "77070cbe9fea808134f99df537e5ba1c",
+    "semantic_hash": ""
+  },
+  "STATUS.md": {
+    "mtime": 1793175473.7060046,
+    "seen": 1793180125.6557286,
+    "ast_hash": "c643445333bec22a5d79ea7985a73de4",
+    "semantic_hash": ""
+  },
+  "brix_sales_os/frontend/index.html": {
+    "mtime": 1793177365.7951698,
+    "seen": 1793180125.655729,
+    "ast_hash": "673dbd2536d5be9a4e1ae0221c5cece9",
+    "semantic_hash": ""
+  },
+  "data/clients/simulated_growth_agency_com/PROJECT_BRIEF.md": {
+    "mtime": 1793175630.4064915,
+    "seen": 1793180125.65573,
+    "ast_hash": "e3268cea18c859e6308551aaaa95c4d6",
+    "semantic_hash": ""
+  },
+  "requirements.txt": {
+    "mtime": 1793175449.5886576,
+    "seen": 1793180125.6557305,
+    "ast_hash": "30a6b2c12b3e87683bf60cbcb0fe5464",
+    "semantic_hash": ""
+  },
+  "data/proposals/prop_apexgrowthagency_com.pdf": {
+    "mtime": 1793175670.211832,
+    "seen": 1793180125.6557312,
+    "ast_hash": "2d3edb1617a5431d5cd803a52a0aac6d",
+    "semantic_hash": ""
+  },
+  "data/proposals/prop_cloudscalesystems_io.pdf": {
+    "mtime": 1793175928.109543,
+    "seen": 1793180125.655732,
+    "ast_hash": "13291f51eaf0f6453e2e4d98282623f4",
+    "semantic_hash": ""
+  },
+  "data/proposals/prop_luminacreative_co.pdf": {
+    "mtime": 1793175928.1405437,
+    "seen": 1793180125.6557324,
+    "ast_hash": "3011e171a85c43b5b55f8e5413f340ba",
+    "semantic_hash": ""
+  },
+  "data/proposals/prop_simulated_growth_agency_com.pdf": {
+    "mtime": 1793175630.240257,
+    "seen": 1793180125.655733,
+    "ast_hash": "cf67bb4b54fab3cf0f6026581d52592e",
+    "semantic_hash": ""
+  }
+}

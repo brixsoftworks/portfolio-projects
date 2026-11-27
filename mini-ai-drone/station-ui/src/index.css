@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* GTA V High-Contrast Radar Map Tiles */
+.gta-osm-tiles {
+  filter: brightness(0.85) contrast(1.12) saturate(1.15);
+}
+
+/* Real Satellite Photographic Aerial Imagery */
+.gta-satellite-tiles {
+  filter: brightness(0.96) contrast(1.18) saturate(1.15);
+}
+
+.leaflet-container {
+  background: #090d14 !important;
+}

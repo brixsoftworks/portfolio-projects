@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>MINI Drone Control Station - Enterprise Deck</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #06080d;
+        color: #f1f5f9;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      }
+      /* Custom map styling to match dark cyber cockpit */
+      .leaflet-container {
+        background: #090d14 !important;
+      }
+      .leaflet-control-zoom {
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(12, 16, 23, 0.85) !important;
+        backdrop-filter: blur(12px) !important;
+        border-radius: 12px !important;
+        overflow: hidden;
+      }
+      .leaflet-control-zoom a {
+        background: transparent !important;
+        color: #00f2fe !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+      .leaflet-control-attribution {
+        background: rgba(0, 0, 0, 0.6) !important;
+        color: rgba(255, 255, 255, 0.4) !important;
+        font-size: 9px !important;
+      }
+      /* Custom scrollbars */
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 242, 254, 0.3);
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#06080d] text-slate-100 antialiased overflow-hidden select-none">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

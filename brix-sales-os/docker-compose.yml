@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  brix-sales-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: brix-sales-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - OPERATING_MODE=ASSISTED_PRODUCTION
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - PRIMARY_MODEL=qwen2.5-coder:7b
+      - DATABASE_URL=sqlite:///./data/brix_sales.db
+      - EMERGENCY_STOP=false
+      - REQUIRE_EMAIL_APPROVAL=true
+      - REQUIRE_PROPOSAL_APPROVAL=true
+    volumes:
+      - ./data:/app/data
+      - /home/mullainathan/agent-agency-n8n/workflows/all_60_agents:/app/workflows:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

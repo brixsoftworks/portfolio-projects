@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Element Animations Prototype</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --content--brand: #fa3600;
+      --content--gold: #d97706;
+      --content--primary: #1c1815;
+      --content--secondary: #483f36;
+      --content--border: #c8bfb2;
+      --content--white: #ebe4db;
+      --bg--sandstone: #efece6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg--sandstone);
+      color: var(--content--primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 40px 20px;
+    }
+
+    /* 1. TERROIR HUD */
+    .hero-terroir-hud {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(28, 24, 21, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      color: #efece6;
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .terroir-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseGreen 1.8s infinite ease-in-out;
+    }
+    @keyframes pulseGreen {
+      0% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0.6; transform: scale(0.9); }
+    }
+    .terroir-time {
+      color: #f59e0b;
+      font-weight: 700;
+    }
+
+    /* 2. ODOMETER METRICS GRID */
+    .intro-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 30px 0;
+    }
+    .intro-metric-card {
+      background: var(--content--white);
+      border: 1px solid var(--content--border);
+      border-radius: 10px;
+      padding: 18px 14px;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .intro-metric-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--content--brand);
+    }
+    .intro-metric-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--content--brand);
+      font-family: monospace;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .intro-metric-lbl {
+      font-family: monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--content--primary);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .intro-metric-sub {
+      font-size: 11px;
+      color: var(--content--secondary);
+    }
+
+    /* 3. 3D EXPLODED MORTISE & TENON JOINERY SCHEMATIC */
+    .joinery-schematic-card {
+      background: var(--content--white);
+      border: 1px solid var(--content--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+    .joinery-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .joinery-title {
+      font-family: monospace;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--content--brand);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .joinery-stage {
+      position: relative;
+      height: 280px;
+      background: #f4efe8;
+      border: 1px dashed var(--content--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .joinery-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .joinery-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .joinery-btn {
+      background: var(--content--primary);
+      color: #efece6;
+      border: 1px solid rgba(250, 54, 0, 0.4);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .joinery-btn:hover {
+      background: var(--content--brand);
+      color: #fff;
+    }
+
+    /* 4. CHRONOS SPECIMEN SWITCHER TABS */
+    .specimen-switcher {
+      display: inline-flex;
+      gap: 8px;
+      background: rgba(28, 24, 21, 0.06);
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .specimen-tab {
+      background: transparent;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--content--secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .specimen-tab.active {
+      background: var(--content--brand);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* 5. CTA CORNER DRAFTING BRACKETS */
+    .cta-card-preview {
+      position: relative;
+      background: var(--content--white);
+      border: 1px solid var(--content--border);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .cta-bracket {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--content--brand);
+      pointer-events: none;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .cta-bracket.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+    .cta-bracket.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+    .cta-bracket.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+    .cta-bracket.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+    .cta-card-preview:hover .cta-bracket.tl { transform: translate(-3px, -3px); }
+    .cta-card-preview:hover .cta-bracket.tr { transform: translate(3px, -3px); }
+    .cta-card-preview:hover .cta-bracket.bl { transform: translate(-3px, 3px); }
+    .cta-card-preview:hover .cta-bracket.br { transform: translate(3px, 3px); }
+
+    /* CTA Phone Dialers */
+    .cta-phone-grid {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .cta-phone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--content--primary);
+      color: #efece6;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .cta-phone-pill:hover {
+      background: var(--content--brand);
+      color: #fff;
+      transform: scale(1.03);
+      border-color: var(--content--brand);
+      box-shadow: 0 6px 20px rgba(250, 54, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Aiswarya Industries - Advanced Elements Animation Prototype</h1>
+
+  <!-- 1. LIVE TERROIR TELEMETRY HUD -->
+  <h3>1. Hero Live Terroir Telemetry HUD</h3>
+  <div class="hero-terroir-hud" id="terroirHud">
+    <div class="terroir-pulse-dot"></div>
+    <span class="terroir-location">NILAMBUR, KERALA [11°16′N 76°13′E]</span>
+    <span class="terroir-sep">•</span>
+    <span class="terroir-reserve">CANOLI PLOT 1844</span>
+    <span class="terroir-sep">•</span>
+    <span class="terroir-time" id="heroLiveTime">LIVE IST 10:20:00</span>
+  </div>
+
+  <!-- 2. LIVE ODOMETER METRICS CASCADE -->
+  <h3>2. Live Odometer Metrics Cascade (Explore Woodcraft)</h3>
+  <div class="intro-metrics-grid">
+    <div class="intro-metric-card">
+      <div class="intro-metric-num" data-target="1844">0</div>
+      <div class="intro-metric-lbl">CANOLI'S PLOT HERITAGE</div>
+      <div class="intro-metric-sub">World's Oldest Teak Reserve</div>
+    </div>
+    <div class="intro-metric-card">
+      <div class="intro-metric-num" data-target="581">0</div>
+      <div class="intro-metric-lbl">GEOGRAPHICAL INDICATION</div>
+      <div class="intro-metric-sub">Kerala GI Reg. No. 581</div>
+    </div>
+    <div class="intro-metric-card">
+      <div class="intro-metric-num" data-target="100" data-suffix="%">0%</div>
+      <div class="intro-metric-lbl">SOLID NILAMBUR HEARTWOOD</div>
+      <div class="intro-metric-sub">0% Particle Board / MDF</div>
+    </div>
+    <div class="intro-metric-card">
+      <div class="intro-metric-num" data-target="40" data-suffix="+">0+</div>
+      <div class="intro-metric-lbl">HERITAGE ARTISANS</div>
+      <div class="intro-metric-sub">Generational Wood Carvers</div>
+    </div>
+  </div>
+
+  <!-- 3. 3D EXPLODED MORTISE & TENON JOINERY SCHEMATIC -->
+  <h3>3. 3D Exploded Mortise &amp; Tenon Joinery Schematic</h3>
+  <div class="joinery-schematic-card">
+    <div class="joinery-head">
+      <div class="joinery-title">ISOMETRIC CAD: BLIND MORTISE &amp; TENON ASSEMBLY</div>
+      <div style="font-family: monospace; font-size: 11px; color: var(--content--secondary);">SCALE 1:5 • TEKTONA GRANDIS</div>
+    </div>
+    <div class="joinery-stage">
+      <svg class="joinery-svg" viewBox="0 0 600 240">
+        <!-- Grid drafting lines -->
+        <defs>
+          <pattern id="gridPat" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(200, 191, 178, 0.4)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#gridPat)" />
+
+        <!-- Component A: Mortise Block (Left) -->
+        <g id="mortiseBlock" transform="translate(140, 60)">
+          <!-- Top Face -->
+          <polygon points="0,40 60,10 140,45 80,75" fill="#dfd7c7" stroke="#1c1815" stroke-width="1.5"/>
+          <!-- Front Face -->
+          <polygon points="0,40 80,75 80,140 0,105" fill="#c4b8a3" stroke="#1c1815" stroke-width="1.5"/>
+          <!-- Right Face -->
+          <polygon points="80,75 140,45 140,110 80,140" fill="#ad9f88" stroke="#1c1815" stroke-width="1.5"/>
+          <!-- Mortise Cavity Pocket -->
+          <polygon points="40,55 70,40 100,55 70,70" fill="#3a3026" stroke="#fa3600" stroke-width="1.5"/>
+          <text x="30" y="30" font-family="monospace" font-size="9" fill="#fa3600" font-weight="bold">MORTISE CAVITY (90×42mm)</text>
+        </g>
+
+        <!-- Component B: Tenon Tongue (Right) -->
+        <g id="tenonBlock" transform="translate(340, 60)">
+          <!-- Tenon Tongue -->
+          <polygon points="-50,55 -20,40 10,55 -20,70" fill="#e69d45" stroke="#fa3600" stroke-width="1.5"/>
+          <polygon points="-50,55 -20,70 -20,95 -50,80" fill="#c97d26" stroke="#fa3600" stroke-width="1.5"/>
+          <!-- Main Timber Shoulder -->
+          <polygon points="0,40 60,10 140,45 80,75" fill="#dfd7c7" stroke="#1c1815" stroke-width="1.5"/>
+          <polygon points="0,40 80,75 80,140 0,105" fill="#c4b8a3" stroke="#1c1815" stroke-width="1.5"/>
+          <polygon points="80,75 140,45 140,110 80,140" fill="#ad9f88" stroke="#1c1815" stroke-width="1.5"/>
+          <text x="60" y="30" font-family="monospace" font-size="9" fill="#d97706" font-weight="bold">SOLID TENON TONGUE</text>
+        </g>
+
+        <!-- Component C: Teak Locking Pin (Top) -->
+        <g id="lockingPin" transform="translate(230, 10)">
+          <polygon points="0,0 12,-5 24,0 12,5" fill="#fa3600" stroke="#1c1815" stroke-width="1.2"/>
+          <polygon points="0,0 12,5 12,45 0,40" fill="#b91c1c" stroke="#1c1815" stroke-width="1.2"/>
+          <polygon points="12,5 24,0 24,40 12,45" fill="#991b1b" stroke="#1c1815" stroke-width="1.2"/>
+          <text x="32" y="25" font-family="monospace" font-size="8" fill="#fa3600" font-weight="bold">12mm TEAK PIN</text>
+        </g>
+
+        <!-- Dynamic dimension leader lines -->
+        <g id="dimensionLines">
+          <line x1="200" y1="120" x2="330" y2="120" stroke="#fa3600" stroke-width="1" stroke-dasharray="3,3"/>
+          <circle cx="200" cy="120" r="2.5" fill="#fa3600"/>
+          <circle cx="330" cy="120" r="2.5" fill="#fa3600"/>
+          <text x="240" y="115" font-family="monospace" font-size="9" fill="#fa3600" font-weight="bold" id="dimReadout">EXPAND: 130mm</text>
+        </g>
+      </svg>
+    </div>
+    <div class="joinery-controls">
+      <button class="joinery-btn" onclick="toggleJoineryLock()">INTERLOCK JOINT ↔ EXPLODE VIEW</button>
+      <div style="font-family: monospace; font-size: 11px; color: var(--content--secondary);">
+        TENSILE CAPACITY: <strong style="color: var(--content--brand);">14.2 kN SCREWLESS</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CTA CARD WITH CORNER BRACKETS & MAGNETIC DIALERS -->
+  <h3>4. CTA Section with Animated Drafting Corner Brackets &amp; Direct Dialers</h3>
+  <div class="cta-card-preview" id="ctaCard">
+    <div class="cta-bracket tl"></div>
+    <div class="cta-bracket tr"></div>
+    <div class="cta-bracket bl"></div>
+    <div class="cta-bracket br"></div>
+
+    <h2 style="margin: 0 0 10px; font-size: 28px;">Double-Height Grand Living Hall</h2>
+    <p style="margin: 0; color: var(--content--secondary); font-size: 15px;">
+      Schedule a private architectural woodwork consultation with our hereditary master carpenters in Nilambur.
+    </p>
+
+    <div class="cta-phone-grid">
+      <a href="tel:+919447631731" class="cta-phone-pill magnetic-btn">
+        <span>📞</span>
+        <span>JANARDHANAN: +91 9447631731</span>
+      </a>
+      <a href="tel:+919656663063" class="cta-phone-pill magnetic-btn">
+        <span>📞</span>
+        <span>JITHESH: +91 9656663063</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // 1. Live Terroir Clock
+    function updateLiveTime() {
+      const now = new Date();
+      const istStr = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour12: false });
+      const el = document.getElementById('heroLiveTime');
+      if (el) el.textContent = `LIVE IST ${istStr}`;
+    }
+    setInterval(updateLiveTime, 1000);
+    updateLiveTime();
+
+    // 2. Odometer Counter Animation
+    function animateCounters() {
+      document.querySelectorAll('.intro-metric-num').forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        gsap.fromTo({ val: 0 }, { val: target }, {
+          duration: 1.8,
+          ease: 'power3.out',
+          onUpdate: function() {
+            el.textContent = Math.round(this.targets()[0].val).toLocaleString() + suffix;
+          }
+        });
+      });
+    }
+    setTimeout(animateCounters, 300);
+
+    // 3. Joinery Interlock Animation
+    let joineryLocked = false;
+    function toggleJoineryLock() {
+      joineryLocked = !joineryLocked;
+      const tenon = document.getElementById('tenonBlock');
+      const pin = document.getElementById('lockingPin');
+      const dimReadout = document.getElementById('dimReadout');
+
+      if (joineryLocked) {
+        // Slide tenon into mortise
+        gsap.to(tenon, { x: 230, duration: 0.8, ease: 'power3.inOut' });
+        // Slide pin down
+        gsap.to(pin, { y: 65, duration: 0.5, delay: 0.65, ease: 'bounce.out' });
+        dimReadout.textContent = "INTERLOCKED: 0mm";
+      } else {
+        // Explode outward
+        gsap.to(pin, { y: 10, duration: 0.4, ease: 'power2.in' });
+        gsap.to(tenon, { x: 340, duration: 0.8, delay: 0.2, ease: 'power3.out' });
+        dimReadout.textContent = "EXPAND: 130mm";
+      }
+    }
+
+    // 4. Magnetic Cursor Physics
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const dx = e.clientX - (rect.left + rect.width / 2);
+        const dy = e.clientY - (rect.top + rect.height / 2);
+        gsap.to(btn, { x: dx * 0.28, y: dy * 0.28, duration: 0.3, ease: 'power2.out' });
+      });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+      });
+    });
+  </script>
+</body>
+</html>
