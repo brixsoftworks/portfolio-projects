@@ -1,0 +1,8 @@
+node_modules
+frontend
+.git
+*.md
+render.yaml
+firebase.json
+scratch_*.js
+.env.example

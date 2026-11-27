@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+
+# Local config/environment
+local.properties
+*.jks
+*.keystore
+.env
+supabase/.env
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android signing
+app/**/signing.properties
+
+# Logs
+*.log

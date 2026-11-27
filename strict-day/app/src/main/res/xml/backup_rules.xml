@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="sharedpref" path="strict_day_secure.xml" />
+    <exclude domain="sharedpref" path="user_preferences.xml" />
+    <exclude domain="sharedpref" path="allowed_apps.xml" />
+    <exclude domain="root" path="." />
+</full-backup-content>

@@ -27,7 +27,7 @@ playwright-report/
 .godot/
 *.translation
 
-# Ignore all other top-level workspaces
+# Ignore all other top-level workspaces, whitelist flagship portfolio systems
 /*
 !/.gitignore
 !/README.md
@@ -38,3 +38,8 @@ playwright-report/
 !/godot-3d-car-game/
 !/mini-ai-drone/
 !/nilambur-teak-wood/
+!/promptlint/
+!/strict-day/
+!/dealhunter-ai/
+!/agent-sdr/
+!/isha-yoga-center-game/
