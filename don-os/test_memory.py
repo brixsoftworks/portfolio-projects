@@ -76,7 +76,7 @@ def test_memory():
     assert "No memories found" in rec_after
 
     print("\n" + "=" * 60)
-    print("🎉 ALL MEMORY TESTS PASSED!")
+    print(" ALL MEMORY TESTS PASSED!")
     print("=" * 60)
 
 

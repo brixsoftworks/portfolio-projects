@@ -44,7 +44,7 @@ namespace EarthExplorer
 
             GUILayout.BeginArea(new Rect(30, 30, panelWidth - 20, panelHeight - 20));
             
-            GUILayout.Label("🌍 Real-World Earth Flight HUD", headerStyle);
+            GUILayout.Label(" Real-World Earth Flight HUD", headerStyle);
             GUILayout.Space(5);
 
             if (flightController != null)

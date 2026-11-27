@@ -43,8 +43,8 @@ while time.time() < t_end:
             if match:
                 ip = match.group(1)
                 print("\n" + "="*58, flush=True)
-                print(f"🎉 CAMERA ONLINE AT: http://{ip}", flush=True)
-                print(f"🎥 STREAM URL:      http://{ip}:81/stream", flush=True)
+                print(f" CAMERA ONLINE AT: http://{ip}", flush=True)
+                print(f" STREAM URL:      http://{ip}:81/stream", flush=True)
                 print("="*58, flush=True)
         time.sleep(0.05)
     except (serial.SerialException, OSError):

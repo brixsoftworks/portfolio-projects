@@ -100,7 +100,7 @@ Nodes (10): 1. Daily Operator Workflow, 2. Service Management, 3. Backup and Dis
 
 ### Community 12 - "BRIX SALES OS"
 Cohesion: 0.18
-Nodes (10): 1. Requirements, 2. Installation & Running Locally, 3. Accessing the System, 🧪 Automated Test Suite, Autonomous Multi-Agent Client Acquisition, Outreach & Revenue Engine for Brix Softworks, BRIX SALES OS, 🚀 Quickstart, 🛡️ Safety & Compliance (+2 more)
+Nodes (10): 1. Requirements, 2. Installation & Running Locally, 3. Accessing the System,  Automated Test Suite, Autonomous Multi-Agent Client Acquisition, Outreach & Revenue Engine for Brix Softworks, BRIX SALES OS,  Quickstart,  Safety & Compliance (+2 more)
 
 ### Community 13 - "BRIX SALES OS — Architecture & Engineering Specification"
 Cohesion: 0.29

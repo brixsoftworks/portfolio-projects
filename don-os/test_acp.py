@@ -27,7 +27,7 @@ def test_1_list_acp_servers():
     result = list_acp_servers.invoke({})
     print(result)
     assert "antigravity-pa" in result
-    print("✅ TEST 1 PASSED\n")
+    print("[PASS] TEST 1 PASSED\n")
 
 
 def test_2_add_acp_server():
@@ -46,7 +46,7 @@ def test_2_add_acp_server():
     
     cfg = load_acp_config()
     assert "echo-test-agent" in cfg.get("acpServers", {})
-    print("✅ TEST 2 PASSED\n")
+    print("[PASS] TEST 2 PASSED\n")
 
 
 def test_3_call_acp_agent_antigravity_pa():
@@ -61,7 +61,7 @@ def test_3_call_acp_agent_antigravity_pa():
     })
     print(f"ACP Response:\n{response}")
     assert "90" in response
-    print("✅ TEST 3 PASSED\n")
+    print("[PASS] TEST 3 PASSED\n")
 
 
 def test_4_agent_brain_acp_tool_invocation():
@@ -76,18 +76,18 @@ def test_4_agent_brain_acp_tool_invocation():
     print(f"Tools Used: {result.get('tools_used')}")
     print(f"Response:\n{result.get('response')}")
     assert any("call_acp_agent" in t for t in result.get("tools_used", [])) or "25" in result.get("response", "")
-    print("✅ TEST 4 PASSED\n")
+    print("[PASS] TEST 4 PASSED\n")
 
 
 if __name__ == "__main__":
-    print("\n🚀 STARTING ACP (AGENT CLIENT PROTOCOL) TEST SUITE\n")
+    print("\n STARTING ACP (AGENT CLIENT PROTOCOL) TEST SUITE\n")
     try:
         test_1_list_acp_servers()
         test_2_add_acp_server()
         test_3_call_acp_agent_antigravity_pa()
         test_4_agent_brain_acp_tool_invocation()
         print("=" * 60)
-        print("🎉 ALL ACP TESTS PASSED SUCCESSFULLY!")
+        print(" ALL ACP TESTS PASSED SUCCESSFULLY!")
         print("=" * 60)
     finally:
         # Clean up echo-test-agent from config

@@ -1,3 +1,4 @@
+# Global ignores
 .env
 .env.*
 !.env.example
@@ -19,29 +20,6 @@ test-results/
 playwright-report/
 *.log
 .DS_Store
-
-# Additional ignores for large files and builds
-*.so
-*.so.*
-*.apk
-*.dill
-*.sst
-*.safetensors
-*.onnx
-*.bin
-*.fst
-*.tar.gz
-*.zip
-.expo/
-.dart_tool/
-build/
-android/app/build/
-android/.gradle/
-ios/build/
-ios/Pods/
-.turbo/
-.next/
-ezgif-frame-*.png
 *.db
 *.sqlite
 *.sqlite3
@@ -49,3 +27,14 @@ ezgif-frame-*.png
 .godot/
 *.translation
 
+# Ignore all other top-level workspaces
+/*
+!/.gitignore
+!/README.md
+!/brix-sales-os/
+!/Brix Softworks/
+!/don-os/
+!/EarthExplorer3D/
+!/godot-3d-car-game/
+!/mini-ai-drone/
+!/nilambur-teak-wood/

@@ -31,11 +31,11 @@ while time.time() < t_end:
     if ser.in_waiting:
         resp = ser.read(ser.in_waiting)
         total_bytes += len(resp)
-        print(f"\n🎉 [DATA FROM ESP32-CAM: {len(resp)} bytes] 🎉", flush=True)
+        print(f"\n [DATA FROM ESP32-CAM: {len(resp)} bytes] ", flush=True)
         print(f"  HEX:  {resp.hex()}", flush=True)
         print(f"  TEXT: {resp.decode('latin1', errors='replace')}", flush=True)
         if b'\xc0' in resp:
-            print("\n🚀🚀🚀 [SUCCESS] ESP32-CAM BOOTLOADER SYNC ESTABLISHED! 🚀🚀🚀", flush=True)
+            print("\n [SUCCESS] ESP32-CAM BOOTLOADER SYNC ESTABLISHED! ", flush=True)
             synced = True
             break
 

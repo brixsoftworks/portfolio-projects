@@ -22,7 +22,7 @@ async def test_all_servers():
     failed_servers = 0
 
     for name, s_cfg in servers.items():
-        print(f"\n🔌 Testing Software Server: '{name}'")
+        print(f"\n Testing Software Server: '{name}'")
         cmd = s_cfg.get("command", "")
         args = s_cfg.get("args", [])
         print(f"   Command: {cmd} {' '.join(args[:2])}...")
@@ -32,15 +32,15 @@ async def test_all_servers():
             if tools:
                 passed_servers += 1
                 total_tools += len(tools)
-                print(f"   ✅ Connected! {len(tools)} tools discovered.")
+                print(f"   [PASS] Connected! {len(tools)} tools discovered.")
                 sample_tool = tools[0]["raw_name"]
-                print(f"   🔍 Sample tool: {sample_tool}")
+                print(f"    Sample tool: {sample_tool}")
             else:
                 failed_servers += 1
-                print(f"   ⚠️  Server connected but returned 0 tools.")
+                print(f"   [WARN]  Server connected but returned 0 tools.")
         except Exception as e:
             failed_servers += 1
-            print(f"   ❌ Connection failed: {e}")
+            print(f"   [FAIL] Connection failed: {e}")
 
     print("\n" + "=" * 70)
     print(f"  Summary:")

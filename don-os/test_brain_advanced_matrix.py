@@ -24,13 +24,13 @@ from agent import CentralAgentBrain
 
 def print_header(title: str):
     print("\n" + "=" * 80)
-    print(f"  🧪 ADVANCED TEST: {title}")
+    print(f"   ADVANCED TEST: {title}")
     print("=" * 80)
 
 
 def execute_and_log(brain: CentralAgentBrain, prompt: str, test_id: str):
     print(f"\n[Test {test_id}] User Request:")
-    print(f"  💬 \"{prompt}\"")
+    print(f"   \"{prompt}\"")
     print("-" * 80)
 
     start_time = time.time()
@@ -41,21 +41,21 @@ def execute_and_log(brain: CentralAgentBrain, prompt: str, test_id: str):
     tool_calls = result.get("tool_calls_executed", [])
     response = result.get("response", "")
 
-    print(f"📊 Execution Summary:")
+    print(f" Execution Summary:")
     print(f"  • Status: {status}")
     print(f"  • Latency: {elapsed:.2f}s")
     print(f"  • Tools Invoked ({len(tool_calls)}):")
     for idx, tc in enumerate(tool_calls, 1):
         print(f"     {idx}. {tc['tool']}({tc['args']})")
 
-    print(f"\n🤖 Agent Response:\n{response}")
+    print(f"\n[AI] Agent Response:\n{response}")
     print("-" * 80)
     return result
 
 
 def main():
     print("=" * 80)
-    print("  🚀 STARTING COMPREHENSIVE ADVANCED BRAIN TEST MATRIX")
+    print("   STARTING COMPREHENSIVE ADVANCED BRAIN TEST MATRIX")
     print("=" * 80)
 
     # Initialize a clean dedicated brain instance
@@ -170,20 +170,20 @@ def main():
     # Test Matrix Summary Scorecard
     # --------------------------------------------------------------------------
     print("\n" + "=" * 80)
-    print("🏆 FINAL TEST MATRIX SCORECARD")
+    print(" FINAL TEST MATRIX SCORECARD")
     print("=" * 80)
     all_passed = True
     for test_name, status in test_results.items():
-        emoji = "✅" if status == "PASSED" else "❌"
+        emoji = "[PASS]" if status == "PASSED" else "[FAIL]"
         print(f"  {emoji} {test_name}: {status}")
         if status != "PASSED":
             all_passed = False
 
     print("=" * 80)
     if all_passed:
-        print("🎉 ALL ADVANCED BRAIN TESTS PASSED WITH 100% SUCCESS!")
+        print(" ALL ADVANCED BRAIN TESTS PASSED WITH 100% SUCCESS!")
     else:
-        print("⚠️ Some tests encountered issues. Review logs above.")
+        print("[WARN] Some tests encountered issues. Review logs above.")
     print("=" * 80 + "\n")
 
 

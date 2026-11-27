@@ -38,13 +38,13 @@ def read_file(path: str) -> str:
 
 async def main():
     print("=" * 70)
-    print("🚀 STARTING STANDALONE MULTI-AGENT FLEET VERIFICATION TEST")
+    print(" STARTING STANDALONE MULTI-AGENT FLEET VERIFICATION TEST")
     print("=" * 70)
 
     # Initialize Gemini model
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        print("❌ Error: GEMINI_API_KEY not found in environment!")
+        print("[FAIL] Error: GEMINI_API_KEY not found in environment!")
         sys.exit(1)
 
     model = ChatGoogleGenerativeAI(
@@ -62,28 +62,28 @@ async def main():
         events_captured.append(event)
         etype = event.get("type")
         if etype == "plan_created":
-            print(f"\n📋 [DAG PLAN GENERATED] Total Agents to Deploy: {event['total_agents']}")
+            print(f"\n [DAG PLAN GENERATED] Total Agents to Deploy: {event['total_agents']}")
             for s in event["plan"]:
                 print(f"   ├─ Agent Role: {s['role']:<12} | Parallel: {str(s.get('run_parallel')): <5} | Title: {s.get('title')}")
         elif etype == "agent_spawned":
-            print(f"🤖 [AGENT SPAWNED] {event['role']} ({event['agent_id']})")
+            print(f"[AI] [AGENT SPAWNED] {event['role']} ({event['agent_id']})")
         elif etype == "agent_tool_call":
-            print(f"   ⚡ [TOOL CALL] {event['role']} called '{event['tool']}'")
+            print(f"    [TOOL CALL] {event['role']} called '{event['tool']}'")
         elif etype == "agent_completed":
-            print(f"✅ [AGENT COMPLETE] {event['role']} finished.")
+            print(f"[PASS] [AGENT COMPLETE] {event['role']} finished.")
         elif etype == "synthesis_started":
-            print("\n🔮 [MASTER SYNTHESIS] Combining fleet deliverables into final response...")
+            print("\n [MASTER SYNTHESIS] Combining fleet deliverables into final response...")
 
     test_objective = (
         "Research the latest authentication bypass patterns, inspect our local config, "
         "and draft an API security hardening guideline."
     )
 
-    print(f"\n🎯 Objective: {test_objective}\n")
+    print(f"\n Objective: {test_objective}\n")
     result = await orchestrator.execute_mission(test_objective, event_callback=on_event)
 
     print("\n" + "=" * 70)
-    print("🎉 FLEET EXECUTION RESULTS:")
+    print(" FLEET EXECUTION RESULTS:")
     print("=" * 70)
     print(f"• Mission ID: {result['mission_id']}")
     print(f"• Total Elapsed: {result['elapsed_seconds']}s")
@@ -97,7 +97,7 @@ async def main():
     assert result["status"] == "success", "Mission status should be success"
     assert result["agents_deployed"] >= 2, "Should deploy at least 2 specialized agents"
     assert len(result["blackboard_pages"]) >= 2, "Should have created blackboard pages"
-    print("\n✨ ALL MULTI-AGENT CORE ASSERTIONS PASSED SUCCESSFULLY!\n")
+    print("\n ALL MULTI-AGENT CORE ASSERTIONS PASSED SUCCESSFULLY!\n")
 
 if __name__ == "__main__":
     asyncio.run(main())

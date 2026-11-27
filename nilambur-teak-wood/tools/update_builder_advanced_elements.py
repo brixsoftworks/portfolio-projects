@@ -445,11 +445,11 @@ cta_brackets_code = """cta_deco.append(BeautifulSoup(cta_html, 'html.parser'))
                 phone_html = '''
                 <div class="cta-phone-grid">
                   <a href="tel:+919447631731" class="cta-phone-pill magnetic-btn">
-                    <span class="phone-icon">📞</span>
+                    <span class="phone-icon">Tel: </span>
                     <span>JANARDHANAN: +91 94476 31731</span>
                   </a>
                   <a href="tel:+919656663063" class="cta-phone-pill magnetic-btn">
-                    <span class="phone-icon">📞</span>
+                    <span class="phone-icon">Tel: </span>
                     <span>JITHESH: +91 96566 63063</span>
                   </a>
                 </div>

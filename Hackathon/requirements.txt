@@ -1,7 +1,0 @@
-bandit
-streamlit
-chromadb
-sentence-transformers
-torch
-transformers
-pydantic

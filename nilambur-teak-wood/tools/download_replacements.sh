@@ -12,14 +12,14 @@ download() {
     local size=$(stat -c%s "$output" 2>/dev/null || echo "0")
     if [ "$size" -gt 5000 ]; then
       echo "SUCCESS|$output|$url|$desc|$size" >> "$RESULTS_FILE"
-      echo "  ✓ Downloaded ($size bytes)"
+      echo "  [OK] Downloaded ($size bytes)"
     else
       rm -f "$output"
-      echo "  ✗ Too small"
+      echo "  [X] Too small"
     fi
   else
     rm -f "$output"
-    echo "  ✗ Failed"
+    echo "  [X] Failed"
   fi
 }
 

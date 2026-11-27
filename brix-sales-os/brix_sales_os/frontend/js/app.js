@@ -71,7 +71,7 @@ async function loadTelemetry() {
     const emPill = document.getElementById("emergency-pill");
     if (data.emergency_stop) {
       emPill.style.display = "inline-flex";
-      emPill.innerText = "🛑 EMERGENCY STOP ACTIVE";
+      emPill.innerText = "[STOP] EMERGENCY STOP ACTIVE";
       emPill.className = "status-pill btn-danger";
     } else {
       emPill.style.display = "none";
@@ -123,7 +123,7 @@ async function loadLeads() {
             <span style="font-size:11px; color:#94a3b8;">${l.deal_stage}</span>
           </td>
           <td>
-            <button class="btn btn-primary" style="padding:4px 10px; font-size:11px;" onclick="runPipelineForLead('${l.id}')">⚡ Run AI Pipeline</button>
+            <button class="btn btn-primary" style="padding:4px 10px; font-size:11px;" onclick="runPipelineForLead('${l.id}')"> Run AI Pipeline</button>
           </td>
         </tr>
       `;
@@ -150,7 +150,7 @@ async function triggerLeadDiscovery() {
     alert("Error discovering leads: " + e.message);
   } finally {
     btn.disabled = false;
-    btn.innerText = "🔍 Discover Leads";
+    btn.innerText = " Discover Leads";
   }
 }
 
@@ -221,8 +221,8 @@ async function loadCampaignQueue() {
         <td><span class="badge badge-medium">PENDING APPROVAL</span></td>
         <td>
           <div style="display:flex; gap:6px;">
-            <button class="btn btn-success" style="padding:4px 10px; font-size:11px;" onclick="reviewMessage('${m.message_id}', true)">✓ Approve</button>
-            <button class="btn btn-danger" style="padding:4px 10px; font-size:11px;" onclick="reviewMessage('${m.message_id}', false)">✕ Reject</button>
+            <button class="btn btn-success" style="padding:4px 10px; font-size:11px;" onclick="reviewMessage('${m.message_id}', true)">[OK] Approve</button>
+            <button class="btn btn-danger" style="padding:4px 10px; font-size:11px;" onclick="reviewMessage('${m.message_id}', false)">[X] Reject</button>
           </div>
         </td>
       </tr>
@@ -384,9 +384,9 @@ async function loadSettings() {
     const res = await fetchJSON(`${API_BASE}/mailer/status`);
     const statusBox = document.getElementById("mailer-status-box");
     if (res.configured && res.success) {
-      statusBox.innerHTML = `<span style="color:#22c55e;">✓ Connected as ${res.email} (SMTP: OK &bull; IMAP: OK)</span>`;
+      statusBox.innerHTML = `<span style="color:#22c55e;">[OK] Connected as ${res.email} (SMTP: OK &bull; IMAP: OK)</span>`;
     } else if (res.configured) {
-      statusBox.innerHTML = `<span style="color:#ef4444;">✕ Failed: ${res.smtp_status}</span>`;
+      statusBox.innerHTML = `<span style="color:#ef4444;">[X] Failed: ${res.smtp_status}</span>`;
     } else {
       statusBox.innerText = "Status: Not configured";
     }
@@ -414,10 +414,10 @@ async function saveMailerCredentials() {
     });
 
     if (res.success) {
-      statusBox.innerHTML = `<span style="color:#22c55e; font-weight:700;">✓ Successfully connected! Inbound & Outbound ready.</span>`;
+      statusBox.innerHTML = `<span style="color:#22c55e; font-weight:700;">[OK] Successfully connected! Inbound & Outbound ready.</span>`;
       alert("App Key verified! Inbound reply detection and automated follow-up sequences are now active.");
     } else {
-      statusBox.innerHTML = `<span style="color:#ef4444; font-weight:700;">✕ Connection Failed. ${res.smtp_status} | ${res.imap_status}</span>`;
+      statusBox.innerHTML = `<span style="color:#ef4444; font-weight:700;">[X] Connection Failed. ${res.smtp_status} | ${res.imap_status}</span>`;
       alert("Connection check failed. Please verify your App Password.");
     }
   } catch (e) {

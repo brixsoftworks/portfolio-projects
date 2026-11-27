@@ -111,8 +111,8 @@ void setup() {
   startCameraServer();
 
   Serial.println("\n==================================================");
-  Serial.printf("🎉 CAMERA READY! Web UI: http://%s\n", WiFi.localIP().toString().c_str());
-  Serial.printf("🎥 LIVE STREAM:         http://%s:81/stream\n", WiFi.localIP().toString().c_str());
+  Serial.printf(" CAMERA READY! Web UI: http://%s\n", WiFi.localIP().toString().c_str());
+  Serial.printf(" LIVE STREAM:         http://%s:81/stream\n", WiFi.localIP().toString().c_str());
   Serial.println("==================================================");
 }
 

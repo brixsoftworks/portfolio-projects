@@ -123,7 +123,7 @@ func _build_track_ui() -> void:
 		
 		track_select_button = Button.new()
 		track_select_button.name = "SelectTrackButton"
-		track_select_button.text = "🏁 SELECT TRACK [T]"
+		track_select_button.text = "SELECT TRACK [T]"
 		track_select_button.custom_minimum_size = Vector2(160, 28)
 		track_select_button.pressed.connect(toggle_track_menu)
 		track_hbox.add_child(track_select_button)
@@ -151,14 +151,14 @@ func _build_track_ui() -> void:
 	# Header
 	var header_bar = HBoxContainer.new()
 	var title = Label.new()
-	title.text = "🏁 RACETRACK SELECTOR"
+	title.text = "RACETRACK SELECTOR"
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title.add_theme_font_size_override("font_size", 22)
 	title.add_theme_color_override("font_color", Color(0.2, 0.8, 1.0))
 	header_bar.add_child(title)
 	
 	var close_btn = Button.new()
-	close_btn.text = " ✕ "
+	close_btn.text = " [X] "
 	close_btn.pressed.connect(func(): track_modal.visible = false)
 	header_bar.add_child(close_btn)
 	modal_box.add_child(header_bar)
@@ -171,7 +171,7 @@ func _build_track_ui() -> void:
 
 	# Search input
 	track_search_input = LineEdit.new()
-	track_search_input.placeholder_text = "🔍 Search circuits (e.g. Monza, Nurburgring, Zolder, Spa)..."
+	track_search_input.placeholder_text = " Search circuits (e.g. Monza, Nurburgring, Zolder, Spa)..."
 	track_search_input.text_changed.connect(_on_search_text_changed)
 	modal_box.add_child(track_search_input)
 
@@ -260,7 +260,7 @@ func _populate_track_buttons(filter_query: String = "") -> void:
 		btn.custom_minimum_size = Vector2(0, 48)
 		btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		
-		var prefix = "★ [ACTIVE] " if is_cur else "▶ "
+		var prefix = "* [ACTIVE] " if is_cur else "▶ "
 		btn.text = "%s%s  (by %s)" % [prefix, name, author]
 		
 		if is_cur:

@@ -211,7 +211,7 @@ export const RealMapLeaflet: React.FC<MapProps> = ({ telemetry, className = '', 
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              🛰️ REAL VIEW (SATELLITE)
+              [SAT] REAL VIEW (SATELLITE)
             </button>
             <button
               onClick={() => setMapStyle('street')}
@@ -221,7 +221,7 @@ export const RealMapLeaflet: React.FC<MapProps> = ({ telemetry, className = '', 
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              🗺️ STREET MAP
+              [MAP] STREET MAP
             </button>
           </div>
 

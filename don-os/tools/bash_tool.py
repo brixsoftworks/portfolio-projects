@@ -34,11 +34,11 @@ def is_deletion_command(command: str) -> bool:
 
 def request_user_permission(command: str) -> bool:
     """Prompts the user in terminal before executing any file deletion."""
-    print("\n" + "⚠️ " * 20)
-    print(f"⚠️  DELETION COMMAND DETECTED: {command}")
-    print("⚠️ " * 20)
+    print("\n" + "[WARN] " * 20)
+    print(f"[WARN]  DELETION COMMAND DETECTED: {command}")
+    print("[WARN] " * 20)
     try:
-        choice = input("👉 Allow deletion command to proceed? [y/N]: ").strip().lower()
+        choice = input(" Allow deletion command to proceed? [y/N]: ").strip().lower()
         return choice in ("y", "yes")
     except (EOFError, KeyboardInterrupt):
         return False

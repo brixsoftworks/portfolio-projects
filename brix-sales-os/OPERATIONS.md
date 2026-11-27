@@ -9,14 +9,14 @@ The operator's daily routine takes less than 15 minutes using the Web Command Ce
    - Review the **Review Queue** counter.
 2. **Step 2: Ingest & Discover Prospects**
    - Click **"Discover Leads"** to run Agent 01 across target niches (US digital marketing agencies, SaaS, web dev).
-   - In the **Lead Explorer**, select a newly ingested lead and click **"⚡ Run AI Pipeline"**.
+   - In the **Lead Explorer**, select a newly ingested lead and click **" Run AI Pipeline"**.
    - Agent 02 visits the site, Agent 03 scores the opportunity, Agent 04 matches suitable n8n workflows, and Agent 06 drafts a personalized cold email.
 3. **Step 3: Review Outbound Drafts**
    - Go to **Campaign Review**.
    - Review each generated email:
      - Check that the verified observation is factually accurate.
-     - Click **"✓ Approve"** to queue the message, or **"✕ Reject"** to discard.
-   - Click **"🚀 Dispatch All Approved"** to safely release the approved queue.
+     - Click **"[OK] Approve"** to queue the message, or **"[X] Reject"** to discard.
+   - Click **" Dispatch All Approved"** to safely release the approved queue.
 4. **Step 4: Check Unified Inbox**
    - Review incoming responses.
    - Any prospect who replies with "unsubscribe" is **automatically suppressed** from all future communication.
@@ -47,7 +47,7 @@ pkill -f "uvicorn brix_sales_os.api.main:app"
 
 ### Global Emergency Stop:
 If you need to halt all outbound outreach immediately:
-- Click **"🛑 Emergency Stop"** in the top navigation bar of the dashboard.
+- Click **"[STOP] Emergency Stop"** in the top navigation bar of the dashboard.
 - Or execute:
   ```bash
   curl -X POST http://localhost:8000/api/emergency-stop \

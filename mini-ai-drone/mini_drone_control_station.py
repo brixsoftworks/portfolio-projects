@@ -494,7 +494,7 @@ class MediaRecorderEngine:
         self.last_photo_file = filename
         self.photo_notify_time = time.time()
         self.flash_frames = 3
-        print(f"📸 [PHOTO CAPTURED WITH GPS LOCATION] -> {filepath} (LAT: {telem['lat']:.6f}, LON: {telem['lon']:.6f})")
+        print(f" [PHOTO CAPTURED WITH GPS LOCATION] -> {filepath} (LAT: {telem['lat']:.6f}, LON: {telem['lon']:.6f})")
         return filepath
 
     def toggle_recording(self, frame_size=(1280, 720), fps=30.0):
@@ -509,7 +509,7 @@ class MediaRecorderEngine:
                 self.record_start_time = time.time()
                 self.recorded_frames = 0
                 self.recorded_gps_points = []
-                print(f"🔴 [RECORDING STARTED WITH GPS TELEMETRY] -> {self.current_video_file}")
+                print(f"[REC] [RECORDING STARTED WITH GPS TELEMETRY] -> {self.current_video_file}")
             else:
                 print("[-] Failed to open VideoWriter!")
         else:
@@ -548,11 +548,11 @@ class MediaRecorderEngine:
                             "fps": fps,
                             "gps_track": self.recorded_gps_points
                         }, jf, indent=2)
-                    print(f"📄 [GPS FLIGHT SUBTITLES & LOG CREATED] -> {srt_path}")
+                    print(f"DOC: [GPS FLIGHT SUBTITLES & LOG CREATED] -> {srt_path}")
                 except Exception as e:
                     print(f"[-] Error writing flight subtitles: {e}")
 
-            print(f"⏹️ [RECORDING SAVED] -> {self.current_video_file} ({self.recorded_frames} frames, {duration_str})")
+            print(f"⏹ [RECORDING SAVED] -> {self.current_video_file} ({self.recorded_frames} frames, {duration_str})")
 
     def write_frame(self, frame, telemetry=None):
         if self.is_recording and self.video_writer and self.video_writer.isOpened():
@@ -1081,7 +1081,7 @@ def draw_dji_top_ribbon(canvas, gps, easy_conn, flight_eng, rec_eng, w=1280):
     rth_thresh_px = int((gps.get_rth_threshold_pct() / 100.0) * bw)
     cv2.line(canvas, (bx + rth_thresh_px, by - 2), (bx + rth_thresh_px, by + bh + 2), (0, 220, 255), 2)
 
-    bat_str = f"🔋 {gps.battery_pct:.0f}%  {gps.get_remaining_flight_time_str()}  {gps.battery_voltage:.1f}V"
+    bat_str = f"BAT: {gps.battery_pct:.0f}%  {gps.get_remaining_flight_time_str()}  {gps.battery_voltage:.1f}V"
     cv2.putText(canvas, bat_str, (bx + 8, by + 13), cv2.FONT_HERSHEY_SIMPLEX, 0.34, (255, 255, 255), 1)
 
     # 4. OcuSync 3+ Transmission Link
@@ -1102,7 +1102,7 @@ def draw_dji_top_ribbon(canvas, gps, easy_conn, flight_eng, rec_eng, w=1280):
     cam_lbl = "ESP32-CAM (ONLINE)" if "ESP32" in video_reader.active_source_label else "WEBCAM 0"
     cv2.rectangle(canvas, (cx, 6), (cx + cam_btn_w, 32), (25, 35, 48), -1)
     cv2.rectangle(canvas, (cx, 6), (cx + cam_btn_w, 32), (0, 200, 255), 1)
-    cv2.putText(canvas, f"📡 {cam_lbl}", (cx + 8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.33, (0, 240, 255), 1)
+    cv2.putText(canvas, f"SIGNAL: {cam_lbl}", (cx + 8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.33, (0, 240, 255), 1)
     register_button("BTN_CAM_SOURCE", cx, 6, cx + cam_btn_w, 32, video_reader.switch_source_next)
 
     # 7. Time Clock
@@ -1227,7 +1227,7 @@ def draw_camera_deck_buttons(canvas, rec_eng, x=1200, y=80):
 def draw_bottom_action_strip(canvas, flight_eng, easy_conn, w=1280, h=720):
     """
     Renders bottom row of clickable quick-action enterprise controls:
-    [🏠 RTH] [⚡ MODE] [🔍 ZOOM] [✨ CLARITY] [🌡️ THERMAL] [📡 SCAN] [🗺️ SWAP] [🛑 BRAKE]
+    [HOME: RTH] [ MODE] [ ZOOM] [ CLARITY] [TEMP: THERMAL] [SIGNAL: SCAN] [[MAP] SWAP] [[STOP] BRAKE]
     """
     by = h - 42
     bw = 105
@@ -1236,14 +1236,14 @@ def draw_bottom_action_strip(canvas, flight_eng, easy_conn, w=1280, h=720):
     start_x = 18
 
     buttons = [
-        ("BTN_RTH", "🏠 RTH", (255, 50, 180) if flight_eng.mode == "RTH" else (0, 200, 255), flight_eng.toggle_rth),
-        ("BTN_MODE", f"⚡ {flight_eng.mode}", (0, 255, 150), flight_eng.cycle_mode),
-        ("BTN_ZOOM", f"🔍 {flight_eng.zoom_preset_labels[flight_eng.zoom_idx][:5]}", (0, 220, 255), flight_eng.cycle_zoom),
-        ("BTN_CLARITY", "✨ CLARITY", (0, 255, 200) if flight_eng.clarity_boost else (140, 140, 140), lambda: setattr(flight_eng, 'clarity_boost', not flight_eng.clarity_boost)),
-        ("BTN_THERMAL", "🌡️ FLIR", (0, 140, 255) if flight_eng.thermal_mode else (140, 140, 140), lambda: setattr(flight_eng, 'thermal_mode', not flight_eng.thermal_mode)),
-        ("BTN_SCAN", "📡 SCAN CAM", (0, 255, 255), lambda: easy_conn.scan_subnet_async(callback=video_reader.configure_source)),
-        ("BTN_SWAP", "🗺️ MAP SWAP", (255, 200, 0), flight_eng.toggle_map_swap),
-        ("BTN_BRAKE", "🛑 HOVER", (0, 0, 255), lambda: print("[*] SMART HOVER / BRAKE ENGAGED"))
+        ("BTN_RTH", "HOME: RTH", (255, 50, 180) if flight_eng.mode == "RTH" else (0, 200, 255), flight_eng.toggle_rth),
+        ("BTN_MODE", f" {flight_eng.mode}", (0, 255, 150), flight_eng.cycle_mode),
+        ("BTN_ZOOM", f" {flight_eng.zoom_preset_labels[flight_eng.zoom_idx][:5]}", (0, 220, 255), flight_eng.cycle_zoom),
+        ("BTN_CLARITY", " CLARITY", (0, 255, 200) if flight_eng.clarity_boost else (140, 140, 140), lambda: setattr(flight_eng, 'clarity_boost', not flight_eng.clarity_boost)),
+        ("BTN_THERMAL", "TEMP: FLIR", (0, 140, 255) if flight_eng.thermal_mode else (140, 140, 140), lambda: setattr(flight_eng, 'thermal_mode', not flight_eng.thermal_mode)),
+        ("BTN_SCAN", "SIGNAL: SCAN CAM", (0, 255, 255), lambda: easy_conn.scan_subnet_async(callback=video_reader.configure_source)),
+        ("BTN_SWAP", "[MAP] MAP SWAP", (255, 200, 0), flight_eng.toggle_map_swap),
+        ("BTN_BRAKE", "[STOP] HOVER", (0, 0, 255), lambda: print("[*] SMART HOVER / BRAKE ENGAGED"))
     ]
 
     for i, (b_id, label, color, cb) in enumerate(buttons):
@@ -1356,7 +1356,7 @@ def process_station_frame(raw_frame, prev_time=None):
 
     # 9. Recording Status Badge
     if media_recorder.is_recording:
-        rec_str = f"🔴 REC [{media_recorder.get_duration_str()}] | 1080P"
+        rec_str = f"[REC] REC [{media_recorder.get_duration_str()}] | 1080P"
         cv2.rectangle(canvas, (970, 255), (1250, 282), (20, 20, 30), -1)
         cv2.rectangle(canvas, (970, 255), (1250, 282), (0, 0, 255), 1)
         cv2.putText(canvas, rec_str, (980, 274), cv2.FONT_HERSHEY_SIMPLEX, 0.44, (0, 0, 255), 2)
@@ -1369,7 +1369,7 @@ def process_station_frame(raw_frame, prev_time=None):
     if (t_now - media_recorder.photo_notify_time) < 2.5 and media_recorder.last_photo_file:
         cv2.rectangle(canvas, (target_w//2 - 200, 75), (target_w//2 + 200, 110), (20, 35, 20), -1)
         cv2.rectangle(canvas, (target_w//2 - 200, 75), (target_w//2 + 200, 110), (0, 255, 120), 1)
-        cv2.putText(canvas, f"📸 PHOTO SAVED: {media_recorder.last_photo_file}", (target_w//2 - 185, 98),
+        cv2.putText(canvas, f" PHOTO SAVED: {media_recorder.last_photo_file}", (target_w//2 - 185, 98),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.44, (0, 255, 150), 1)
 
     # Write video frame if recording

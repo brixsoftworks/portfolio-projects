@@ -22,12 +22,12 @@ from tools.memory_tool import search_notes
 
 def print_banner(title: str):
     print("\n" + "=" * 80)
-    print(f"  ⚡ {title}")
+    print(f"   {title}")
     print("=" * 80)
 
 
 def run_prompt_and_log(brain: CentralAgentBrain, prompt: str, step_label: str):
-    print(f"\n💬 [{step_label}] User Prompt:")
+    print(f"\n [{step_label}] User Prompt:")
     print(f"   \"{prompt}\"")
     print("-" * 80)
 
@@ -39,21 +39,21 @@ def run_prompt_and_log(brain: CentralAgentBrain, prompt: str, step_label: str):
     tool_calls = result.get("tool_calls_executed", [])
     response = result.get("response", "")
 
-    print(f"\n📊 Execution Metrics:")
+    print(f"\n Execution Metrics:")
     print(f"   • Status: {status}")
     print(f"   • Duration: {duration:.2f}s")
     print(f"   • Tool Calls Executed ({len(tool_calls)}):")
     for idx, tc in enumerate(tool_calls, 1):
         print(f"      {idx}. {tc['tool']}({tc['args']})")
 
-    print(f"\n🤖 Assistant Response:\n{response}")
+    print(f"\n[AI] Assistant Response:\n{response}")
     print("-" * 80)
     return result
 
 
 def main():
     print("=" * 80)
-    print("  🚀 AUTONOMOUS END-TO-END PROJECT CREATION, AUDIT & AUTO-FIX LOOP TEST")
+    print("   AUTONOMOUS END-TO-END PROJECT CREATION, AUDIT & AUTO-FIX LOOP TEST")
     print("=" * 80)
 
     project_dir = Path(__file__).parent / "projects" / "quantum_calc"
@@ -106,7 +106,7 @@ def main():
 
     # Verify that the fix was applied (divide returns a / b or handles ZeroDivisionError)
     assert "/" in calc_code, "Expected fixed calculator.py to contain division operator '/'"
-    print("  ✅ Bug fix verified in code: division operator present.")
+    print("  [PASS] Bug fix verified in code: division operator present.")
 
     # Verify test execution directly
     import subprocess
@@ -117,21 +117,21 @@ def main():
     print(f"  Exit code: {test_run.returncode}")
     print(f"  Stdout/Stderr: {test_run.stderr.strip() or test_run.stdout.strip()}")
     assert test_run.returncode == 0, f"Tests should pass! Got: {test_run.stderr}"
-    print("  ✅ All unittests passed cleanly with exit code 0!")
+    print("  [PASS] All unittests passed cleanly with exit code 0!")
 
     # Verify clipboard
     cb_text = get_clipboard_text.invoke({})
     print(f"\n• Checking clipboard content: '{cb_text}'")
     if "AUDIT COMPLETE" in cb_text:
-        print("  ✅ Clipboard contains verification status!")
+        print("  [PASS] Clipboard contains verification status!")
     else:
-        print("  ℹ️ Clipboard note: " + cb_text)
+        print("  ℹ Clipboard note: " + cb_text)
 
     # Verify note in database
     notes = search_notes.invoke({"query": "Quantum Calc"})
     print(f"\n• Checking saved memory notes:\n{notes}")
     assert "Quantum Calc" in notes or "Audit" in notes or "calculator" in notes.lower()
-    print("  ✅ Project audit note successfully saved and indexed in memory database!")
+    print("  [PASS] Project audit note successfully saved and indexed in memory database!")
 
     # Cleanup test project directory
     if project_dir.parent.exists():
@@ -139,7 +139,7 @@ def main():
         print(f"\n• Cleaned up temporary directory: {project_dir.parent}")
 
     print("\n" + "=" * 80)
-    print("🎉 FULL AUTONOMOUS PROJECT LOOP TEST PASSED WITH 100% SUCCESS!")
+    print(" FULL AUTONOMOUS PROJECT LOOP TEST PASSED WITH 100% SUCCESS!")
     print("=" * 80 + "\n")
 
 

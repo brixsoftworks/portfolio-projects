@@ -10,7 +10,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd "$DIR"
 
 echo "=========================================================="
-echo "  🚀 Starting Antigravity PA Assistant (Electron + Brain) "
+echo "   Starting Antigravity PA Assistant (Electron + Brain) "
 echo "=========================================================="
 
 # 1. Start Python Agent Server if not running

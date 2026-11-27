@@ -47,7 +47,7 @@ def configure():
     app_key = input("Enter your App Password / App Key: ").strip()
 
     mail_automator.save_credentials(email_addr, app_key, provider)
-    print(f"\n✓ Credentials saved to {CONFIG_FILE} and environment!")
+    print(f"\n[OK] Credentials saved to {CONFIG_FILE} and environment!")
     print("Running automated connection test...")
     test_conn()
 
@@ -55,11 +55,11 @@ def test_conn():
     print("\n[TESTING SMTP & IMAP CONNECTION]")
     res = mail_automator.test_connection()
     if res["success"]:
-        print(f"✓ ALL SYSTEMS VERIFIED for {res['email']}")
+        print(f"[OK] ALL SYSTEMS VERIFIED for {res['email']}")
         print(f"  SMTP (Outbound): {res['smtp_status']}")
         print(f"  IMAP (Inbound):  {res['imap_status']}")
     else:
-        print("✕ CONNECTION FAILED")
+        print("[X] CONNECTION FAILED")
         print(f"  SMTP: {res.get('smtp_status')}")
         print(f"  IMAP: {res.get('imap_status')}")
         print("\nTroubleshooting tips:")
@@ -118,11 +118,11 @@ def send_approved():
             msg.status = "SENT"
             msg.sent_at = res["sent_at"]
             db.commit()
-            print("✓ SENT" + (f" (attached {os.path.basename(pdf_path)})" if pdf_path else ""))
+            print("[OK] SENT" + (f" (attached {os.path.basename(pdf_path)})" if pdf_path else ""))
             sent += 1
             time.sleep(3)  # Anti-spam jitter delay
         except Exception as e:
-            print(f"✕ FAILED: {e}")
+            print(f"[X] FAILED: {e}")
 
     db.close()
     print(f"\nCompleted: {sent} emails delivered successfully.")
@@ -140,14 +140,14 @@ def run_daemon():
             replies = mail_automator.check_inbox_for_replies(db)
             if replies:
                 for r in replies:
-                    print(f"[{datetime.now().strftime('%H:%M:%S')}] 🔔 INCOMING REPLY DETECTED from {r['contact_email']} (Intent: {r['intent']})")
+                    print(f"[{datetime.now().strftime('%H:%M:%S')}]  INCOMING REPLY DETECTED from {r['contact_email']} (Intent: {r['intent']})")
                     print(f"    Suggested AI Reply staged in dashboard.")
 
             # 2. Process automated follow-ups (if no reply after 3 days)
             follow_ups = mail_automator.process_automated_follow_ups(db)
             if follow_ups:
                 for f in follow_ups:
-                    print(f"[{datetime.now().strftime('%H:%M:%S')}] ✉️ Sent automated follow-up to {f['recipient']}: '{f['subject']}'")
+                    print(f"[{datetime.now().strftime('%H:%M:%S')}]  Sent automated follow-up to {f['recipient']}: '{f['subject']}'")
 
         except Exception as e:
             print(f"[{datetime.now().strftime('%H:%M:%S')}] Daemon cycle warning: {e}")

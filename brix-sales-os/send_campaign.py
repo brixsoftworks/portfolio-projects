@@ -109,10 +109,10 @@ def main():
             msg.status = "SENT"
             msg.sent_at = res.get("sent_at")
             db.commit()
-            print("✓ SUCCESS" + (f" (attached {os.path.basename(pdf_path)})" if pdf_path else ""))
+            print("[OK] SUCCESS" + (f" (attached {os.path.basename(pdf_path)})" if pdf_path else ""))
             sent_count += 1
         else:
-            print(f"✕ FAILED ({res.get('error')})")
+            print(f"[X] FAILED ({res.get('error')})")
 
     db.close()
     print(f"\nFinished: {sent_count}/{len(approved_messages)} emails transmitted successfully.")

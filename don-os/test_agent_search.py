@@ -8,7 +8,7 @@ load_dotenv()
 def test_agent_with_search():
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        print("❌ Error: GEMINI_API_KEY not found in .env")
+        print("[FAIL] Error: GEMINI_API_KEY not found in .env")
         return
 
     # Use the current Gemini 3.8 Flash model

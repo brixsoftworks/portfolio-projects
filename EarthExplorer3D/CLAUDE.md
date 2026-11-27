@@ -1,6 +1,6 @@
 # 3D Modeling & Image-to-3D Instructions for Claude
 
-## ⛔ STRICT MANDATE: NO CRUDE PRIMITIVES FOR IMAGE-TO-3D
+## [MANDATE] STRICT MANDATE: NO CRUDE PRIMITIVES FOR IMAGE-TO-3D
 When the user provides an image, photo, sketch, or turnaround and asks to turn it into a 3D model:
 - **NEVER** build crude approximations made of raw orbs, spheres, cylinders, or blocks.
 - **NEVER** use `bpy.ops.mesh.primitive_*_add` to fake an object that has intricate organic or mechanical contours.
@@ -8,7 +8,7 @@ When the user provides an image, photo, sketch, or turnaround and asks to turn i
 
 ---
 
-## 🛠️ THE TWO ACCURATE IMAGE-TO-3D PIPELINES
+##  THE TWO ACCURATE IMAGE-TO-3D PIPELINES
 
 ### 1. Neural AI Image-to-3D Generation (Fast, High-Fidelity, Full Textures)
 Use the dedicated neural image-to-3D tools:

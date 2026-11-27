@@ -19,12 +19,12 @@ from agent import CentralAgentBrain
 
 def print_banner(title: str):
     print("\n" + "=" * 75)
-    print(f"  ⚡ SCENARIO: {title}")
+    print(f"   SCENARIO: {title}")
     print("=" * 75)
 
 
 def run_scenario(brain: CentralAgentBrain, prompt: str, scenario_num: int):
-    print(f"\n💬 [Step {scenario_num}] User Prompt:")
+    print(f"\n [Step {scenario_num}] User Prompt:")
     print(f"   \"{prompt}\"")
     print("-" * 75)
 
@@ -33,11 +33,11 @@ def run_scenario(brain: CentralAgentBrain, prompt: str, scenario_num: int):
     duration = time.time() - start
 
     tool_calls = result.get("tool_calls_executed", [])
-    print(f"🛠️ Intermediate Tool Calls Executed ({len(tool_calls)}):")
+    print(f" Intermediate Tool Calls Executed ({len(tool_calls)}):")
     for idx, tc in enumerate(tool_calls, 1):
         print(f"   {idx}. {tc['tool']}({tc['args']})")
 
-    print(f"\n🤖 Final Synthesized Assistant Response (in {duration:.2f}s):")
+    print(f"\n[AI] Final Synthesized Assistant Response (in {duration:.2f}s):")
     print(result.get("response"))
     print("-" * 75)
     return result
@@ -45,7 +45,7 @@ def run_scenario(brain: CentralAgentBrain, prompt: str, scenario_num: int):
 
 def main():
     print("=" * 75)
-    print("  🚀 STARTING ADVANCED MULTI-STEP PA ASSISTANT SYSTEM TESTS")
+    print("   STARTING ADVANCED MULTI-STEP PA ASSISTANT SYSTEM TESTS")
     print("=" * 75)
 
     brain = CentralAgentBrain(session_id="advanced_stress_test")
@@ -145,7 +145,7 @@ def main():
         shutil.rmtree(test_dir)
 
     print("\n" + "=" * 75)
-    print("🎉 ALL ADVANCED MULTI-STEP SCENARIOS SUCCESSFULLY COMPLETED!")
+    print(" ALL ADVANCED MULTI-STEP SCENARIOS SUCCESSFULLY COMPLETED!")
     print("=" * 75)
 
 

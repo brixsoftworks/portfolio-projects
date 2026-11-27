@@ -256,7 +256,7 @@ def list_all_memories(category: str = "") -> str:
     for k, info, cat, updated in rows:
         if cat != curr_cat:
             curr_cat = cat
-            lines.append(f"\n📂 [{cat.upper()}]:")
+            lines.append(f"\n [{cat.upper()}]:")
         lines.append(f"  • {k}: {info}")
     return "\n".join(lines)
 

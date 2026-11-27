@@ -188,7 +188,7 @@ def list_acp_servers() -> str:
         
         # Check command existence
         is_installed = os.path.exists(cmd) if os.path.isabs(cmd) else bool(shutil.which(cmd))
-        status = "✅ Ready" if is_installed else "⚠️ Command not found"
+        status = "[PASS] Ready" if is_installed else "[WARN] Command not found"
 
         output.append(
             f"• **{name}** [{status}]\n"

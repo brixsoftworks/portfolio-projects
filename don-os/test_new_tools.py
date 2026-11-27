@@ -58,10 +58,10 @@ def run_tests():
     cancel_res = cancel_reminder.invoke({"reminder_id": rem_id})
     print(f"\n{cancel_res}")
     assert f"cancelled reminder #{rem_id}" in cancel_res, "Failed to cancel reminder"
-    print("✅ Time Tools Passed!")
+    print("[PASS] Time Tools Passed!")
 
     # 2. DESKTOP WORKFLOW TOOLS
-    print("\n📋 2. Testing Desktop Workflow Tools:")
+    print("\n 2. Testing Desktop Workflow Tools:")
     test_clip_msg = "PA AI Assistant Test Clipboard 2026"
     set_clip_res = set_clipboard_text.invoke({"text": test_clip_msg})
     print(f"Set clipboard: {set_clip_res}")
@@ -69,16 +69,16 @@ def run_tests():
     read_clip = get_clipboard_text.invoke({})
     print(f"Read clipboard: '{read_clip}'")
     assert test_clip_msg in read_clip, "Clipboard text did not match!"
-    print("✅ Clipboard Read/Write Passed!")
+    print("[PASS] Clipboard Read/Write Passed!")
 
     print("\nReading web page content (example.com):")
     web_res = read_web_page.invoke({"url": "https://example.com"})
     print(web_res[:200] + "...")
     assert "Example Domain" in web_res, "Failed to extract web content"
-    print("✅ Web Article Extractor Passed!")
+    print("[PASS] Web Article Extractor Passed!")
 
     # 3. HARDWARE & SYSTEM CONTROLLER
-    print("\n⚡ 3. Testing Hardware & System Controls:")
+    print("\n 3. Testing Hardware & System Controls:")
     bright_res = get_screen_brightness.invoke({})
     print(f"• {bright_res}")
 
@@ -100,10 +100,10 @@ def run_tests():
     audio_res = list_audio_devices.invoke({})
     print(f"• Audio Devices:\n{audio_res[:200]}...")
 
-    print("✅ Hardware Controls Passed!")
+    print("[PASS] Hardware Controls Passed!")
 
     print("\n" + "=" * 70)
-    print("🎉 ALL NEW TOOL TESTS PASSED SUCCESSFULLY!")
+    print(" ALL NEW TOOL TESTS PASSED SUCCESSFULLY!")
     print("=" * 70)
 
 

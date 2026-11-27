@@ -130,7 +130,7 @@ rr_html_replacement = '''    # 6b. Insert Rolls-Royce Nilambur Teak 3D Exploded 
               </div>
               <div class="rr-head-right">
                 <div class="rr-seal-card">
-                  <div class="rr-seal-crown">👑</div>
+                  <div class="rr-seal-crown"></div>
                   <div class="rr-seal-val">NILAMBUR TEAK</div>
                   <div class="rr-seal-sub">ROLLS-ROYCE CABIN VENEERS</div>
                   <div class="rr-seal-meta">KERALA GI 581 • CANOLI 1844</div>

@@ -2020,10 +2020,10 @@
             { type: "out", text: "▸ Initializing neural engine..." },
             { type: "out", text: "▸ Loading weights  [████████░░] 87%" },
             { type: "out", text: "▸ Optimizing inference pipeline..." },
-            { type: "out", text: "▸ Quantizing: fp16 → int8  ✓" },
+            { type: "out", text: "▸ Quantizing: fp16 → int8  [OK]" },
             { type: "out", text: "▸ Kernel fusion: 12 layers merged" },
             { type: "out", text: "▸ API gateway: 3.2k req/s @ p99=14ms" },
-            { type: "out", text: "▸ Deployment complete ✓" },
+            { type: "out", text: "▸ Deployment complete [OK]" },
           ],
         },
         {

@@ -304,10 +304,10 @@ def generate_site():
     <!-- Floating Mode Switcher & Skip Intro HUD -->
     <div id="aiswarya-hud-control" style="position: fixed; bottom: 24px; right: 24px; z-index: 999999; display: flex; align-items: center; gap: 10px; font-family: 'Geistmono', monospace; font-size: 11px;">
       <a href="tel:+919447631731" style="background: rgba(34, 197, 94, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; padding: 8px 14px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        📞 Call Janardhanan: +91 9447631731
+        Tel:  Call Janardhanan: +91 9447631731
       </a>
       <button id="skip-preloader-btn" onclick="window.skipPreloader()" style="background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(225, 92, 70, 0.5); color: #e15c46; padding: 8px 14px; border-radius: 6px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        ⚡ Skip Intro
+         Skip Intro
       </button>
       <div style="background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); padding: 4px; border-radius: 6px; display: flex; gap: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
         <button id="btn-mode-aiswarya" onclick="window.toggleCopyMode('aiswarya')" style="background: #e15c46; color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">

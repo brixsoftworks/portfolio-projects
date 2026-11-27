@@ -21,7 +21,7 @@ print("[*] If not syncing, tap the RST button on the ESP32-CAM now!")
 
 try:
     loader.connect(mode='no-reset', attempts=20)
-    print("🎉🎉🎉 CONNECTED TO ESP32-CAM CHIP! 🎉🎉🎉")
+    print(" CONNECTED TO ESP32-CAM CHIP! ")
     print(f"Chip Name:    {loader.CHIP_NAME}")
     print(f"Features:     {loader.get_chip_features()}")
     print(f"Crystal Freq: {loader.get_crystal_freq()} MHz")

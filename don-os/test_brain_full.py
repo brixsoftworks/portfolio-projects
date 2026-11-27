@@ -41,7 +41,7 @@ def test_brain_direct():
     print(f"Agent:\n{res3.get('response')}")
     assert "PROJECT_NEBULA_99" in str(res3.get("response")), "Failed to recall stored memory"
 
-    print("\n✅ Central Agent Brain Direct Tests Passed!")
+    print("\n[PASS] Central Agent Brain Direct Tests Passed!")
 
 
 def test_server_and_api():
@@ -87,7 +87,7 @@ def test_server_and_api():
             print(f"• /api/chat response: {chat_res.get('response')}")
             assert any(tc["tool"] == "get_screen_brightness" for tc in chat_res.get("tool_calls_executed", [])), "Brightness tool not called"
 
-        print("\n✅ Server & REST API Endpoints Passed!")
+        print("\n[PASS] Server & REST API Endpoints Passed!")
     finally:
         proc.terminate()
         proc.wait()
@@ -97,5 +97,5 @@ if __name__ == "__main__":
     test_brain_direct()
     test_server_and_api()
     print("\n" + "=" * 70)
-    print("🎉 ALL CENTRAL BRAIN & SERVER TESTS PASSED!")
+    print(" ALL CENTRAL BRAIN & SERVER TESTS PASSED!")
     print("=" * 70)

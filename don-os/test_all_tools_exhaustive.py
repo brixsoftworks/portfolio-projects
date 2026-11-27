@@ -51,7 +51,7 @@ async def test_all_mcp_tools_and_servers():
     }
 
     for s_name, s_cfg in servers.items():
-        print(f"\n🔍 Server: '{s_name}'")
+        print(f"\n Server: '{s_name}'")
         try:
             tools = await fetch_server_tools_async(s_name, s_cfg)
             tool_names = [t["raw_name"] for t in tools]
@@ -79,7 +79,7 @@ async def test_all_mcp_tools_and_servers():
 
             server_results[s_name] = {"status": "PASSED", "count": len(tools)}
         except Exception as e:
-            print(f"   ❌ Server error: {e}")
+            print(f"   [FAIL] Server error: {e}")
             server_results[s_name] = {"status": "FAILED", "error": str(e), "count": 0}
 
     print("\n" + "-" * 70)
@@ -116,16 +116,16 @@ def test_native_tools_suite():
 
     for tool_name, args in test_cases:
         if tool_name not in TOOL_MAP:
-            print(f"❌ Missing native tool: {tool_name}")
+            print(f"[FAIL] Missing native tool: {tool_name}")
             results[tool_name] = "MISSING"
             continue
         try:
             res = TOOL_MAP[tool_name].invoke(args)
             preview = str(res).strip().replace("\n", " ")[:70]
-            print(f"✅ {tool_name}: {preview}...")
+            print(f"[PASS] {tool_name}: {preview}...")
             results[tool_name] = "PASSED"
         except Exception as e:
-            print(f"❌ {tool_name} failed: {e}")
+            print(f"[FAIL] {tool_name} failed: {e}")
             results[tool_name] = f"FAILED: {e}"
 
     print(f"\nNative Tools Verified: {len([r for r in results.values() if r == 'PASSED'])}/{len(test_cases)} Passed")
@@ -156,8 +156,8 @@ def test_prompt_conversations():
         elapsed = time.time() - start
 
         tools_used = [tc["tool"] for tc in res.get("tool_calls_executed", [])]
-        print(f"🛠️ Tools Used: {tools_used if tools_used else 'None (Direct Answer)'}")
-        print(f"🤖 Agent Response ({elapsed:.2f}s):\n{res.get('response')}")
+        print(f" Tools Used: {tools_used if tools_used else 'None (Direct Answer)'}")
+        print(f"[AI] Agent Response ({elapsed:.2f}s):\n{res.get('response')}")
 
         assert res.get("status") == "success", f"Prompt {idx} failed with status: {res.get('status')}"
         time.sleep(1.5)  # stay well within rate limits
@@ -168,7 +168,7 @@ def main():
     test_native_tools_suite()
     test_prompt_conversations()
     print("\n" + "=" * 70)
-    print("🎉 ALL TESTS COMPLETED & VERIFIED ACROSS THE SYSTEM!")
+    print(" ALL TESTS COMPLETED & VERIFIED ACROSS THE SYSTEM!")
     print("=" * 70)
 
 

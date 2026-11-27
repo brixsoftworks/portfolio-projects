@@ -164,7 +164,7 @@ export const App: React.FC = () => {
       const res = await fetch('/api/command/record', { method: 'POST' });
       const data = await res.json();
       if (!data.is_recording && data.last_video_file) {
-        setRecordToast(`🎬 VIDEO SAVED: ${data.last_video_file} (${data.duration}) [📍 ${telemetry.lat.toFixed(5)}°N, ${telemetry.lon.toFixed(5)}°E]`);
+        setRecordToast(` VIDEO SAVED: ${data.last_video_file} (${data.duration}) [ ${telemetry.lat.toFixed(5)}°N, ${telemetry.lon.toFixed(5)}°E]`);
         setTimeout(() => setRecordToast(null), 5000);
       }
     } catch (e) {
@@ -182,12 +182,12 @@ export const App: React.FC = () => {
         const latStr = data.location?.lat ? data.location.lat.toFixed(6) : telemetry.lat.toFixed(6);
         const lonStr = data.location?.lon ? data.location.lon.toFixed(6) : telemetry.lon.toFixed(6);
         const altStr = data.location?.alt ? data.location.alt.toFixed(1) : telemetry.rel_alt.toFixed(1);
-        setPhotoToast(`📸 PHOTO SAVED: ${data.filename} [📍 ${latStr}°N, ${lonStr}°E | ${altStr}m AGL]`);
+        setPhotoToast(` PHOTO SAVED: ${data.filename} [ ${latStr}°N, ${lonStr}°E | ${altStr}m AGL]`);
       } else {
-        setPhotoToast(`📸 PHOTO SAVED: MINI_PHOTO_${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 15)}.jpg [📍 ${telemetry.lat.toFixed(6)}°N, ${telemetry.lon.toFixed(6)}°E]`);
+        setPhotoToast(` PHOTO SAVED: MINI_PHOTO_${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 15)}.jpg [ ${telemetry.lat.toFixed(6)}°N, ${telemetry.lon.toFixed(6)}°E]`);
       }
     } catch (e) {
-      setPhotoToast(`📸 PHOTO SAVED: MINI_PHOTO_${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 15)}.jpg [📍 ${telemetry.lat.toFixed(6)}°N, ${telemetry.lon.toFixed(6)}°E]`);
+      setPhotoToast(` PHOTO SAVED: MINI_PHOTO_${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 15)}.jpg [ ${telemetry.lat.toFixed(6)}°N, ${telemetry.lon.toFixed(6)}°E]`);
     }
     setTimeout(() => setPhotoToast(null), 4500);
   };

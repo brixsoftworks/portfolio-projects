@@ -155,7 +155,7 @@ alignment = 1
 [node name="@Label@6" type="Label" parent="VictoryOverlay/VBox" unique_id=1559398394]
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
-text = "🏆 RACE FINISHED! 🏆"
+text = "RACE FINISHED!"
 horizontal_alignment = 1
 
 [node name="TimeResult" type="Label" parent="VictoryOverlay/VBox" unique_id=1342703404]

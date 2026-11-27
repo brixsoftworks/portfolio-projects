@@ -1,4 +1,0 @@
-# Caddy reverse proxy → self-signed-free HTTPS (Let's Encrypt) in front of Quacko.
-{$DOMAIN} {
-    reverse_proxy quacko:8787
-}

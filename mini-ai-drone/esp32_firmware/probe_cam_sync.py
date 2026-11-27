@@ -43,7 +43,7 @@ while time.time() < t_end:
         except:
             pass
         if b'\xc0' in resp:
-            print("\n🎉🎉🎉 [SUCCESS] ESP32-CAM SYNCED WITH BOOTLOADER! 🎉🎉🎉", flush=True)
+            print("\n [SUCCESS] ESP32-CAM SYNCED WITH BOOTLOADER! ", flush=True)
             synced = True
             break
     else:

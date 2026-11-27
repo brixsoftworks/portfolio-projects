@@ -43,7 +43,7 @@ new_html_block = '''    # 6b. Insert Rolls-Royce Nilambur Teak 3D Exploded Fulls
             <!-- Act 1: Initial Chassis Matrix -->
             <div class="rr-act-card" id="rrAct1">
               <div class="rr-act-tag">
-                <span class="rr-tag-icon">👑</span>
+                <span class="rr-tag-icon"></span>
                 <span>AUTOMOTIVE MARQUE BENCHMARK</span>
               </div>
               <h2 class="rr-act-title">The Wood of<br>Rolls-Royce</h2>
@@ -61,7 +61,7 @@ new_html_block = '''    # 6b. Insert Rolls-Royce Nilambur Teak 3D Exploded Fulls
             <!-- Act 2: Orbital Flight & Bookmatched Symmetry -->
             <div class="rr-act-card right" id="rrAct2" style="opacity: 0; pointer-events: none; transform: translateY(30px);">
               <div class="rr-act-tag">
-                <span class="rr-tag-icon">✦</span>
+                <span class="rr-tag-icon">*</span>
                 <span>100% BOOKMATCHED SYMMETRY</span>
               </div>
               <h2 class="rr-act-title">Dual-Leaf<br>Mirror-Grain Fascia</h2>
@@ -83,7 +83,7 @@ new_html_block = '''    # 6b. Insert Rolls-Royce Nilambur Teak 3D Exploded Fulls
             <!-- Act 3: Cabin Reveal & Climate Immunity -->
             <div class="rr-act-card" id="rrAct3" style="opacity: 0; pointer-events: none; transform: translateY(30px);">
               <div class="rr-act-tag">
-                <span class="rr-tag-icon">🛡️</span>
+                <span class="rr-tag-icon"></span>
                 <span>TECTOQUINONE RESIN IMMUNITY</span>
               </div>
               <h2 class="rr-act-title">Zero Warping.<br>Immortal Bronze.</h2>

@@ -82,8 +82,8 @@ while time.time() < t_end:
 
             # If camera booted in normal mode (IO0 was high)
             if b'boot:0x13' in resp or (b'ets Jul' in resp and b'SPI_FAST_FLASH_BOOT' in resp):
-                print("\n⚠️ [CAMERA DETECTED IN NORMAL BOOT] Camera is alive and powered, but IO0 is NOT grounded!", flush=True)
-                print("👉 Please ensure Brown wire (IO0) is firmly connected to GND, then power-cycle again!\n", flush=True)
+                print("\n[WARN] [CAMERA DETECTED IN NORMAL BOOT] Camera is alive and powered, but IO0 is NOT grounded!", flush=True)
+                print(" Please ensure Brown wire (IO0) is firmly connected to GND, then power-cycle again!\n", flush=True)
                 continue
 
             # If boot text is seen, note it and KEEP SENDING SLIP FRAMES!
@@ -93,7 +93,7 @@ while time.time() < t_end:
 
             # Only break when camera sends actual SLIP SYNC ACK (\xc0\x01\x08)
             if b'\xc0\x01\x08' in resp or (b'\xc0' in resp and len(resp) >= 14):
-                print(f"\n🎉 [SLIP SYNC CONFIRMED FROM CAMERA] Captured sync ACK ({len(resp)} bytes)", flush=True)
+                print(f"\n [SLIP SYNC CONFIRMED FROM CAMERA] Captured sync ACK ({len(resp)} bytes)", flush=True)
                 time.sleep(0.1)
                 ser.reset_input_buffer()
                 synced = True
@@ -114,7 +114,7 @@ if not synced:
     sys.exit(1)
 
 print("\n" + "="*58)
-print("🔥 SYNC CONFIRMED! FLASHING IN PROGRESS...            ")
+print(" SYNC CONFIRMED! FLASHING IN PROGRESS...            ")
 print("   DO NOT TOUCH ANY WIRES OR BUTTONS!                 ")
 print("="*58)
 
@@ -142,7 +142,7 @@ try:
     )
     
     print("\n" + "="*58)
-    print("🎉🎉🎉 ESP32-CAM FIRMWARE FLASH COMPLETE! 🎉🎉🎉")
+    print(" ESP32-CAM FIRMWARE FLASH COMPLETE! ")
     print("="*58)
     print("\nFINAL STEPS:")
     print("1. UNPLUG / REMOVE Pin 3 (IO0) from GND on the camera.")

@@ -232,7 +232,7 @@ def build_clone():
     <!-- Floating Mode Switcher & Skip Intro HUD -->
     <div id="nilambur-hud-control" style="position: fixed; bottom: 24px; right: 24px; z-index: 999999; display: flex; align-items: center; gap: 10px; font-family: 'Geistmono', monospace; font-size: 11px;">
       <button id="skip-preloader-btn" onclick="window.skipPreloader()" style="background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(225, 92, 70, 0.5); color: #e15c46; padding: 8px 14px; border-radius: 6px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        ⚡ Skip Intro
+         Skip Intro
       </button>
       <div style="background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); padding: 4px; border-radius: 6px; display: flex; gap: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
         <button id="btn-mode-teak" onclick="window.toggleCopyMode('teak')" style="background: #e15c46; color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">

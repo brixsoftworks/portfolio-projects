@@ -238,7 +238,7 @@ export const GtaRadarMinimap: React.FC<GtaRadarMinimapProps> = ({
             className="absolute top-1.5 right-1.5 z-[1000] px-1.5 py-0.5 rounded bg-black/85 hover:bg-black border border-white/20 text-[8px] font-mono font-bold text-amber-300 flex items-center space-x-1 shadow transition-all active:scale-95"
             title="Switch between Real Satellite Photography View and Street Map"
           >
-            <span>{mapStyle === 'real' ? '🛰️ REAL VIEW' : '🗺️ STREET'}</span>
+            <span>{mapStyle === 'real' ? '[SAT] REAL VIEW' : '[MAP] STREET'}</span>
           </button>
 
           {/* Hover Expand Prompt */}

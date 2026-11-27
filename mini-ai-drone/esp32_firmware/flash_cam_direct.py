@@ -61,7 +61,7 @@ while time.time() < t_end:
         chunk = ser.read(ser.in_waiting)
         buf += chunk
         if b"waiting for download" in buf or b"DOWNLOAD_BOOT" in buf:
-            print("\n🎉 [CAMERA DETECTED] ROM Download Bootloader active!")
+            print("\n [CAMERA DETECTED] ROM Download Bootloader active!")
             detected = True
             time.sleep(0.2)
             ser.reset_input_buffer()
@@ -78,7 +78,7 @@ rom_loader = esp32.ESP32ROM(ser)
 
 try:
     rom_loader.connect(mode='no-reset', attempts=10)
-    print("🎉 Sync Established!")
+    print(" Sync Established!")
     print(f"    Chip:     {rom_loader.CHIP_NAME}")
     print(f"    MAC:      {rom_loader.read_mac()}")
     
@@ -92,7 +92,7 @@ try:
         compress=True
     )
     print("\n" + "="*58)
-    print("🎉🎉🎉 ESP32-CAM FLASHED SUCCESSFULLY! 🎉🎉🎉")
+    print(" ESP32-CAM FLASHED SUCCESSFULLY! ")
     print("="*58)
     print("\nNext Steps:")
     print("1. DISCONNECT Pin 3 (IO0) from GND on the camera.")

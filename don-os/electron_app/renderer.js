@@ -927,13 +927,13 @@ function appendAssistantMessage(content, toolCalls = [], progressEvents = [], el
     fleetCardHtml = `
       <div class="fleet-mission-card">
         <div class="fleet-card-header">
-          <span>⚡ Multi-Agent Swarm (${fleetSummary.agents_deployed} Specialists Deployed)</span>
+          <span> Multi-Agent Swarm (${fleetSummary.agents_deployed} Specialists Deployed)</span>
           <span>${fleetSummary.elapsed_seconds}s</span>
         </div>
         <div class="fleet-agents-list">
           ${fleetSummary.agent_details.map(a => `
             <div class="fleet-agent-pill completed">
-              <span>✓</span>
+              <span>[OK]</span>
               <span>${escapeHtml(a.role)}</span>
             </div>
           `).join('')}
@@ -952,7 +952,7 @@ function appendAssistantMessage(content, toolCalls = [], progressEvents = [], el
       <details class="reasoning-disclosure deepseek-disclosure">
         <summary class="reasoning-summary">
           <div class="reasoning-summary-left">
-            <span class="reasoning-sparkle">✦</span>
+            <span class="reasoning-sparkle">*</span>
             <span class="reasoning-title">Thought for ${timeLabel}</span>
             <span class="reasoning-badge">${progressEvents.length + toolCalls.length} steps</span>
           </div>
@@ -1049,7 +1049,7 @@ function appendThinking() {
         <span class="thinking-elapsed">0s</span>
       </div>
       <div class="thinking-active-step">
-        <span class="thinking-sparkle">✦</span>
+        <span class="thinking-sparkle">*</span>
         <span class="thinking-text">Analyzing your request...</span>
       </div>
       <ol class="thinking-activity-list" aria-live="polite"></ol>
@@ -3149,7 +3149,7 @@ async function runAiReview() {
             <strong>${f.title}</strong>
           </div>
           <div class="cr-finding-desc">${f.description}</div>
-          <div class="cr-finding-suggestion">💡 <em>Recommendation:</em> ${f.suggestion}</div>
+          <div class="cr-finding-suggestion"> <em>Recommendation:</em> ${f.suggestion}</div>
         `;
         crAuditFindingsList.appendChild(card);
       });

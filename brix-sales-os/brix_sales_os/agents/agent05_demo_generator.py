@@ -36,7 +36,7 @@ class DemoGeneratorAgent(BaseAgent):
         return f"""
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; padding: 28px; border-radius: 12px; border: 1px solid #334155; max-width: 720px; margin: 0 auto;">
   <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid #1e293b; padding-bottom: 14px; margin-bottom: 20px;">
-    <h3 style="margin:0; font-size: 20px; color: #38bdf8;">⚡ Brix AI Automation Proof-of-Concept</h3>
+    <h3 style="margin:0; font-size: 20px; color: #38bdf8;"> Brix AI Automation Proof-of-Concept</h3>
     <span style="background: rgba(34, 197, 94, 0.2); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Active Mock Pipeline</span>
   </div>
   <p style="color: #94a3b8; font-size: 14px; line-height: 1.5;">
